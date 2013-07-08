@@ -140,9 +140,10 @@
 			(function(layer, properties) {				
 				layer.on("mouseover", function (e){
 					layer.setStyle(highlightStyle);
+					var popupContent = "<p class= countryListHeader>" + properties.NAME + "</p><hr><p>Nothing here!</p> ";				
+					$("#countryInfo").append(popupContent);
 				});
-				var popupContent = "<p class= countryListHeader>" + properties.NAME + "</p><hr><p>Nothing here!</p> ";				
-				$("#countryInfo").append(popupContent);
+				
 				layer.on("mouseout", function (e) {
 					layer.setStyle(nonProgramStyle);
 					$("#countryInfo").empty();
