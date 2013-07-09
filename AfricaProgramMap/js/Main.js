@@ -90,6 +90,12 @@ function colorMap() {
             country.properties.mapColor = 'red';
         }
     });
+    // Add polygons to map
+    L.geoJson(africaCountries, {
+        style: mapStyle,
+        onEachFeature: highlightingEvent
+    }).addTo(map);
+
 }
 
 
@@ -99,7 +105,12 @@ var highlightingEvent = function (feature, layer) {
     (function (layer, properties) {
     // Create a mouseover event
         layer.on("mouseover", function (e) {
-            layer.setStyle(highlightStyle);
+            layer.setStyle({
+                weight: 5,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
             var popupContent = "<p class='countryListHeader'>" + properties.NAME + "</p><hr><ul class='programList'>";
             $.each(arcPrograms, function (ai, program) {
                 var pName = program.COUNTRY.toUpperCase();
@@ -114,7 +125,7 @@ var highlightingEvent = function (feature, layer) {
 
         // Create a mouseout event that undoes the mouseover changes
         layer.on("mouseout", function (e) {
-            layer.setStyle(programStyle);
+            layer.resetStyle(e.target);
             $("#countryInfo").empty();
         });
         // Close the "anonymous" wrapper function, and call it while passing
@@ -123,22 +134,21 @@ var highlightingEvent = function (feature, layer) {
 };
 
 // Style for polygons
-
+function mapStyle(feature) {
+    return{
+    fillColor: feature.properties.mapColor,
+    weight: 2,
+    opacity: 1,
+    color: "white",
+    dashArray: '3',
+    fillOpacity: 0.7
+    };
+}
 
 // style for highlighting
 var highlightStyle = {
     weight: 6
 };
 
-// Add polygons to map
-L.geoJson(africaCountries, {
-    style: {
-        color: africaCountries.features.properties.mapColor,
-        weight: 2,
-        opacity: 1
-    },
-    onEachFeature: highlightingEvent
-}).addTo(map);
-
-
 getAfrica();
+
