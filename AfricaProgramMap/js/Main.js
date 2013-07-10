@@ -1,16 +1,4 @@
 
-// // JSLint bullshit
-// var L;
-// var $;
-// var window;
-// var getArcPrograms;
-// var colorMap;
-// var console;
-// var highlightStyle;
-// var programStyle;
-
-
-
 
 var map = L.map('map', {
         // Some basic options to keep the map still and prevent 
@@ -34,6 +22,8 @@ var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{
         styleId: 22677
     }).addTo(map);
 
+
+// create custom control for display of arc logo, map info, etc
 var info = L.control();
 
 info.onAdd = function (map) {
@@ -42,7 +32,7 @@ info.onAdd = function (map) {
     return this._div;
 };
 
-// method that we will use to update the control based on feature properties passed
+// method to update the control based on feature properties passed
 info.update = function (props) {
     var infoContent = '<img class=arclogo src="images/redcross-logo.png" /><br>' + '<h4>Africa Programs 2012</h4><hr>' + (props ? '<b>' + props.NAME : 'Hover over a country') + "</p><ul class='programList'>";
     // $.each(arcPrograms, function (ai, program) {
@@ -55,7 +45,6 @@ info.update = function (props) {
     // infoContent += "</ul>";
     this._div.innerHTML = infoContent
 };
-
 
 info.addTo(map);
 
@@ -99,14 +88,14 @@ function getArcPrograms() {
 
 function colorMap() {
     var programCountries = [];
-
+    // populate arcPrograms array with names of countries that have programs
     $.each(arcPrograms, function (ai, program) {
         var pName = program.COUNTRY.toUpperCase();
         if ($.inArray(pName, programCountries) === -1) {
             programCountries.push(pName);
         }
     });
-
+    // add map color property to each geojson country based on program list
     $.each(africaCountries.features, function (ci, country) {
         var cName = country.properties.NAME.toUpperCase();
         if ($.inArray(cName, programCountries) === -1) {
@@ -115,7 +104,7 @@ function colorMap() {
             country.properties.mapColor = 'red';
         }
     });
-    // Add polygons to map
+    // Add country polygons to map
     geojson = L.geoJson(africaCountries, {
         style: mapStyle,
         onEachFeature: featureEvents
@@ -129,7 +118,6 @@ var featureEvents = function (feature, layer) {
         click: zoomToFeature
     });       
 }
-
 
 function highlightingEvent (e) {
     var country = e.target;
@@ -154,7 +142,6 @@ function highlightingEvent (e) {
     // popupContent += "</ul>";
     // $("#countryInfo").append(popupContent);
 }
-
 
 function resetHighlight (e) {
     geojson.resetStyle(e.target);
