@@ -15,11 +15,11 @@
 var map = L.map('map', {
         // Some basic options to keep the map still and prevent 
         // the user from zooming and such.
-        scrollWheelZoom: false,
-        touchZoom: false,
-        doubleClickZoom: false,
-        zoomControl: false,
-        dragging: false
+        // scrollWheelZoom: false,
+        // touchZoom: false,
+        // doubleClickZoom: false,
+        // zoomControl: false,
+        // dragging: false
     });
 
 map.fitBounds([[-37, -26], [41, 59]]);
@@ -34,7 +34,32 @@ var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{
         styleId: 22677
     }).addTo(map);
 
+var info = L.control();
 
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+    var infoContent = '<img class=arclogo src="images/redcross-logo.png" /><br>' + '<h4>Africa Programs 2012</h4><hr>' + (props ? '<b>' + props.NAME : 'Hover over a country') + "</p><ul class='programList'>";
+    // $.each(arcPrograms, function (ai, program) {
+    //     var pName = program.COUNTRY.toUpperCase();
+    //     var selectedCountry = props.NAME.toUpperCase();
+    //     if (pName === selectedCountry) {
+    //         popupContent += "<li class='programListItem'><img class='imageBullet' src=images/" + program.SECTOR_PRIMARY.substring(0, 2) + ".png>" + program.PROJECT_NAME + "</li>";
+    //     }
+    // });
+    // infoContent += "</ul>";
+    this._div.innerHTML = infoContent
+};
+
+
+info.addTo(map);
+
+var geojson = L.geoJson();
 var arcPrograms = [];
 var africaCountries = [];
 
@@ -91,47 +116,55 @@ function colorMap() {
         }
     });
     // Add polygons to map
-    L.geoJson(africaCountries, {
+    geojson = L.geoJson(africaCountries, {
         style: mapStyle,
-        onEachFeature: highlightingEvent
+        onEachFeature: featureEvents
     }).addTo(map);
+}
 
+var featureEvents = function (feature, layer) {
+    layer.on({
+        mouseover: highlightingEvent,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+    });       
 }
 
 
-var highlightingEvent = function (feature, layer) {
-// Create a self-invoking function that passes in the layer
-// and the properties associated with this particular record.
-    (function (layer, properties) {
-    // Create a mouseover event
-        layer.on("mouseover", function (e) {
-            layer.setStyle({
-                weight: 5,
-                color: '#666',
-                dashArray: '',
-                fillOpacity: 0.7
-            });
-            var popupContent = "<p class='countryListHeader'>" + properties.NAME + "</p><hr><ul class='programList'>";
-            $.each(arcPrograms, function (ai, program) {
-                var pName = program.COUNTRY.toUpperCase();
-                var selectedCountry = properties.NAME.toUpperCase();
-                if (pName === selectedCountry) {
-                    popupContent += "<li class='programListItem'><img class='imageBullet' src=images/" + program.SECTOR_PRIMARY.substring(0, 2) + ".png>" + program.PROJECT_NAME + "</li>";
-                }
-            });
-            popupContent += "</ul>";
-            $("#countryInfo").append(popupContent);
-        });
+function highlightingEvent (e) {
+    var country = e.target;
+    country.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+    if (!L.Browser.ie && !L.Browser.opera) {
+        country.bringToFront();
+    }
+    info.update(country.feature.properties);
+    // var popupContent = "<p class='countryListHeader'>" + country.feature.properties.NAME + "</p><hr><ul class='programList'>";
+    // $.each(arcPrograms, function (ai, program) {
+    //     var pName = program.COUNTRY.toUpperCase();
+    //     var selectedCountry = country.feature.properties.NAME.toUpperCase();
+    //     if (pName === selectedCountry) {
+    //         popupContent += "<li class='programListItem'><img class='imageBullet' src=images/" + program.SECTOR_PRIMARY.substring(0, 2) + ".png>" + program.PROJECT_NAME + "</li>";
+    //     }
+    // });
+    // popupContent += "</ul>";
+    // $("#countryInfo").append(popupContent);
+}
 
-        // Create a mouseout event that undoes the mouseover changes
-        layer.on("mouseout", function (e) {
-            layer.resetStyle(e.target);
-            $("#countryInfo").empty();
-        });
-        // Close the "anonymous" wrapper function, and call it while passing
-        // in the variables necessary to make the events work the way we want.
-    })(layer, feature.properties);
-};
+
+function resetHighlight (e) {
+    geojson.resetStyle(e.target);
+    info.update();
+    $("#countryInfo").empty();
+}
+
+function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds());
+}
 
 // Style for polygons
 function mapStyle(feature) {

@@ -9,13 +9,12 @@
     <link rel="stylesheet" href="css/main.css">
 	
 		<style>
-		.redcrosslogo {
+		.arclogo {
 			height:60px;
-		    padding: 0;
-		    margin: 15px 40px;
+		    margin: 5px 30px 20px;
 
 		}
-		#right {
+/*		#right {
 		    float: right;
 		    width: 300px;
 		    background-color: #fff;
@@ -30,17 +29,19 @@
 		#container
 		{
 		    min-height: 100%;     
-		}
+		}*/
 
 		#map {
-		    margin: 0;
+			width: 100%;
+			height: 600px;
+		    /*margin: 0;
 		    padding: 0;
 		    position: absolute;
 		    top: 0; 
 		    bottom:0;
 		    left:0;
 		    right:300px;
-		    
+*/		    
 		}
 			
 		.imageBullet {
@@ -59,7 +60,7 @@
 		.programListItem {
 			padding-bottom: 30px;						
 		}
-		.countryListHeader{
+/*		.countryListHeader{
 			font-weight: bold;
 			font-size: larger;
 			line-height: 1.0;
@@ -68,6 +69,22 @@
 		}
 		.pageTitle{
 			text-align: center;
+		}*/
+
+		/*styling for control box with country info*/
+		.info {
+   			padding: 20px 20px;
+		    font: 14px/16px Arial, Helvetica, sans-serif;
+		    background: white;
+		    background: rgba(255,255,255,0.8);
+		    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+		    border-radius: 5px;
+		}
+		.info h4 {
+		    margin: 0 0 5px;
+		    color: #777;
+		    font-size: larger;
+		    text-align: center;
 		}
 
 		</style>
@@ -76,13 +93,13 @@
 
 
 	<body>
-		<div id="container">
+		<!-- <div id="container"> -->
 			<div id="map"> </div>
-			<div id="right">
+			<!-- <div id="right">
 				<img class=arclogo src="images/redcross-logo.png" />
 				<h2 class=pageTitle>Africa Programs <br> 2012</h2>
 				<div id="countryInfo"></div>
-			</div>
+			</div> -->
 		<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="js/main.js"></script>
