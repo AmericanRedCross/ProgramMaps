@@ -1,4 +1,7 @@
 
+var geojson = L.geoJson();
+var arcPrograms = [];
+var africaCountries = [];
 
 var map = L.map('map', {
         // Some basic options to keep the map still and prevent 
@@ -33,24 +36,24 @@ info.onAdd = function (map) {
 };
 
 // method to update the control based on feature properties passed
+
+// when clearing the info.update on reset highlight it passes nothing to this function which messes it up
 info.update = function (props) {
-    var infoContent = '<img class=arclogo src="images/redcross-logo.png" /><br>' + '<h4>Africa Programs 2012</h4><hr>' + (props ? '<b>' + props.NAME : 'Hover over a country') + "</p><ul class='programList'>";
-    // $.each(arcPrograms, function (ai, program) {
-    //     var pName = program.COUNTRY.toUpperCase();
-    //     var selectedCountry = props.NAME.toUpperCase();
-    //     if (pName === selectedCountry) {
-    //         popupContent += "<li class='programListItem'><img class='imageBullet' src=images/" + program.SECTOR_PRIMARY.substring(0, 2) + ".png>" + program.PROJECT_NAME + "</li>";
-    //     }
-    // });
-    // infoContent += "</ul>";
+    var infoContent = '<h6>Please note, the interactivity of this map is a work in progress.</h6><img class=arclogo src="images/redcross-logo.png" /><br>' + '<h4>Africa Programs 2012</h4><hr>' + (props ? '<b>' + props.NAME : 'Hover over a country') + "</p><ul class='programList'>";
+    $.each(arcPrograms, function (ai, program) {
+        var pName = program.COUNTRY.toUpperCase();
+        var selectedCountry = props.NAME.toUpperCase();
+        if (pName === selectedCountry) {
+            infoContent += "<li class='programListItem'><img class='imageBullet' src=images/" + program.SECTOR_PRIMARY.substring(0, 2) + ".png>" + program.PROJECT_NAME + "</li>";
+        }
+    });
+    infoContent += "</ul>";
     this._div.innerHTML = infoContent
 };
 
 info.addTo(map);
 
-var geojson = L.geoJson();
-var arcPrograms = [];
-var africaCountries = [];
+
 
 function getAfrica() {
     $.ajax({
@@ -130,17 +133,7 @@ function highlightingEvent (e) {
     if (!L.Browser.ie && !L.Browser.opera) {
         country.bringToFront();
     }
-    info.update(country.feature.properties);
-    // var popupContent = "<p class='countryListHeader'>" + country.feature.properties.NAME + "</p><hr><ul class='programList'>";
-    // $.each(arcPrograms, function (ai, program) {
-    //     var pName = program.COUNTRY.toUpperCase();
-    //     var selectedCountry = country.feature.properties.NAME.toUpperCase();
-    //     if (pName === selectedCountry) {
-    //         popupContent += "<li class='programListItem'><img class='imageBullet' src=images/" + program.SECTOR_PRIMARY.substring(0, 2) + ".png>" + program.PROJECT_NAME + "</li>";
-    //     }
-    // });
-    // popupContent += "</ul>";
-    // $("#countryInfo").append(popupContent);
+    info.update(country.feature.properties);  
 }
 
 function resetHighlight (e) {
