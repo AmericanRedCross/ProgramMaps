@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    <title>:: Red Cross :: Latin America</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+        <style>
+        html, body, #fullPage {height: 100%}
+        html, body, #map {height: 680px}
+
+        h1{
+            text-align: right;
+            margin:5px;
+            padding: 15px;
+        }
+
+        </style>
+ 
+    </head>
+    
+    
+<body>
+    <div id ="fullPage">
+        <div id ="header" style="background-color:#D3D3D3; width: 100%">
+            <img src = "http://www.redcross.org/images/redcross-logo.png" style="float:left;margin:5px;padding:5px">
+            <h1><font face="calibri" color="#666" size="8"> Latin America Programs </font></h1>
+        </div>
+    
+    <div id="map"></div>
+        
+    </div>   
+    
+</body>
+
+<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+<script src="arcPrograms.js"></script>
+    <script>
+var map = L.map('map').setView([-18.4258, -66.5304], 3);
+
+        var cloudmade = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+        var points = [];
+
+        $.each(arcPrograms, function(index, item) {
+            var latlng = [item.Longitude, item.Latitude];
+
+            var coord = {
+                "type": "Feature",
+                "properties": {
+                    "Country": item.COUNTRY,
+                    "Program1": item.Program1,
+                    "Program2": item.Program2,
+                    "Program3": item.Program3,
+                    "Program4": item.Program4,
+                    "Program5": item.Program5
+                },
+                "geometry": {
+                "type": "Point",
+                "coordinates": latlng
+                }
+            }
+            points.push(coord);
+            });
+
+        $.each(points, function(index, item) {
+            var html = "<h3><font face='calibri' size='5' color='#404040'>" + item.properties.Country + "</font></h3>" +
+            "<p><img src='images/" + item.properties.Program1.toLowerCase().replace(/\s+/g, '').replace(/-/g, '') + ".png' style='float:left;margin-right:10px' />" + 
+            "<font face='calibri' size='2.5' color='#666'>" +  item.properties.Program1 + "</font></p>";
+                     
+            if (item.properties.Program2) {
+                html += 
+                "<p><img src='images/"+ item.properties.Program2.toLowerCase().replace(/\s+/g, '').replace(/-/g, '') + ".png' style='float:left;margin-right:10px' />" +
+                "<font face='calibri' size='2.5' color='#666'>" + item.properties.Program2 + "</font></p>";
+            }
+            if (item.properties.Program3) {
+                html += 
+                "<p><img src='images/"+ item.properties.Program3.toLowerCase().replace(/\s+/g, '').replace(/-/g, '') + ".png' style='float:left;margin-right:10px' />" +
+                "<font face='calibri' size='2.5' color='#666'>" + item.properties.Program3 + "</font></p>";
+            }
+            if (item.properties.Program4) {
+                html += 
+                "<p><img src='images/"+ item.properties.Program4.toLowerCase().replace(/\s+/g, '').replace(/-/g, '') + ".png' style='float:left;margin-right:10px' />" +
+                "<font face='calibri' size='2.5' color='#666'>" + item.properties.Program4 + "</font></p>";
+            }
+            if (item.properties.Program5) {
+                html += 
+                "<p><img src='images/"+ item.properties.Program5.toLowerCase().replace(/\s+/g, '').replace(/-/g, '') + ".png' style='float:left;margin-right:10px' />" +
+                "<font face='calibri' size='2.5' color='#666'>" + item.properties.Program5 + "</font></p>";
+            }
+
+            var Options = {
+                radius: 6,
+                fillColor: "#FF0000",
+                color: "#FFF",
+                weight: 3,
+                opacity: 0.1,
+                fillOpacity: 0.1
+                };
+
+            var arcIcon = L.icon({
+            iconUrl: 'images/redcross.png',
+            iconSize: [12],
+        });
+
+
+            L.geoJson(item, {
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, {icon: arcIcon});
+    }
+})
+
+            .bindPopup(html)
+            .addTo(map);
+        }); 
+     
+        </script>
+    
+</html>
