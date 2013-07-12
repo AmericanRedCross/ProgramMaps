@@ -1,4 +1,3 @@
-
 var geojson = L.geoJson();
 var arcPrograms = [];
 var africaCountries = [];
