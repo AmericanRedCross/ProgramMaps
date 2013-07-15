@@ -25,7 +25,15 @@ info.onAdd = function (map) {
 
 // method to update the control based on feature properties passed
 info.update = function (props) {
-    var infoContent = '<img class=arclogo src="images/redcross-logo.png" /><br>' + '<h4>International Programs 2013</h4><hr>' + (props ? '<b>' + props.name : 'Click on a country') + "</p><ul class='programList'>";
+    var infoContent = '<img class=arclogo src="images/redcross-logo.png" /><br>' + '<h4>Active International Programs</h4><hr>' + (props ? '<b>' + props.name : 'Click on a country') + "</p><ul>";
+    $.each(arcPrograms, function (ai, program) {
+        var pName = program.COUNTRY.toUpperCase();
+        var selectedCountry = props.name.toUpperCase();
+        if (pName === selectedCountry) {
+            infoContent += "<li>" + program.PROJECT_NAME + "</li>";
+        }
+    });
+    infoContent += "</ul>";     
     this._div.innerHTML = infoContent
 };
 
@@ -49,8 +57,8 @@ var featureEvents = function (feature, layer) {
 }
 
 function countryClick (e) {
-    
-    var country = e.target;
+    geojson.setStyle(mapStyle);
+    var country = e.target;    
     country.setStyle({
         weight: 5,
         color: '#fed53c',
