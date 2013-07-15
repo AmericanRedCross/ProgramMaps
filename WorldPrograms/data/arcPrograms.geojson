@@ -1,4 +1,5 @@
-var arcPrograms = [
+var worldPrograms = [
+  
    {
       "PROJECT_ID":35,
       "PROJECT_NAME":"",
