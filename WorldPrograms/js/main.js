@@ -17,15 +17,21 @@ var map = L.map('map', {
 // create custom control for display of arc logo, map info, etc
 var info = L.control();
 
+
+
+// this shit for the custom control info box thing is a fucking MESS
+
 info.onAdd = function (map) {
     this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-    this.update();
+    // how to put a year input drop down menu into here? 
+    this._div.innerHTML = '<img class=arclogo src="images/redcross-logo.png" /><br>' + '<h4>Active International Programs</h4><br><hr><div id="programInfo"></div>' 
     return this._div;
+    this.update();    
 };
 
 // method to update the control based on feature properties passed
 info.update = function (props) {
-    var infoContent = '<img class=arclogo src="images/redcross-logo.png" /><br>' + '<h4>Active International Programs</h4><hr>' + (props ? '<b>' + props.name : 'Click on a country') + "</p><ul>";
+    var infoContent = (props ? '<b>' + props.name : 'Click on a country') + "</p><ul>";
     $.each(arcPrograms, function (ai, program) {
         var pName = program.COUNTRY.toUpperCase();
         var selectedCountry = props.name.toUpperCase();
@@ -33,8 +39,9 @@ info.update = function (props) {
             infoContent += "<li>" + program.PROJECT_NAME + "</li>";
         }
     });
-    infoContent += "</ul>";     
-    this._div.innerHTML = infoContent
+    infoContent += "</ul>";
+    $('#programInfo').empty();     
+    $('#programInfo').append(infoContent);
 };
 
 info.addTo(map);
