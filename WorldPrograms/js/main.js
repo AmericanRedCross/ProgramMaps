@@ -1,6 +1,7 @@
 
 var geojson = L.geoJson();
 var worldCountries = [];
+var arcPrograms = [];
 var center = new L.LatLng(30, 0);
 var bounds = new L.LatLngBounds([90, 200], [-80, -200]);
 
@@ -23,8 +24,6 @@ info.onAdd = function (map) {
 };
 
 // method to update the control based on feature properties passed
-
-// when clearing the info.update on reset highlight it passes nothing to this function which messes it up
 info.update = function (props) {
     var infoContent = '<img class=arclogo src="images/redcross-logo.png" /><br>' + '<h4>International Programs 2013</h4><hr>' + (props ? '<b>' + props.name : 'Click on a country') + "</p><ul class='programList'>";
     this._div.innerHTML = infoContent
@@ -35,7 +34,7 @@ info.addTo(map);
 
 function mapStyle(feature) {
     return{
-    fillColor: "#808080",
+    fillColor: feature.properties.mapColor,
     weight: 2,
     opacity: 1,
     color: "white",
@@ -45,31 +44,12 @@ function mapStyle(feature) {
 
 var featureEvents = function (feature, layer) {
     layer.on({
-        // mouseover: highlightingEvent,
-        // mouseout: resetHighlight,
-        click: countryClick
+        click: countryClick,
     });       
 }
 
-// function highlightingEvent (e) {
-//     var country = e.target;
-//     country.setStyle({
-//         weight: 5,
-//         color: '#666',
-//         dashArray: '',
-//         fillOpacity: 0.7
-//     });
-//     if (!L.Browser.ie && !L.Browser.opera) {
-//         country.bringToFront();
-//     }      
-// }
-
-// function resetHighlight (e) {
-//     geojson.resetStyle(e.target);    
-// }
-
 function countryClick (e) {
-    geojson.resetStyle(geojson);
+    
     var country = e.target;
     country.setStyle({
         weight: 5,
@@ -92,10 +72,7 @@ function getWorld() {
         timeout: 10000,
         success: function(json) {
             worldCountries = json;
-            geojson = L.geoJson(worldCountries, {
-                style: mapStyle, 
-                onEachFeature: featureEvents       
-            }).addTo(map);
+            getARC();   
         },
         error: function(e) {
             console.log(e);
@@ -103,5 +80,49 @@ function getWorld() {
     });
 }
 
+function getARC() {
+    $.ajax({
+        type: 'GET',
+        url: 'data/arcPrograms.json',
+        contentType: 'application/json',
+        dataType: 'json',
+        timeout: 10000,
+        success: function(json) {
+            arcPrograms = json;
+            colorMap();
+        },
+        error: function(e) {
+            console.log(e);
+        }
+    });
+}
 
+function colorMap() {
+    var programCountries = [];
+    // populate array with names of countries that have programs
+    $.each(arcPrograms, function (ai, program) {
+        var pName = program.COUNTRY.toUpperCase();
+        if ($.inArray(pName, programCountries) === -1) {
+            programCountries.push(pName);
+        }
+    });
+    // add map color property to each geojson country based on program list
+    $.each(worldCountries.features, function (ci, country) {
+        var cName = country.properties.name.toUpperCase();
+        if ($.inArray(cName, programCountries) === -1) {
+            country.properties.mapColor = "#808080";
+        } else {
+            country.properties.mapColor = 'red';
+        }
+    });
+    // Add country polygons to map
+    geojson = L.geoJson(worldCountries, {
+        style: mapStyle,
+        onEachFeature: featureEvents
+    }).addTo(map);
+     
+}
+
+   
 getWorld();
+
