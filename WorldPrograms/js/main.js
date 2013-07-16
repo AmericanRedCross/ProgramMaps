@@ -130,7 +130,7 @@ info.update();
 
 
 
-$('#yearDropdown').change(function() {
+$('#yearInput').change(function() {
     var selectedYear = this.value;
     map.removeLayer(geojson);
     colorMap(selectedYear);    
@@ -145,3 +145,4 @@ $('#slider').change(function() {
     colorMap(selectedYear);  
 });
 
+// comment
