@@ -34,7 +34,7 @@ function mapStyle(feature) {
     weight: 2,
     opacity: 1,
     color: "white",
-    fillOpacity: 0.7
+    fillOpacity: 1
     };
 }
 
@@ -51,7 +51,7 @@ function countryClick (e) {
         weight: 5,
         color: '#fed53c',
         dashArray: '',
-        fillOpacity: 0.7
+        fillOpacity: 1
     });
     if (!L.Browser.ie && !L.Browser.opera) {
         country.bringToFront();
@@ -111,7 +111,7 @@ function colorMap(year) {
     $.each(coloredCountries.features, function (ci, country) {
         var cName = country.properties.name.toUpperCase();
         if ($.inArray(cName, programCountries) === -1) {
-            country.properties.mapColor = "#808080";
+            country.properties.mapColor = "#D7D7D8";
         } else {
             country.properties.mapColor = 'red';
         }
