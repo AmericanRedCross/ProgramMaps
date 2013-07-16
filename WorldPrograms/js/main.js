@@ -1,5 +1,6 @@
 var geojson = L.geoJson();
 var worldCountries = [];
+var coloredCountries = [];
 var arcPrograms = [];
 var center = new L.LatLng(30, 0);
 var bounds = new L.LatLngBounds([90, 200], [-80, -200]);
@@ -84,7 +85,7 @@ function getARC() {
         timeout: 10000,
         success: function(json) {
             arcPrograms = json;
-            colorMap(worldCountries, arcPrograms, '2012');
+            colorMap(2013);
         },
         error: function(e) {
             console.log(e);
@@ -92,10 +93,11 @@ function getARC() {
     });
 }
 
-function colorMap(world, arc, year) {
-    var programCountries = [];
+function colorMap(year) {
+    coloredCountries = worldCountries;
+    programCountries = [];
     // populate array with names of countries that have programs
-    $.each(arc, function (ai, program) {
+    $.each(arcPrograms, function (ai, program) {
         var pName = program.COUNTRY.toUpperCase();
         var startYear = new Date(program.Agreement_Start_Date).getFullYear();
         var endYear = new Date (program.Agreement_End_Date).getFullYear();
@@ -106,7 +108,7 @@ function colorMap(world, arc, year) {
         }
     });
     // add map color property to each geojson country based on program list
-    $.each(world.features, function (ci, country) {
+    $.each(coloredCountries.features, function (ci, country) {
         var cName = country.properties.name.toUpperCase();
         if ($.inArray(cName, programCountries) === -1) {
             country.properties.mapColor = "#808080";
@@ -115,7 +117,7 @@ function colorMap(world, arc, year) {
         }
     });
     // Add country polygons to map
-    geojson = L.geoJson(worldCountries, {
+    geojson = L.geoJson(coloredCountries, {
         style: mapStyle,
         onEachFeature: featureEvents
     }).addTo(map);
@@ -125,3 +127,21 @@ function colorMap(world, arc, year) {
    
 getWorld();
 info.update();
+
+
+
+$('#yearDropdown').change(function() {
+    var selectedYear = this.value;
+    map.removeLayer(geojson);
+    colorMap(selectedYear);    
+});
+
+//slider control
+$('#slider').change(function() {
+    var selectedYear = this.value;
+    $('#mapYear').empty();
+    $('#mapYear').append(selectedYear);
+    map.removeLayer(geojson);
+    colorMap(selectedYear);  
+});
+

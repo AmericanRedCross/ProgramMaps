@@ -50,17 +50,19 @@
 		<div id="container">
 			<div id="map"> </div>
 			<div id="info">
-				<img class=arclogo src="images/redcross-logo.png" /><h4>Active International Programs</h4><hr>
+				<img class=arclogo src="images/redcross-logo.png" /><h4>Active International Programs</h4><div id="mapYear"></div>(year selected by slider appears above, this is temporary)<hr>
 				<p> Please Select a Year: </p>
-				<p> Haha just kidding it's only looking at Agreement Start Date and year 2012 is hardcoded </p>
-				<form>
-					<select name='yearDropdown' onchange='this.form.submit()'>
-						<option selected>year1</option>
-						<option>year2</option>
-						<option>year3</option>
-					</select>
-					<noscript><input type="submit" value="Submit"></noscript>
-				</form><hr>
+					<form>
+					<select name="yearDropdown">
+						<option value = "2013">2013</option>
+						<option value = "2012">2012</option>
+						<option value = "2011">2011</option>
+					</select> </form>
+				<p> Haha, this doesnt work at all yet </p> 
+				<hr>
+				<input type="range" value="2013" min="2011" max="2013" step="1" id="slider" />
+				<p> This does appear to be changing the map based on programs with an agreement start date in 2011,2012,2013. </p>
+				<hr>
 				<div id="programInfo"></div>
 			</div>			
    		</div>
