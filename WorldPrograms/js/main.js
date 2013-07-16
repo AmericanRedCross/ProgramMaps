@@ -1,10 +1,8 @@
-
 var geojson = L.geoJson();
 var worldCountries = [];
 var arcPrograms = [];
 var center = new L.LatLng(30, 0);
 var bounds = new L.LatLngBounds([90, 200], [-80, -200]);
-
 
 var map = L.map('map', {
     center: center,
@@ -14,24 +12,9 @@ var map = L.map('map', {
     maxBounds: bounds
 });
 
-// create custom control for display of arc logo, map info, etc
-var info = L.control();
-
-
-
-// this shit for the custom control info box thing is a fucking MESS
-
-info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-    // how to put a year input drop down menu into here? 
-    this._div.innerHTML = '<img class=arclogo src="images/redcross-logo.png" /><br>' + '<h4>Active International Programs</h4><br><hr><div id="programInfo"></div>' 
-    return this._div;
-    this.update();    
-};
-
-// method to update the control based on feature properties passed
+// method to update the info div based on feature properties passed
 info.update = function (props) {
-    var infoContent = (props ? '<b>' + props.name : 'Click on a country') + "</p><ul>";
+    var infoContent = (props ? props.name : 'Click on a country') + "</p><ul>";
     $.each(arcPrograms, function (ai, program) {
         var pName = program.COUNTRY.toUpperCase();
         var selectedCountry = props.name.toUpperCase();
@@ -43,9 +26,6 @@ info.update = function (props) {
     $('#programInfo').empty();     
     $('#programInfo').append(infoContent);
 };
-
-info.addTo(map);
-
 
 function mapStyle(feature) {
     return{
@@ -104,7 +84,7 @@ function getARC() {
         timeout: 10000,
         success: function(json) {
             arcPrograms = json;
-            colorMap();
+            colorMap(worldCountries, arcPrograms, '2012');
         },
         error: function(e) {
             console.log(e);
@@ -112,17 +92,21 @@ function getARC() {
     });
 }
 
-function colorMap() {
+function colorMap(world, arc, year) {
     var programCountries = [];
     // populate array with names of countries that have programs
-    $.each(arcPrograms, function (ai, program) {
+    $.each(arc, function (ai, program) {
         var pName = program.COUNTRY.toUpperCase();
-        if ($.inArray(pName, programCountries) === -1) {
-            programCountries.push(pName);
+        var startYear = new Date(program.Agreement_Start_Date).getFullYear();
+        var endYear = new Date (program.Agreement_End_Date).getFullYear();
+        if (startYear == year) {
+            if ($.inArray(pName, programCountries) === -1) {
+                programCountries.push(pName);
+            }
         }
     });
     // add map color property to each geojson country based on program list
-    $.each(worldCountries.features, function (ci, country) {
+    $.each(world.features, function (ci, country) {
         var cName = country.properties.name.toUpperCase();
         if ($.inArray(cName, programCountries) === -1) {
             country.properties.mapColor = "#808080";
@@ -140,4 +124,4 @@ function colorMap() {
 
    
 getWorld();
-
+info.update();

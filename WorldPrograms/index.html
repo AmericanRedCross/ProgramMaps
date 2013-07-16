@@ -11,31 +11,60 @@
 		<style>
 		/* move this to main.css when cleaning up */
 
+			#container {
+    			min-height: 100%;
+    		}
 			#map {
 				position: absolute;
 				top:0;
 				bottom:0;
 				right:0;
 				left:0; 
+				padding: 0;
 				}
 			.leaflet-container {
 				background: #4BCBF2;
 				}
+			.arclogo {
+				height:60px;
+			    margin: 5px 30px 20px;
+			}
+
 			/*styling for control box with country info*/
-			.info {
+			#info {
 	   			padding: 20px 20px;
 			    font: 14px/16px Arial, Helvetica, sans-serif;
 			    background: white;
 			    background: rgba(255,255,255,0.8);
 			    box-shadow: 0 0 15px rgba(0,0,0,0.2);
 			    border-radius: 5px;
-			}
+			    position: absolute;
+			    top:15px;
+			    right:15px;
+			}				
 
 		</style>
 	</head>
 
 	<body>
-		<div id="map"> </div>
+		<div id="container">
+			<div id="map"> </div>
+			<div id="info">
+				<img class=arclogo src="images/redcross-logo.png" /><h4>Active International Programs</h4><hr>
+				<p> Please Select a Year: </p>
+				<p> Haha just kidding it's only looking at Agreement Start Date and year 2012 is hardcoded </p>
+				<form>
+					<select name='yearDropdown' onchange='this.form.submit()'>
+						<option selected>year1</option>
+						<option>year2</option>
+						<option>year3</option>
+					</select>
+					<noscript><input type="submit" value="Submit"></noscript>
+				</form><hr>
+				<div id="programInfo"></div>
+			</div>			
+   		</div>
+
 		<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="js/main.js"></script>
