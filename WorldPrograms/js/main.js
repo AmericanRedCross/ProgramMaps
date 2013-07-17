@@ -1,6 +1,8 @@
 var geojson = L.geoJson();
 var worldCountries = [];
 var coloredCountries = [];
+var activeCountries = [];
+var activePrograms = [];
 var arcPrograms = [];
 var center = new L.LatLng(30, 0);
 var bounds = new L.LatLngBounds([90, 200], [-80, -200]);
@@ -17,7 +19,7 @@ var map = L.map('map', {
 info.update = function (props) {
     var infoContent = (props ? props.name : 'Click on a country') + "</p><ul>";
     var selectedCountry = (props? props.name.toUpperCase() : 'none')
-    $.each(arcPrograms, function (ai, program) {
+    $.each(activePrograms, function (ai, program) {
             var pName = program.COUNTRY.toUpperCase();
             if (pName === selectedCountry) {
                 infoContent += "<li>" + program.PROJECT_NAME + "</li>";
@@ -95,22 +97,25 @@ function getARC() {
 
 function colorMap(year) {
     coloredCountries = worldCountries;
-    programCountries = [];
+    activeCountries = [];
+    activePrograms = [];
+    yearInt = parseInt(year);
     // populate array with names of countries that have programs
     $.each(arcPrograms, function (ai, program) {
         var pName = program.COUNTRY.toUpperCase();
-        var startYear = new Date(program.Agreement_Start_Date).getFullYear();
-        var endYear = new Date (program.Agreement_End_Date).getFullYear();
-        if (startYear == year) {
-            if ($.inArray(pName, programCountries) === -1) {
-                programCountries.push(pName);
-            }
-        }
+        var startYear = new Date(program["Project Period START_DT"]).getFullYear();
+        var endYear = new Date (program["Project Period END_DT"]).getFullYear();
+        if (startYear == yearInt || endYear == yearInt || (endYear > yearInt && startYear < yearInt)) {
+            activePrograms.push(program);
+            if ($.inArray(pName, activeCountries) === -1) {
+                activeCountries.push(pName);
+            };
+        };       
     });
     // add map color property to each geojson country based on program list
     $.each(coloredCountries.features, function (ci, country) {
         var cName = country.properties.name.toUpperCase();
-        if ($.inArray(cName, programCountries) === -1) {
+        if ($.inArray(cName, activeCountries) === -1) {
             country.properties.mapColor = "#D7D7D8";
         } else {
             country.properties.mapColor = 'red';
