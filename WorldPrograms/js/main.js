@@ -46,7 +46,17 @@ var featureEvents = function (feature, layer) {
     layer.on({
         click: countryClick,
         mouseover: displayName,
+        mouseout: clearName
     });       
+}
+
+function displayName (e) {    
+    var country = e.target;
+    var tooltipText = country.feature.properties.name;
+    $('#tooltip').append(tooltipText);     
+}
+function clearName (e) {
+    $('#tooltip').empty();
 }
 
 function countryClick (e) {
@@ -62,11 +72,6 @@ function countryClick (e) {
         country.bringToFront();
     }
     info.update(country.feature.properties);  
-}
-
-function displayName (e) {
-
-          
 }
 
 function getWorld() {
@@ -151,6 +156,38 @@ function clearCountry(e) {
 }
    
 map.on('dblclick', clearCountry);
+
+
+$(document).ready(function() {
+    //Select all anchor tag with rel set to tooltip
+    $('#container').mouseover(function(e) {     
+               
+        
+        //Set the X and Y axis of the tooltip
+        $('#tooltip').css('top', e.pageY + 10 );
+        $('#tooltip').css('left', e.pageX + 20 );
+        
+        // //Show the tooltip with faceIn effect
+        // $('#tooltip').fadeIn('500');
+        // $('#tooltip').fadeTo('10',0.8);
+        
+    }).mousemove(function(e) {
+    
+        //Keep changing the X and Y axis for the tooltip, thus, the tooltip move along with the mouse
+        $("#tooltip").css({top:(e.pageY+15)+"px",left:(e.pageX+20)+"px"});
+        
+    }).mouseout(function() {
+    
+        //Put back the title attribute's value
+        $(this).attr('title',$('.tipBody').html());
+    
+        //Remove the appended tooltip template
+        $(this).children('div#tooltip').remove();
+        
+    });
+});
+
+
 
 getWorld();
 info.update();
