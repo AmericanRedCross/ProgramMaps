@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>American Red Cross Programs 2013</title>
+		<title>American Red Cross Programs</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
@@ -50,18 +50,15 @@
 		<div id="container">
 			<div id="map"> </div>
 			<div id="info">
-				<img class=arclogo src="images/redcross-logo.png" /><h4>Active International Programs</h4><div id="mapYear"></div>(year selected by slider appears above, this is temporary)<hr>
-				<p> Please Select a Year: </p>
-					<form>
-					<select name="yearInput" onchange='this.form.submit()'>
+				<img class=arclogo src="images/redcross-logo.png" /><h4>International Programs</h4>
+				<form> 
+					View programs active in:  
+					<select id="yearInput" onchange="changeYear()">
 						<option value = "2013">2013</option>
 						<option value = "2012">2012</option>
-						<option value = 2011>2011</option>
-					</select> </form>
-				<p> Haha, this doesnt work at all yet </p> 
-				<hr>
-				<input type="range" value="2013" min="2011" max="2013" step="1" id="slider" />
-				<p> This does appear to be changing the map based on programs with an agreement start date in 2011,2012,2013. </p>
+						<option value = "2011">2011</option>
+					</select></form>
+					<!-- <button type="button" onclick="changeYear()">Change Year</button> -->
 				<hr>
 				<div id="programInfo"></div>
 			</div>			

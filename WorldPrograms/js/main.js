@@ -16,12 +16,12 @@ var map = L.map('map', {
 // method to update the info div based on feature properties passed
 info.update = function (props) {
     var infoContent = (props ? props.name : 'Click on a country') + "</p><ul>";
+    var selectedCountry = (props? props.name.toUpperCase() : 'none')
     $.each(arcPrograms, function (ai, program) {
-        var pName = program.COUNTRY.toUpperCase();
-        var selectedCountry = props.name.toUpperCase();
-        if (pName === selectedCountry) {
-            infoContent += "<li>" + program.PROJECT_NAME + "</li>";
-        }
+            var pName = program.COUNTRY.toUpperCase();
+            if (pName === selectedCountry) {
+                infoContent += "<li>" + program.PROJECT_NAME + "</li>";
+            }
     });
     infoContent += "</ul>";
     $('#programInfo').empty();     
@@ -124,25 +124,16 @@ function colorMap(year) {
      
 }
 
+function changeYear(){
+    var x = document.getElementById("yearInput").selectedIndex;
+    var newYear = document.getElementsByTagName("option")[x].value;
+    map.removeLayer(geojson);
+    info.update();
+    colorMap(newYear);
+}
    
 getWorld();
 info.update();
 
 
 
-$('#yearInput').change(function() {
-    var selectedYear = this.value;
-    map.removeLayer(geojson);
-    colorMap(selectedYear);    
-});
-
-//slider control
-$('#slider').change(function() {
-    var selectedYear = this.value;
-    $('#mapYear').empty();
-    $('#mapYear').append(selectedYear);
-    map.removeLayer(geojson);
-    colorMap(selectedYear);  
-});
-
-// comment
