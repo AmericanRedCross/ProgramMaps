@@ -58,6 +58,8 @@
 			    position: absolute;
 			    top:15px;
 			    right:15px;
+			    max-height: 80%;
+			    overflow: auto;
 			}
 
 			/* Tooltip */
@@ -69,7 +71,22 @@
 			    width:180px;
 			    color: black;	    
 			}
-		
+			::-webkit-scrollbar {
+			    width: 10px;
+			}
+			 
+			::-webkit-scrollbar-track {
+			    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+			    -webkit-border-radius: 10px;
+			    border-radius: 10px;
+			}
+			 
+			::-webkit-scrollbar-thumb {
+			    -webkit-border-radius: 10px;
+			    border-radius: 10px;
+			    background: rgba(240,240,240,0.8); 
+			    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+			}
 
 		</style>
 	</head>
