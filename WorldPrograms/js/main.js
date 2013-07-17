@@ -11,18 +11,19 @@ var map = L.map('map', {
     center: center,
     zoom: 1,
     attributionControl: false,
-    zoomControl: false,
-    maxBounds: bounds
+    // zoomControl: false,
+    maxBounds: bounds,
+    doubleClickZoom: false
 });
 
 // method to update the info div based on feature properties passed
 info.update = function (props) {
-    var infoContent = (props ? props.name : 'Click on a country') + "</p><ul>";
+    var infoContent = (props ? props.name : 'Click on a country') + "</p><ul class='programList'>";
     var selectedCountry = (props? props.name.toUpperCase() : 'none')
     $.each(activePrograms, function (ai, program) {
             var pName = program.COUNTRY.toUpperCase();
             if (pName === selectedCountry) {
-                infoContent += "<li>" + program.PROJECT_NAME + "</li>";
+                infoContent += "<li class='programListItem'><img class='imageBullet' src=images/" + program.SECTOR_PRIMARY.substring(0, 2) + ".png>" + program.PROJECT_NAME + "</li>";
             }
     });
     infoContent += "</ul>";
@@ -43,6 +44,7 @@ function mapStyle(feature) {
 var featureEvents = function (feature, layer) {
     layer.on({
         click: countryClick,
+        mouseover: displayName,
     });       
 }
 
@@ -59,6 +61,11 @@ function countryClick (e) {
         country.bringToFront();
     }
     info.update(country.feature.properties);  
+}
+
+function displayName (e) {
+
+          
 }
 
 function getWorld() {
@@ -136,7 +143,14 @@ function changeYear(){
     info.update();
     colorMap(newYear);
 }
+
+function clearCountry(e) {
+    geojson.setStyle(mapStyle);
+    info.update();    
+}
    
+map.on('dblclick', clearCountry);
+
 getWorld();
 info.update();
 

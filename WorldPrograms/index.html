@@ -30,6 +30,23 @@
 			    margin: 5px 30px 20px;
 			}
 
+			/* styling for list of programs in info box */
+			.imageBullet {
+				float:left;
+				margin-right: 5px;
+				height: 25px;
+				width: 25px;
+			}
+			.programList {
+				list-style-type: none;
+				list-style-image: none;
+				list-style-position: inside;	
+				padding: 0;
+			}
+			.programListItem {
+				padding-bottom: 30px;						
+			}
+
 			/*styling for control box with country info*/
 			#info {
 	   			padding: 20px 20px;
@@ -41,7 +58,7 @@
 			    position: absolute;
 			    top:15px;
 			    right:15px;
-			}				
+			}		
 
 		</style>
 	</head>
@@ -71,6 +88,7 @@
 
 		<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script type="text/javascript" src="tclouds.js"></script>
 		<script src="js/main.js"></script>
 	</body> 	
 </html>
