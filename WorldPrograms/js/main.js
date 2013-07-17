@@ -22,8 +22,9 @@ info.update = function (props) {
     var selectedCountry = (props? props.name.toUpperCase() : 'none')
     $.each(activePrograms, function (ai, program) {
             var pName = program.COUNTRY.toUpperCase();
+            var imageCode = program.SECTOR_PRIMARY.toLowerCase().replace(/\s+/g, '').replace(/-/g, '').replace(/\//g, '');
             if (pName === selectedCountry) {
-                infoContent += "<li class='programListItem'><img class='imageBullet' src=images/" + program.SECTOR_PRIMARY.substring(0, 2) + ".png>" + program.PROJECT_NAME + "</li>";
+                infoContent += "<li class='programListItem'><img class='imageBullet' src=images/" + imageCode + ".png>" + program.PROJECT_NAME + "</li>";
             }
     });
     infoContent += "</ul>";
