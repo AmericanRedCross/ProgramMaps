@@ -25,7 +25,7 @@ info.update = function (props) {
             var pName = program.COUNTRY.toUpperCase();
             var imageCode = program.SECTOR_PRIMARY.toLowerCase().replace(/\s+/g, '').replace(/-/g, '').replace(/\//g, '');
             if (pName === selectedCountry) {
-                infoContent += "<li class='programListItem'><img class='imageBullet' src=images/" + imageCode + ".png>" + program.PROJECT_NAME + "</li>";
+                infoContent += "<li class='programListItem'><img class='imageBullet' title='" + program.SECTOR_PRIMARY+ "'' src=images/" + imageCode + ".png>" + program.PROJECT_NAME + "</li>";
             }
     });
     infoContent += "</ul>";
