@@ -167,9 +167,48 @@ function changeYear(){
     info.update();
     colorMap(newYear);
 }
+    
+// NEED TO TAKE THE CURRENT ACTIVE PROGRAM LIST AND LOOP THROUGH IT ONLY TAKING THE SUBSET OF ONES WITH THE RIGHT SECTOR AND THEN BUILD THE MAP WITH THOSE?
 
 
- 
+// function chooseSector() {
+//     activeCountries = [];
+//     activeProgramsSectorSubset = [];
+//     var x = document.getElementById("sectorInput").selectedIndex;
+//     var sectorChoice = document.getElementsByTagName("option")[x].value;
+//     if (x == "ALL") {
+//         changeYear();
+//     } else
+
+//     map.removeLayer(geojson);
+//     info.update();
+//     // populate array with names of countries that have programs in selected sector
+//     $.each(arcPrograms, function (ai, program) {
+//         var currentProgramCountryName = program.COUNTRY.toUpperCase();
+//         var currentProgramName = program.;
+//         if ()) {
+//             activePrograms.push(program);
+//             if ($.inArray(pName, activeCountries) === -1) {
+//                 activeCountries.push(pName);
+//             };
+//         };       
+//     });
+//     // add map color property to each geojson country based on program list
+//     $.each(coloredCountries.features, function (ci, country) {
+//         var cName = country.properties.name.toUpperCase();
+//         if ($.inArray(cName, activeCountries) === -1) {
+//             country.properties.mapColor = "#D7D7D8";
+//         } else {
+//             country.properties.mapColor = 'red';
+//         }
+//     });
+//     // Add country polygons to map
+//     geojson = L.geoJson(coloredCountries, {
+//         style: mapStyle,
+//         onEachFeature: featureEvents
+//     }).addTo(map);     
+// }
+
 
 
 
