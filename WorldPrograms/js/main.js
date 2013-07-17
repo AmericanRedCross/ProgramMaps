@@ -6,6 +6,7 @@ var activePrograms = [];
 var arcPrograms = [];
 var center = new L.LatLng(30, 0);
 var bounds = new L.LatLngBounds([90, 200], [-80, -200]);
+var sectorList = [];
 
 var map = L.map('map', {
     center: center,
@@ -100,12 +101,30 @@ function getARC() {
         timeout: 10000,
         success: function(json) {
             arcPrograms = json;
+            createSectorsDropdown();
             colorMap(2013);
         },
         error: function(e) {
             console.log(e);
         }
     });
+}
+
+function createSectorsDropdown() {
+    $.each(arcPrograms, function (ai, program) {
+        var aSector = program.SECTOR_PRIMARY
+        if ($.inArray(aSector, sectorList) === -1) {
+            sectorList.push(aSector);
+        };
+    });
+    var sectorsDropdown = document.getElementById("sectorInput");
+    for(var i = 0; i < sectorList.length; i++) {
+        var option = sectorList[i];
+        var el = document.createElement("option");
+        el.textContent = option;
+        el.value = option;
+        sectorsDropdown.appendChild(el);
+    }
 }
 
 function colorMap(year) {
@@ -138,8 +157,7 @@ function colorMap(year) {
     geojson = L.geoJson(coloredCountries, {
         style: mapStyle,
         onEachFeature: featureEvents
-    }).addTo(map);
-     
+    }).addTo(map);     
 }
 
 function changeYear(){
@@ -149,6 +167,11 @@ function changeYear(){
     info.update();
     colorMap(newYear);
 }
+
+
+ 
+
+
 
 function clearCountry(e) {
     geojson.setStyle(mapStyle);
@@ -160,30 +183,18 @@ map.on('dblclick', clearCountry);
 
 $(document).ready(function() {
     //Select all anchor tag with rel set to tooltip
-    $('#container').mouseover(function(e) {     
-               
-        
+    $('#container').mouseover(function(e) {        
         //Set the X and Y axis of the tooltip
         $('#tooltip').css('top', e.pageY + 10 );
-        $('#tooltip').css('left', e.pageX + 20 );
-        
-        // //Show the tooltip with faceIn effect
-        // $('#tooltip').fadeIn('500');
-        // $('#tooltip').fadeTo('10',0.8);
-        
-    }).mousemove(function(e) {
-    
+        $('#tooltip').css('left', e.pageX + 20 );         
+    }).mousemove(function(e) {    
         //Keep changing the X and Y axis for the tooltip, thus, the tooltip move along with the mouse
-        $("#tooltip").css({top:(e.pageY+15)+"px",left:(e.pageX+20)+"px"});
-        
-    }).mouseout(function() {
-    
+        $("#tooltip").css({top:(e.pageY+15)+"px",left:(e.pageX+20)+"px"});        
+    }).mouseout(function() {    
         //Put back the title attribute's value
-        $(this).attr('title',$('.tipBody').html());
-    
+        $(this).attr('title',$('.tipBody').html());    
         //Remove the appended tooltip template
-        $(this).children('div#tooltip').remove();
-        
+        $(this).children('div#tooltip').remove();   
     });
 });
 
@@ -191,6 +202,7 @@ $(document).ready(function() {
 
 getWorld();
 info.update();
+
 
 
 

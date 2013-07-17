@@ -71,6 +71,7 @@
 			    width:180px;
 			    color: black;	    
 			}
+
 			::-webkit-scrollbar {
 			    width: 10px;
 			}
@@ -107,6 +108,11 @@
 						<option value = "2008">2008</option>
 						<option value = "2007">2007</option>						
 						<option value = "1980">1980</option>
+					</select></form>
+				<form>
+					Sector:
+					<select id="sectorInput" onchange="chooseSector()">
+						<option value = "ALL"> All sectors</option>
 					</select></form>					
 				<hr>
 				<div id="programInfo"></div>
