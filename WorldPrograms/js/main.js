@@ -34,8 +34,8 @@ $(window).resize(function() {
 
 // method to update the info div based on feature properties passed
 info.update = function (props) {
-    var infoCountry = (props ? props.name : 'Click on a country')
-    var infoPrograms = "</p><ul class='programList'>";
+    var infoCountry = (props ? props.name : '')
+    var infoPrograms = (props? "<ul class='programList'>" : 'Click on a country to view active programs there.');
     var selectedCountry = (props? props.name.toUpperCase() : 'none')   
     $.each(displayedProgramData, function (ai, program) {
             var pName = program.COUNTRY.toUpperCase();
