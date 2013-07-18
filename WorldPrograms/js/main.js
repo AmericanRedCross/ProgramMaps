@@ -35,7 +35,7 @@ $(window).resize(function() {
 // method to update the info div based on feature properties passed
 info.update = function (props) {
     programIndicator = false;
-    var infoCountry = (props ? props.name : 'Click on a country.')
+    var infoCountry = (props ? props.name: '<p class="countryClick">Click on a country.</p>')
     var infoPrograms = "<ul class='programList'>";
     var selectedCountry = (props? props.name.toUpperCase() : 'none')   
     $.each(displayedProgramData, function (ai, program) {
@@ -51,7 +51,7 @@ info.update = function (props) {
     if (programIndicator == true){
         $('#programInfo').append(infoPrograms);
     } else {
-        $('#programInfo').append('No programs match the criteria.')
+        $('#programInfo').append('<p class="noPrograms">No programs match the criteria.</p>')
     };
     $('#countryName').empty();
     $('#countryName').append(infoCountry);
