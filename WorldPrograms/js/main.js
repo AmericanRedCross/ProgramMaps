@@ -8,7 +8,7 @@ var displayedCountryNames = [];
 var displayedProgramData = [];
 var formattedSectorName = "";
 
-var center = new L.LatLng(30, 0);
+var center = new L.LatLng(30, 10);
 var bounds = new L.LatLngBounds([90, 200], [-80, -200]);
 
 var map = L.map('map', {
@@ -21,8 +21,16 @@ var map = L.map('map', {
 });
 
 function resetView(){
-    map.setView(center, 1)
+    map.setView(center, 1);
 }
+
+var windowWidth = $(window).width();
+$(window).resize(function() {
+    if(windowWidth != $(window).width()){
+    location.reload();
+    return;
+    }
+});
 
 // method to update the info div based on feature properties passed
 info.update = function (props) {
@@ -62,8 +70,8 @@ var featureEvents = function (feature, layer) {
 }
 
 function displayName (e) {    
-    var country = e.target;
-    var tooltipText = country.feature.properties.name;
+    var countryTarget = e.target;
+    var tooltipText = countryTarget.feature.properties.name;
     $('#tooltip').append(tooltipText);     
 }
 function clearName (e) {
@@ -258,7 +266,6 @@ function clearCountry(e) {
     geojson.setStyle(mapStyle);
     info.update();    
 }
-   
 map.on('dblclick', clearCountry);
 
 
