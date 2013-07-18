@@ -5,6 +5,7 @@ var sectorList = [];
 var worldColored = [];
 var displayedCountryNames = [];
 var displayedProgramData = [];
+var formattedSectorName = "";
 
 var center = new L.LatLng(30, 0);
 var bounds = new L.LatLngBounds([90, 200], [-80, -200]);
@@ -122,10 +123,21 @@ function createSectorsDropdown() {
     var sectorsDropdown = document.getElementById("sectorInput");
     for(var i = 0; i < sectorList.length; i++) {
         var option = sectorList[i];
+        formatSectorName(option);
         var el = document.createElement("option");
-        el.textContent = option;
+        el.textContent = formattedSectorName;
         el.value = option;
         sectorsDropdown.appendChild(el);
+    }
+}
+
+function formatSectorName(option) {
+    if (option == "Measles") {
+        formattedSectorName = "Measles Vaccination Campaign";
+    } else if (option == "OD"){
+        formattedSectorName = "Organizational Development";
+    } else {
+        formattedSectorName = option;
     }
 }
 
