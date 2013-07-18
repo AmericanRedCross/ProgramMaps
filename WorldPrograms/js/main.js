@@ -20,20 +20,27 @@ var map = L.map('map', {
     doubleClickZoom: false
 });
 
+function resetView(){
+    map.setView(center, 1)
+}
+
 // method to update the info div based on feature properties passed
 info.update = function (props) {
-    var infoContent = (props ? props.name : 'Click on a country') + "</p><ul class='programList'>";
+    var infoCountry = (props ? props.name : 'Click on a country')
+    var infoPrograms = "</p><ul class='programList'>";
     var selectedCountry = (props? props.name.toUpperCase() : 'none')   
     $.each(displayedProgramData, function (ai, program) {
             var pName = program.COUNTRY.toUpperCase();
             var imageCode = program.SECTOR_PRIMARY.toLowerCase().replace(/\s+/g, '').replace(/-/g, '').replace(/\//g, '');
             if (pName === selectedCountry) {
-                infoContent += "<li class='programListItem'><img class='imageBullet' title='" + program.SECTOR_PRIMARY+ "'' src=images/" + imageCode + ".png>" + program.PROJECT_NAME + "</li>";
+                infoPrograms += "<li class='programListItem'><img class='imageBullet' title='" + program.SECTOR_PRIMARY+ "'' src=images/" + imageCode + ".png>" + program.PROJECT_NAME + "</li>";
             }
     });
-    infoContent += "</ul>";
-    $('#programInfo').empty();     
-    $('#programInfo').append(infoContent);
+    infoPrograms += "</ul>";
+    $('#programInfo').empty();
+    $('#programInfo').append(infoPrograms);   
+    $('#countryName').empty();
+    $('#countryName').append(infoCountry);
 };
 
 function mapStyle(feature) {
@@ -64,6 +71,7 @@ function clearName (e) {
 }
 
 function countryClick (e) {
+    map.fitBounds(e.target.getBounds());
     geojson.setStyle(mapStyle);
     var country = e.target;    
     country.setStyle({
