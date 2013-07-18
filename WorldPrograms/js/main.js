@@ -2,6 +2,7 @@ var geojson = L.geoJson();
 var worldCountries = [];
 var arcPrograms = [];
 var sectorList = [];
+var yearList = [];
 var worldColored = [];
 var displayedCountryNames = [];
 var displayedProgramData = [];
@@ -105,6 +106,7 @@ function getARC() {
         success: function(json) {
             arcPrograms = json;
             createSectorsDropdown();
+            createYearsDropdown();
             colorMap();
         },
         error: function(e) {
@@ -129,6 +131,49 @@ function createSectorsDropdown() {
         el.value = option;
         sectorsDropdown.appendChild(el);
     }
+}
+
+function createYearsDropdown(){
+    $.each(arcPrograms, function (ai, program) {
+        var startYear = new Date(program["Project Period START_DT"]).getFullYear();
+        var endYear = new Date(program["Project Period END_DT"]).getFullYear();        
+        // some progams have "" for project start/end date
+        if (isNaN(startYear) !== true){
+            // i don't want to display future years, even if the data includes programs with a start/end
+            // date in a future year
+            if (startYear <= new Date().getFullYear()) {
+                if ($.inArray(startYear, yearList) === -1){
+                    yearList.push(startYear);
+                }; 
+            };
+        };            
+        if (isNaN(endYear) !== true){
+            if (endYear <= new Date().getFullYear()) {
+                if ($.inArray(endYear, yearList) === -1) {
+                    yearList.push(endYear);
+                }; 
+            };           
+        };
+    });
+    // fill in missing years
+    var maxYear = Math.max.apply(Math, yearList);
+    var minYear = Math.min.apply(Math, yearList);
+    for (var y = minYear; y < maxYear; y++) {
+        if ($.inArray(y, yearList) === -1) {
+            yearList.push(y);
+        };
+    };
+    // sort so that the years appear in order in dropdown
+    yearList = yearList.sort(function(a,b){return b-a}); 
+    // create option elements in dropdown menu  
+    var yearsDropdown = document.getElementById("yearInput");
+    for(var i = 0; i < yearList.length; i++) {
+        var option = yearList[i];
+        var el = document.createElement("option");
+        el.textContent = option;
+        el.value = option;
+        yearsDropdown.appendChild(el);
+    } 
 }
 
 function formatSectorName(option) {
