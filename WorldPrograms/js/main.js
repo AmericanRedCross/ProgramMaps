@@ -34,19 +34,25 @@ $(window).resize(function() {
 
 // method to update the info div based on feature properties passed
 info.update = function (props) {
-    var infoCountry = (props ? props.name : '')
-    var infoPrograms = (props? "<ul class='programList'>" : 'Click on a country to view active programs there.');
+    programIndicator = false;
+    var infoCountry = (props ? props.name : 'Click on a country.')
+    var infoPrograms = "<ul class='programList'>";
     var selectedCountry = (props? props.name.toUpperCase() : 'none')   
     $.each(displayedProgramData, function (ai, program) {
             var pName = program.COUNTRY.toUpperCase();
             var imageCode = program.SECTOR_PRIMARY.toLowerCase().replace(/\s+/g, '').replace(/-/g, '').replace(/\//g, '');
             if (pName === selectedCountry) {
                 infoPrograms += "<li class='programListItem'><img class='imageBullet' title='" + program.SECTOR_PRIMARY+ "'' src=images/" + imageCode + ".png>" + program.PROJECT_NAME + "</li>";
+                programIndicator = true;
             }
     });
     infoPrograms += "</ul>";
     $('#programInfo').empty();
-    $('#programInfo').append(infoPrograms);   
+    if (programIndicator == true){
+        $('#programInfo').append(infoPrograms);
+    } else {
+        $('#programInfo').append('No programs match the criteria.')
+    };
     $('#countryName').empty();
     $('#countryName').append(infoCountry);
 };
