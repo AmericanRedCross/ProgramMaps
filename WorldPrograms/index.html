@@ -140,7 +140,7 @@
 				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">International Programs</p>
 				<form> 
 					View programs active in:  
-					<select id="yearInput" onchange="changeYear()">
+					<select id="yearInput" onchange="colorMap()">
 						<option value = "2013">2013</option>
 						<option value = "2012">2012</option>
 						<option value = "2011">2011</option>
@@ -152,8 +152,8 @@
 					</select></form>
 				<form>
 					Sector:
-					<select id="sectorInput" onchange="chooseSector()">
-						<option value = "ALL"> All sectors</option>
+					<select id="sectorInput" onchange="colorMap()">
+						<option id="sectorValue" value = "ALL"> All sectors</option>
 					</select></form>					
 				<hr>
 				<div id="programInfo"></div>

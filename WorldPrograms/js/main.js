@@ -1,12 +1,13 @@
 var geojson = L.geoJson();
 var worldCountries = [];
-var coloredCountries = [];
-var activeCountries = [];
-var activePrograms = [];
 var arcPrograms = [];
+var sectorList = [];
+var worldColored = [];
+var displayedCountryNames = [];
+var displayedProgramData = [];
+
 var center = new L.LatLng(30, 0);
 var bounds = new L.LatLngBounds([90, 200], [-80, -200]);
-var sectorList = [];
 
 var map = L.map('map', {
     center: center,
@@ -20,8 +21,8 @@ var map = L.map('map', {
 // method to update the info div based on feature properties passed
 info.update = function (props) {
     var infoContent = (props ? props.name : 'Click on a country') + "</p><ul class='programList'>";
-    var selectedCountry = (props? props.name.toUpperCase() : 'none')
-    $.each(activePrograms, function (ai, program) {
+    var selectedCountry = (props? props.name.toUpperCase() : 'none')   
+    $.each(displayedProgramData, function (ai, program) {
             var pName = program.COUNTRY.toUpperCase();
             var imageCode = program.SECTOR_PRIMARY.toLowerCase().replace(/\s+/g, '').replace(/-/g, '').replace(/\//g, '');
             if (pName === selectedCountry) {
@@ -75,6 +76,7 @@ function countryClick (e) {
     info.update(country.feature.properties);  
 }
 
+
 function getWorld() {
     $.ajax({
         type: 'GET',
@@ -102,7 +104,7 @@ function getARC() {
         success: function(json) {
             arcPrograms = json;
             createSectorsDropdown();
-            colorMap(2013);
+            colorMap();
         },
         error: function(e) {
             console.log(e);
@@ -127,91 +129,56 @@ function createSectorsDropdown() {
     }
 }
 
-function colorMap(year) {
-    coloredCountries = worldCountries;
-    activeCountries = [];
-    activePrograms = [];
-    yearInt = parseInt(year);
-    // populate array with names of countries that have programs
+
+function colorMap() {
+    map.removeLayer(geojson);
+    info.update();    
+    worldColored = worldCountries;
+    displayedCountryNames = [];
+    displayedProgramData = [];
+    // get selected year
+    var yearIndex = document.getElementById("yearInput").selectedIndex;
+    var yearOptions = document.getElementById("yearInput").options;
+    var year = yearOptions[yearIndex].value;
+    var yearChoice = parseInt(year);
+    // get selected sector
+    var sectorIndex = document.getElementById("sectorInput").selectedIndex;
+    var sectorOptions = document.getElementById("sectorInput").options;
+    var sectorChoice = sectorOptions[sectorIndex].value;
+    // populate arrays *data for displayed programs* and *names for displayed countries*
     $.each(arcPrograms, function (ai, program) {
-        var pName = program.COUNTRY.toUpperCase();
+        var currentCountry = program.COUNTRY.toUpperCase();
+        var currentProgramSector = program.SECTOR_PRIMARY;
         var startYear = new Date(program["Project Period START_DT"]).getFullYear();
         var endYear = new Date (program["Project Period END_DT"]).getFullYear();
-        if (startYear == yearInt || endYear == yearInt || (endYear > yearInt && startYear < yearInt)) {
-            activePrograms.push(program);
-            if ($.inArray(pName, activeCountries) === -1) {
-                activeCountries.push(pName);
-            };
+        if (yearChoice == startYear || yearChoice == endYear || (yearChoice < endYear && yearChoice > startYear)) {
+            if (sectorChoice == currentProgramSector || sectorChoice == "ALL") {
+                displayedProgramData.push(program);
+                if ($.inArray(currentCountry, displayedCountryNames) === -1) {
+                displayedCountryNames.push(currentCountry);
+                };
+            };            
         };       
     });
-    // add map color property to each geojson country based on program list
-    $.each(coloredCountries.features, function (ci, country) {
-        var cName = country.properties.name.toUpperCase();
-        if ($.inArray(cName, activeCountries) === -1) {
+    // add map color property to each geojson country based on names list of displayed countries
+    $.each(worldColored.features, function (ci, country) {
+        var currentCountry = country.properties.name.toUpperCase();
+        if ($.inArray(currentCountry, displayedCountryNames) === -1) {
             country.properties.mapColor = "#D7D7D8";
         } else {
             country.properties.mapColor = 'red';
         }
     });
     // Add country polygons to map
-    geojson = L.geoJson(coloredCountries, {
+    geojson = L.geoJson(worldColored, {
         style: mapStyle,
         onEachFeature: featureEvents
     }).addTo(map);     
 }
 
-function changeYear(){
-    var x = document.getElementById("yearInput").selectedIndex;
-    var newYear = document.getElementsByTagName("option")[x].value;
-    map.removeLayer(geojson);
-    info.update();
-    colorMap(newYear);
-}
-    
-// NEED TO TAKE THE CURRENT ACTIVE PROGRAM LIST AND LOOP THROUGH IT ONLY TAKING THE SUBSET OF ONES WITH THE RIGHT SECTOR AND THEN BUILD THE MAP WITH THOSE?
 
 
-// function chooseSector() {
-//     activeCountries = [];
-//     activeProgramsSectorSubset = [];
-//     var x = document.getElementById("sectorInput").selectedIndex;
-//     var sectorChoice = document.getElementsByTagName("option")[x].value;
-//     if (x == "ALL") {
-//         changeYear();
-//     } else
-
-//     map.removeLayer(geojson);
-//     info.update();
-//     // populate array with names of countries that have programs in selected sector
-//     $.each(arcPrograms, function (ai, program) {
-//         var currentProgramCountryName = program.COUNTRY.toUpperCase();
-//         var currentProgramName = program.;
-//         if ()) {
-//             activePrograms.push(program);
-//             if ($.inArray(pName, activeCountries) === -1) {
-//                 activeCountries.push(pName);
-//             };
-//         };       
-//     });
-//     // add map color property to each geojson country based on program list
-//     $.each(coloredCountries.features, function (ci, country) {
-//         var cName = country.properties.name.toUpperCase();
-//         if ($.inArray(cName, activeCountries) === -1) {
-//             country.properties.mapColor = "#D7D7D8";
-//         } else {
-//             country.properties.mapColor = 'red';
-//         }
-//     });
-//     // Add country polygons to map
-//     geojson = L.geoJson(coloredCountries, {
-//         style: mapStyle,
-//         onEachFeature: featureEvents
-//     }).addTo(map);     
-// }
-
-
-
-
+// doubleclick (not on a country) clears infobox (remove this?)
 function clearCountry(e) {
     geojson.setStyle(mapStyle);
     info.update();    
@@ -220,6 +187,7 @@ function clearCountry(e) {
 map.on('dblclick', clearCountry);
 
 
+// Trailing tooltip displays country name on mouseover
 $(document).ready(function() {
     //Select all anchor tag with rel set to tooltip
     $('#container').mouseover(function(e) {        
