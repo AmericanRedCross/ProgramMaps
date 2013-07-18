@@ -134,6 +134,16 @@ function createSectorsDropdown() {
 function formatSectorName(option) {
     if (option == "Measles") {
         formattedSectorName = "Measles Vaccination Campaign";
+    } else if (option == "DM - Recovery"){
+        formattedSectorName = "Disaster Recovery";
+    } else if (option == "DM - Preparedness/DRR"){
+        formattedSectorName = "Disaster Preparedness";
+    } else if (option == "Community Health - HIV"){
+        formattedSectorName = "Community Based Health & HIV";
+    } else if (option == "DM - Response"){
+        formattedSectorName = "Disaster Response";
+    } else if (option == "Integrated"){
+        formattedSectorName = "Integrated Programming";
     } else if (option == "OD"){
         formattedSectorName = "Organizational Development";
     } else {
