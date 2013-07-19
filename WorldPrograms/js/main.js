@@ -25,50 +25,50 @@ var attrib = new L.Control.Attribution({
 attrib.addAttribution('Map Data &copy; <a href="http://redcross.org">Red Cross</a>');
 map.addControl(attrib);
 
-function resetView(){
+function resetView() {
     map.setView(center, 1);
 }
 
 var windowWidth = $(window).width();
-$(window).resize(function() {
-    if(windowWidth != $(window).width()){
-    location.reload();
-    return;
+$(window).resize(function () {
+    if (windowWidth !== $(window).width()) {
+        location.reload();
+        return;
     }
 });
 
 // method to update the info div based on feature properties passed
 info.update = function (props) {
     programIndicator = false;
-    var infoCountry = (props ? props.name: '<p class="countryClick">Click on a country.</p>')
+    var infoCountry = (props ? props.name : '<p class="countryClick">Click on a country.</p>');
     var infoPrograms = "<ul class='programList'>";
-    var selectedCountry = (props? props.name.toUpperCase() : 'none')   
+    var selectedCountry = (props ? props.name.toUpperCase() : 'none');   
     $.each(displayedProgramData, function (ai, program) {
-            var pName = program.COUNTRY.toUpperCase();
-            var imageCode = program.SECTOR_PRIMARY.toLowerCase().replace(/\s+/g, '').replace(/-/g, '').replace(/\//g, '');
-            if (pName === selectedCountry) {
-                infoPrograms += "<li class='programListItem'><img class='imageBullet' title='" + program.SECTOR_PRIMARY+ "'' src=images/" + imageCode + ".png>" + program.PROJECT_NAME + "</li>";
-                programIndicator = true;
-            }
+        var pName = program.COUNTRY.toUpperCase();
+        var imageCode = program.SECTOR_PRIMARY.toLowerCase().replace(/\s+/g, '').replace(/-/g, '').replace(/\//g, '');
+        if (pName === selectedCountry) {
+            infoPrograms += "<li class='programListItem'><img class='imageBullet' title='" + program.SECTOR_PRIMARY + "'' src=images/" + imageCode + ".png>" + program.PROJECT_NAME + "</li>";
+            programIndicator = true;
+        }
     });
     infoPrograms += "</ul>";
     $('#programInfo').empty();
-    if (programIndicator == true){
+    if (programIndicator === true) {
         $('#programInfo').append(infoPrograms);
     } else {
-        $('#programInfo').append('<p class="noPrograms">No programs match the criteria.</p>')
-    };
+        $('#programInfo').append('<p class="noPrograms">No programs match the criteria.</p>');
+    }
     $('#countryName').empty();
     $('#countryName').append(infoCountry);
 };
 
 function mapStyle(feature) {
-    return{
-    fillColor: feature.properties.mapColor,
-    weight: 2,
-    opacity: 1,
-    color: "white",
-    fillOpacity: 1
+    return {
+        fillColor: feature.properties.mapColor,
+        weight: 2,
+        opacity: 1,
+        color: "white",
+        fillOpacity: 1
     };
 }
 
@@ -80,17 +80,17 @@ var featureEvents = function (feature, layer) {
     });       
 }
 
-function displayName (e) {    
+function displayName(e) {    
     var countryTarget = e.target;
     var tooltipText = countryTarget.feature.properties.name;
     $('#tooltip').append(tooltipText);     
 }
 
-function clearName (e) {
+function clearName(e) {
     $('#tooltip').empty();
 }
 
-function countryClick (e) {
+function countryClick(e) {
     map.fitBounds(e.target.getBounds());
     geojson.setStyle(mapStyle);
     var country = e.target;    
@@ -105,7 +105,6 @@ function countryClick (e) {
     }
     info.update(country.feature.properties);  
 }
-
 
 function getWorld() {
     $.ajax({
@@ -145,10 +144,10 @@ function getARC() {
 
 function createSectorsDropdown() {
     $.each(arcPrograms, function (ai, program) {
-        var aSector = program.SECTOR_PRIMARY
+        var aSector = program.SECTOR_PRIMARY;
         if ($.inArray(aSector, sectorList) === -1) {
             sectorList.push(aSector);
-        };
+        }
     });
     var sectorsDropdown = document.getElementById("sectorInput");
     for(var i = 0; i < sectorList.length; i++) {
@@ -161,7 +160,7 @@ function createSectorsDropdown() {
     }
 }
 
-function createYearsDropdown(){
+function createYearsDropdown() {
     $.each(arcPrograms, function (ai, program) {
         var startYear = new Date(program["Project Period START_DT"]).getFullYear();
         var endYear = new Date(program["Project Period END_DT"]).getFullYear();        
@@ -172,16 +171,16 @@ function createYearsDropdown(){
             if (startYear <= new Date().getFullYear()) {
                 if ($.inArray(startYear, yearList) === -1){
                     yearList.push(startYear);
-                }; 
-            };
-        };            
+                } 
+            }
+        }            
         if (isNaN(endYear) !== true){
             if (endYear <= new Date().getFullYear()) {
                 if ($.inArray(endYear, yearList) === -1) {
                     yearList.push(endYear);
-                }; 
-            };           
-        };
+                } 
+            }           
+        }
     });
     // fill in missing years
     var maxYear = Math.max.apply(Math, yearList);
@@ -189,8 +188,8 @@ function createYearsDropdown(){
     for (var y = minYear; y < maxYear; y++) {
         if ($.inArray(y, yearList) === -1) {
             yearList.push(y);
-        };
-    };
+        }
+    }
     // sort so that the years appear in order in dropdown
     yearList = yearList.sort(function(a,b){return b-a}); 
     // create option elements in dropdown menu  
@@ -205,25 +204,24 @@ function createYearsDropdown(){
 }
 
 function formatSectorName(option) {
-    if (option == "Measles") {
+    if (option === "Measles") {
         formattedSectorName = "Measles Vaccination Campaign";
-    } else if (option == "DM - Recovery"){
+    } else if (option === "DM - Recovery"){
         formattedSectorName = "Disaster Recovery";
-    } else if (option == "DM - Preparedness/DRR"){
+    } else if (option === "DM - Preparedness/DRR"){
         formattedSectorName = "Disaster Preparedness";
-    } else if (option == "Community Health - HIV"){
+    } else if (option === "Community Health - HIV"){
         formattedSectorName = "Community Based Health & HIV";
-    } else if (option == "DM - Response"){
+    } else if (option === "DM - Response"){
         formattedSectorName = "Disaster Response";
-    } else if (option == "Integrated"){
+    } else if (option === "Integrated"){
         formattedSectorName = "Integrated Programming";
-    } else if (option == "OD"){
+    } else if (option === "OD"){
         formattedSectorName = "Organizational Development";
     } else {
         formattedSectorName = option;
     }
 }
-
 
 function colorMap() {
     map.removeLayer(geojson);
@@ -247,13 +245,13 @@ function colorMap() {
         var startYear = new Date(program["Project Period START_DT"]).getFullYear();
         var endYear = new Date (program["Project Period END_DT"]).getFullYear();
         if (yearChoice == startYear || yearChoice == endYear || (yearChoice < endYear && yearChoice > startYear)) {
-            if (sectorChoice == currentProgramSector || sectorChoice == "ALL") {
+            if (sectorChoice === currentProgramSector || sectorChoice === "ALL") {
                 displayedProgramData.push(program);
                 if ($.inArray(currentCountry, displayedCountryNames) === -1) {
                 displayedCountryNames.push(currentCountry);
-                };
-            };            
-        };       
+                }
+            }            
+        }       
     });
     // add map color property to each geojson country based on names list of displayed countries
     $.each(worldColored.features, function (ci, country) {
@@ -271,15 +269,12 @@ function colorMap() {
     }).addTo(map);     
 }
 
-
-
 // doubleclick (not on a country) clears infobox (remove this?)
 function clearCountry(e) {
     geojson.setStyle(mapStyle);
     info.update();    
 }
 map.on('dblclick', clearCountry);
-
 
 // Trailing tooltip displays country name on mouseover
 $(document).ready(function() {
@@ -299,10 +294,8 @@ $(document).ready(function() {
     });
 });
 
-
 getWorld();
 info.update();
-
 
 //disclaimer text
 function showDisclaimer() {
