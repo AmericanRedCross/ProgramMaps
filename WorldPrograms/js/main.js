@@ -218,6 +218,8 @@ function formatSectorName(option) {
         formattedSectorName = "Integrated Programming";
     } else if (option === "OD"){
         formattedSectorName = "Organizational Development";
+    } else if (option === "Malaria") {
+        formattedSectorName = "Malaria Prevention Initiative";
     } else {
         formattedSectorName = option;
     }
