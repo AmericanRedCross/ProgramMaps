@@ -119,6 +119,32 @@
 				font-style: italic;
 			}
 
+			#disclaimer {
+			    position: absolute;
+			    right: 10px;
+			    bottom: 0;
+			    color: #6d6e70;
+			    font: 12px Arial;
+			    cursor: pointer;
+			}
+			#disclaimer a:link, #disclaimer a:visited {
+			    color: #6d6e70;
+			    text-decoration: none;
+			    cursor: pointer;
+			}
+			#disclaimerText {
+			    position: absolute;
+			    top: 45%;
+			    left: 30%;
+			    display: none;
+			    padding: 5px;
+			    width: 300px;
+			    border: 1px solid #fff;
+			    background-color: rgba(0, 0, 0, 0.8);
+			    color: #fff;
+			    font: 12px Arial;
+			}
+
 			/* Tooltip */
 			#tooltip {			    	    
 				position:absolute;
@@ -152,6 +178,10 @@
 	<body>		
 		<div id="container">
 			<div id="map"> </div>
+	        <div id="disclaimerText">
+                <img src="images/close.gif" onClick="closeDisclaimer();" class="close" alt="close" />
+                <p>Disclaimer</p><hr>
+                The maps on this page do not imply the expression of any opinion on the part of the American Red Cross concerning the legal status of a territory or of its authorities. </div>
 			<div id="info">
 				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">International Programs</p>
 				<form> 
@@ -170,14 +200,20 @@
 				<div id="zoomWorld">
 					<hr>
 					<input type="button" value="Zoom to World" onclick="resetView()">
+				</div>			
+   			</div>		
+	        <div id="disclaimer">
+			    <p>
+			        &copy; <a href="http://redcross.org" title="Red Cross">Red Cross</a> | 
+			        <a title="Disclaimer" onClick="showDisclaimer();">Disclaimer</a>
+			    </p>
+			    
 			</div>			
-   		</div>
-
-		<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-		<script src="js/main.js"></script>
-		</div>
+		</div>	
 		<div id="tooltip"></div>
+		<script src="//cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="js/main.js"></script>		
 	</body> 	
 </html>
 

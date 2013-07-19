@@ -8,17 +8,22 @@ var displayedCountryNames = [];
 var displayedProgramData = [];
 var formattedSectorName = "";
 
-var center = new L.LatLng(30, 10);
-var bounds = new L.LatLngBounds([90, 200], [-80, -200]);
+var center = new L.LatLng(30, 30);
+var bounds = new L.LatLngBounds([90, 260], [-80, -190]);
 
 var map = L.map('map', {
     center: center,
     zoom: 1,
     attributionControl: false,
-    // zoomControl: false,
     maxBounds: bounds,
     doubleClickZoom: false
 });
+
+var attrib = new L.Control.Attribution({
+    position: 'bottomleft'
+});
+attrib.addAttribution('Map Data &copy; <a href="http://redcross.org">Red Cross</a>');
+map.addControl(attrib);
 
 function resetView(){
     map.setView(center, 1);
@@ -80,6 +85,7 @@ function displayName (e) {
     var tooltipText = countryTarget.feature.properties.name;
     $('#tooltip').append(tooltipText);     
 }
+
 function clearName (e) {
     $('#tooltip').empty();
 }
@@ -294,10 +300,20 @@ $(document).ready(function() {
 });
 
 
-
 getWorld();
 info.update();
 
 
-
-
+//disclaimer text
+function showDisclaimer() {
+    $('#disclaimerText').show();
+}
+function closeDisclaimer() {
+    $('#disclaimerText').hide();
+}
+function showAll(){
+    map.removeLayer(redLayer);
+    map.removeLayer(greyLayer);
+    parseWorld(worldcountries, iroc_response);
+    buildStuff();
+}
