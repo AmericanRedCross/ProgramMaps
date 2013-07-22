@@ -67,7 +67,7 @@ function mapStyle(feature) {
         fillColor: feature.properties.mapColor,
         weight: 2,
         opacity: 1,
-        color: "white",
+        color: "#D7D7D8",
         fillOpacity: 1
     };
 }
@@ -259,7 +259,7 @@ function colorMap() {
     $.each(worldColored.features, function (ci, country) {
         var currentCountry = country.properties.name.toUpperCase();
         if ($.inArray(currentCountry, displayedCountryNames) === -1) {
-            country.properties.mapColor = "#D7D7D8";
+            country.properties.mapColor = "#FFF";
         } else {
             country.properties.mapColor = 'red';
         }
