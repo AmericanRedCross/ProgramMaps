@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<title>American Red Cross Programs</title>
+		
+<!-- shit's not working to populate FB share -->
 		<meta property="og:image" content="images/redCross.png" />
 		<meta property="og:title" content="American Red Cross International Programs" />
 		<meta property="og:description" content = "Interactice map showing ARC international programs!" />
@@ -101,14 +103,12 @@
 								    	'facebook-share-dialog', 
 								      	'width=626,height=436'); 
     								return false;"><span></span></a></li>
-	                	<!-- <li class="share"><a href="http://www.google.com"><span>Share</span></a></li> -->
-						<li class="twitter"><a href="http://www.twitter.com/redcross" ><span></span></a></li>
-						<!-- <li class="tweet"><a href="http://www.google.com"><span>Tweet</span></a></li> -->
+	                	
+						<li class="twitter"><a class="twitter popup" href="http://twitter.com/intent/tweet?text=Interactive%20map%20showing%20American%20Red%20Cross%20Int%27l%20Programs&amp;url=http%3A%2F%2Famericanredcross.github.io%2FProgramMaps%2F&amp;via=RedCross&amp;related=RedCross" ><span></span></a></li>
+						
 	                </ul>
 	            </nav>
-
-				</div>				
-										
+				</div>
    			</div>		
 	        <div id="disclaimer">
 			    <p>
@@ -121,7 +121,7 @@
 		<div id="tooltip"></div>
 		<script src="//cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-		<script src="js/main.js"></script>		
+		<script src="js/main.js"></script>
 	</body> 	
 </html>
 
