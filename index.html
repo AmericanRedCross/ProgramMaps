@@ -27,7 +27,6 @@
 	.social-list span {
 		display: inline;
 		float: left;
-		/*text-indent: -9999px;*/
 	}
 	.social-list li.facebook span {
 		background: url("images/fb_gray.png");
@@ -53,16 +52,35 @@
 		height: 20px;
 		width: 20px;
 	}
-	.social_list li.share span {
-		background: #FFFFFF;
-		height:20px;
-		width: 45px;
+
+	.zoomBtn {
+		border: none;
+		background: #a8b0b5;
+		color: #ffffff;
+		padding: 9px 12px 10px;
+		line-height: 17px;
+		text-decoration: none;
+		text-shadow: none;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		-webkit-transition: 0.25s;
+		-moz-transition: 0.25s;
+		-o-transition: 0.25s;
+		transition: 0.25s;
+		-webkit-backface-visibility: hidden;
 	}
-	.social_list li.tweet span {
-		background: #FFFFFF;
-		height:20px;
-		width:45px;
-	}	
+	.zoomBtn:hover {
+		background-color: #cacfd2;
+		color: #ffffff;
+		outline: none;
+		-webkit-transition: 0.25s;
+		transition: 0.25s;
+		-webkit-backface-visibility: hidden;
+	}
 
 	</style>
 
@@ -76,12 +94,12 @@
 			<div id="info">
 				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">International Programs</p>
 				<form> 
-					View programs active in:  
-					<select id="yearInput" onchange="changeYear()">						
+					View programs active in:					
+					<select id="yearInput" onchange="changeYear()">				
 					</select></form>
 					<br>
 				<form>
-					Primary Sector:
+					Primary Sector:					
 					<select id="sectorInput" onchange="changeSector()">						
 					</select></form>					
 				<hr>
@@ -89,7 +107,7 @@
 				<div id="programInfo"></div>
 				<div id="zoomWorld">
 					<hr>
-					<input type="button" value="Zoom to World" onclick="resetView()">
+					<input class="zoomBtn" type="button" value="Zoom to World" onclick="resetView()">
 				</div>
 				<nav class="socialBar">
 					<ul class="social-list">
