@@ -4,7 +4,7 @@ var arcPrograms = [];
 var sectorList = [];
 var yearList = [];
 var worldColored = [];
-var displayedCountryNames = [];
+var selectedYearProgramData = [];
 var displayedProgramData = [];
 var formattedSectorName = "";
 
@@ -62,50 +62,6 @@ info.update = function (props) {
     $('#countryName').append(infoCountry);
 };
 
-function mapStyle(feature) {
-    return {
-        fillColor: feature.properties.mapColor,
-        weight: 2,
-        opacity: 1,
-        color: "#D7D7D8",
-        fillOpacity: 1
-    };
-}
-
-var featureEvents = function (feature, layer) {
-    layer.on({
-        click: countryClick,
-        mouseover: displayName,
-        mouseout: clearName
-    });       
-}
-
-function displayName(e) {    
-    var countryTarget = e.target;
-    var tooltipText = countryTarget.feature.properties.name;
-    $('#tooltip').append(tooltipText);     
-}
-
-function clearName(e) {
-    $('#tooltip').empty();
-}
-
-function countryClick(e) {
-    map.fitBounds(e.target.getBounds());
-    geojson.setStyle(mapStyle);
-    var country = e.target;    
-    country.setStyle({
-        weight: 5,
-        color: '#fed53c',
-        dashArray: '',
-        fillOpacity: 1
-    });
-    if (!L.Browser.ie && !L.Browser.opera) {
-        country.bringToFront();
-    }
-    info.update(country.feature.properties);  
-}
-
 function getWorld() {
     $.ajax({
         type: 'GET',
@@ -132,32 +88,12 @@ function getARC() {
         timeout: 10000,
         success: function(json) {
             arcPrograms = json;
-            createSectorsDropdown();
-            createYearsDropdown();
-            colorMap();
+            createYearsDropdown();            
         },
         error: function(e) {
             console.log(e);
         }
     });
-}
-
-function createSectorsDropdown() {
-    $.each(arcPrograms, function (ai, program) {
-        var aSector = program.SECTOR_PRIMARY;
-        if ($.inArray(aSector, sectorList) === -1) {
-            sectorList.push(aSector);
-        }
-    });
-    var sectorsDropdown = document.getElementById("sectorInput");
-    for(var i = 0; i < sectorList.length; i++) {
-        var option = sectorList[i];
-        formatSectorName(option);
-        var el = document.createElement("option");
-        el.textContent = formattedSectorName;
-        el.value = option;
-        sectorsDropdown.appendChild(el);
-    }
 }
 
 function createYearsDropdown() {
@@ -200,9 +136,49 @@ function createYearsDropdown() {
         el.textContent = option;
         el.value = option;
         yearsDropdown.appendChild(el);
-    } 
+    }
+    changeYear(); 
 }
 
+function changeYear() {
+    // get selected year
+    var yearIndex = document.getElementById("yearInput").selectedIndex;
+    var yearOptions = document.getElementById("yearInput").options;
+    var year = yearOptions[yearIndex].value;
+    var yearChoice = parseInt(year);
+    // populate arrays *data for year's displayed programs* and 
+    selectedYearProgramData = [];
+    $.each(arcPrograms, function (ai, program) {
+        var currentCountry = program.COUNTRY.toUpperCase();        
+        var startYear = new Date(program["Project Period START_DT"]).getFullYear();
+        var endYear = new Date (program["Project Period END_DT"]).getFullYear();
+        if (yearChoice == startYear || yearChoice == endYear || (yearChoice < endYear && yearChoice > startYear)) {            
+            selectedYearProgramData.push(program);
+        }                
+    });
+    // build sector dropdown
+    sectorList = [];
+    $.each(selectedYearProgramData, function (ai, program) {
+        var aSector = program.SECTOR_PRIMARY;
+        if ($.inArray(aSector, sectorList) === -1) {
+            sectorList.push(aSector);
+        }
+    });
+    $('#sectorInput').empty();
+    $('#sectorInput').append('<option value = "ALL"> All sectors</option>');
+    var sectorsDropdown = document.getElementById("sectorInput");
+    for(var i = 0; i < sectorList.length; i++) {
+        var option = sectorList[i];
+        formatSectorName(option);
+        var el = document.createElement("option");
+        el.textContent = formattedSectorName;
+        el.value = option;
+        sectorsDropdown.appendChild(el);
+    }
+    changeSector();
+}
+
+//changes display text in program sectors dropdown
 function formatSectorName(option) {
     if (option === "Measles") {
         formattedSectorName = "Measles Vaccination Campaign";
@@ -225,35 +201,26 @@ function formatSectorName(option) {
     }
 }
 
-function colorMap() {
+function changeSector() {
     map.removeLayer(geojson);
     info.update();    
     worldColored = worldCountries;
     displayedCountryNames = [];
     displayedProgramData = [];
-    // get selected year
-    var yearIndex = document.getElementById("yearInput").selectedIndex;
-    var yearOptions = document.getElementById("yearInput").options;
-    var year = yearOptions[yearIndex].value;
-    var yearChoice = parseInt(year);
     // get selected sector
     var sectorIndex = document.getElementById("sectorInput").selectedIndex;
     var sectorOptions = document.getElementById("sectorInput").options;
     var sectorChoice = sectorOptions[sectorIndex].value;
     // populate arrays *data for displayed programs* and *names for displayed countries*
-    $.each(arcPrograms, function (ai, program) {
+    $.each(selectedYearProgramData, function (ai, program) {
         var currentCountry = program.COUNTRY.toUpperCase();
-        var currentProgramSector = program.SECTOR_PRIMARY;
-        var startYear = new Date(program["Project Period START_DT"]).getFullYear();
-        var endYear = new Date (program["Project Period END_DT"]).getFullYear();
-        if (yearChoice == startYear || yearChoice == endYear || (yearChoice < endYear && yearChoice > startYear)) {
-            if (sectorChoice === currentProgramSector || sectorChoice === "ALL") {
-                displayedProgramData.push(program);
-                if ($.inArray(currentCountry, displayedCountryNames) === -1) {
-                displayedCountryNames.push(currentCountry);
-                }
-            }            
-        }       
+        var currentProgramSector = program.SECTOR_PRIMARY;        
+        if (sectorChoice === currentProgramSector || sectorChoice === "ALL") {
+            displayedProgramData.push(program);
+            if ($.inArray(currentCountry, displayedCountryNames) === -1) {
+            displayedCountryNames.push(currentCountry);
+            }
+        }               
     });
     // add map color property to each geojson country based on names list of displayed countries
     $.each(worldColored.features, function (ci, country) {
@@ -278,9 +245,55 @@ function clearCountry(e) {
 }
 map.on('dblclick', clearCountry);
 
-// Trailing tooltip displays country name on mouseover
+// functions for geoJson map layer
+function mapStyle(feature) {
+    return {
+        fillColor: feature.properties.mapColor,
+        weight: 2,
+        opacity: 1,
+        color: "#D7D7D8",
+        fillOpacity: 1
+    };
+}
+
+var featureEvents = function (feature, layer) {
+    layer.on({
+        click: countryClick,
+        mouseover: displayName,
+        mouseout: clearName
+    });       
+}
+
+// pass country name to Tooltip  div on mouseover/out
+function displayName(e) {    
+    var countryTarget = e.target;
+    var tooltipText = countryTarget.feature.properties.name;
+    $('#tooltip').append(tooltipText);     
+}
+
+function clearName(e) {
+    $('#tooltip').empty();
+}
+
+// for map click event ---> zoom to country, highlight border, update info box
+function countryClick(e) {
+    map.fitBounds(e.target.getBounds());
+    geojson.setStyle(mapStyle);
+    var country = e.target;    
+    country.setStyle({
+        weight: 5,
+        color: '#fed53c',
+        dashArray: '',
+        fillOpacity: 1
+    });
+    if (!L.Browser.ie && !L.Browser.opera) {
+        country.bringToFront();
+    }
+    info.update(country.feature.properties);  
+}
+
+// tooltip follows cursor
 $(document).ready(function() {
-    //Select all anchor tag with rel set to tooltip
     $('#container').mouseover(function(e) {        
         //Set the X and Y axis of the tooltip
         $('#tooltip').css('top', e.pageY + 10 );
@@ -288,11 +301,6 @@ $(document).ready(function() {
     }).mousemove(function(e) {    
         //Keep changing the X and Y axis for the tooltip, thus, the tooltip move along with the mouse
         $("#tooltip").css({top:(e.pageY+15)+"px",left:(e.pageX+20)+"px"});        
-    }).mouseout(function() {    
-        //Put back the title attribute's value
-        $(this).attr('title',$('.tipBody').html());    
-        //Remove the appended tooltip template
-        $(this).children('div#tooltip').remove();   
     });
 });
 
