@@ -128,23 +128,21 @@ function createYearsDropdown() {
     }
     // sort so that the years appear in order in dropdown
     yearList = yearList.sort(function(a,b){return b-a}); 
-    // create option elements in dropdown menu  
+    // create item elements in dropdown menu  
     var yearsDropdown = document.getElementById("yearInput");
     for(var i = 0; i < yearList.length; i++) {
-        var option = yearList[i];
-        var el = document.createElement("option");
-        el.textContent = option;
-        el.value = option;
-        yearsDropdown.appendChild(el);
+        var item = yearList[i];
+        var listItemText = "<li><a>" + item + "</a></li>"
+        $('#yearInput').append(listItemText);       
     }
     changeYear(); 
 }
 
-function changeYear() {
+function changeYear(year) {
     // get selected year
-    var yearIndex = document.getElementById("yearInput").selectedIndex;
-    var yearOptions = document.getElementById("yearInput").options;
-    var year = yearOptions[yearIndex].value;
+    // var yearIndex = document.getElementById("yearInput").selectedIndex;
+    // var yearOptions = document.getElementById("yearInput").options;
+    // var year = yearOptions[yearIndex].value;
     var yearChoice = parseInt(year);
     // populate arrays *data for year's displayed programs* and 
     selectedYearProgramData = [];
@@ -294,7 +292,7 @@ function countryClick(e) {
 
 // tooltip follows cursor
 $(document).ready(function() {
-    $('#container').mouseover(function(e) {        
+    $('#map').mouseover(function(e) {        
         //Set the X and Y axis of the tooltip
         $('#tooltip').css('top', e.pageY + 10 );
         $('#tooltip').css('left', e.pageX + 20 );         
@@ -304,8 +302,6 @@ $(document).ready(function() {
     });
 });
 
-getWorld();
-info.update();
 
 //disclaimer text
 function showDisclaimer() {
@@ -338,3 +334,52 @@ window.open(url, 'twitter', opts);
 
 return false;
 });
+
+
+function DropDown(el) {
+    this.dd = el;
+    this.placeholder = this.dd.children('span');
+    this.opts = this.dd.find('ul.dropdown > li');
+    this.val = '';
+    this.index = -1;
+    this.initEvents();
+}
+DropDown.prototype = {
+    initEvents : function() {
+        var obj = this;
+
+        obj.dd.on('click', function(event){
+            $(this).toggleClass('active');
+            return false;
+        });
+
+        obj.opts.on('click',function(){
+            var opt = $(this);
+            obj.val = opt.text();
+            obj.index = opt.index();
+            obj.placeholder.text(obj.val);
+            changeYear(obj.val);
+        });
+    },
+    getValue : function() {
+        return this.val;
+    },
+    getIndex : function() {
+        return this.index;
+    }
+}
+
+$(function() {
+
+    var dd = new DropDown( $('#dd') );
+
+    $(document).click(function() {
+        // all dropdowns
+        $('.wrapper-dropdown-1').removeClass('active');
+    });
+
+});
+
+
+getWorld();
+info.update();

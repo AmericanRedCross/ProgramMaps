@@ -224,12 +224,15 @@ textarea {
 #tooltip {                      
     position:absolute;
     z-index:9999;
-    color:#fff;
-    font-size:10px;
-    color: black;       
-    background-color: rgba(255,255,255,0.2);
+    font-size:16px;
+    color: #1a1a1a;       
+    background-color: rgba(255,255,255,0.4);
     border-radius: 3px;
     padding: 2px;       
+}
+    
+#tooltip:empty {
+    display:none;
 }
 
 ::-webkit-scrollbar {
