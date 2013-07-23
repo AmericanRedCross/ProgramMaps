@@ -169,7 +169,7 @@ function changeYear(year) {
     });
     $('#sectorInput').empty();
 
-    $('#sectorInput').append("<li><a>All Sectors</a></li>");
+    $('#sectorInput').append("<li id="variable">All Sectors</li>");
     // var sectorsDropdown = document.getElementById("sectorInput");
     for(var i = 0; i < sectorList.length; i++) {
         var option = sectorList[i];
@@ -338,7 +338,7 @@ $('.popup').click(function(event) {
     return false;
 });
 
-
+//var selectedText = $('#sectorinput li').html().toString();
 
 //Dropdown1
 function DropDown(el) {
