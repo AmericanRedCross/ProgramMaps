@@ -7,6 +7,7 @@ var worldColored = [];
 var selectedYearProgramData = [];
 var displayedProgramData = [];
 var formattedSectorName = "";
+var dd = "";
 
 var center = new L.LatLng(30, 30);
 var bounds = new L.LatLngBounds([90, 260], [-80, -190]);
@@ -128,14 +129,17 @@ function createYearsDropdown() {
     }
     // sort so that the years appear in order in dropdown
     yearList = yearList.sort(function(a,b){return b-a}); 
-    // create item elements in dropdown menu  
+    // create item elements in dropdown list   
     var yearsDropdown = document.getElementById("yearInput");
     for(var i = 0; i < yearList.length; i++) {
         var item = yearList[i];
         var listItemText = "<li><a>" + item + "</a></li>"
         $('#yearInput').append(listItemText);       
     }
-    changeYear(); 
+    // allows dropdown shit interactivity to happen to the list
+    var dd = new DropDown( $('#ddYear') );
+    changeYear(maxYear);
+    $('#yearSpan').append(maxYear); 
 }
 
 function changeYear(year) {
@@ -319,23 +323,25 @@ function showAll(){
 
 // tweet popup
 $('.popup').click(function(event) {
-var width  = 575,
-    height = 400,
-    left   = ($(window).width()  - width)  / 2,
-    top    = ($(window).height() - height) / 2,
-    url    = this.href,
-    opts   = 'status=1' +
-             ',width='  + width  +
-             ',height=' + height +
-             ',top='    + top    +
-             ',left='   + left;
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
 
-window.open(url, 'twitter', opts);
+    window.open(url, 'twitter', opts);
 
-return false;
+    return false;
 });
 
 
+
+//Dropdown
 function DropDown(el) {
     this.dd = el;
     this.placeholder = this.dd.children('span');
@@ -369,17 +375,12 @@ DropDown.prototype = {
     }
 }
 
-$(function() {
-
-    var dd = new DropDown( $('#dd') );
-
-    $(document).click(function() {
-        // all dropdowns
-        $('.wrapper-dropdown-1').removeClass('active');
-    });
-
+$(document).click(function() {
+    // all dropdowns
+    $('.wrapper-dropdown-1').removeClass('active');
 });
 
 
 getWorld();
 info.update();
+

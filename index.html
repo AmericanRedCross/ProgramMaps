@@ -14,204 +14,6 @@
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 
-	<style>
-
-	.socialBar {
- 		float: right;
-	}
-	.socialBar li {
-		display: inline;
-		float: left;
-		margin: 0 0 0 4px;
-	}
-	.social-list span {
-		display: inline;
-		float: left;
-	}
-	.social-list li.facebook span {
-		background: url("images/fb_gray.png");
-		background-repeat: no-repeat;
-		height: 20px;
-		width: 20px;
-	}
-	.social-list li.facebook a:hover span {
-		background: url("images/fb_color.png");
-		background-repeat: no-repeat;
-		height: 20px;
-		width: 20px;
-	}
-	.social-list li.twitter span {
-		background: url("images/twitter_gray.png");
-		background-repeat: no-repeat;
-		height: 20px;
-		width: 20px;
-	}
-	.social-list li.twitter a:hover span {
-		background: url("images/twitter_color.png");
-		background-repeat: no-repeat;
-		height: 20px;
-		width: 20px;
-	}
-
-	.zoomBtn {
-		border: none;
-		background: #aeafaf;
-		color: #ffffff;
-		padding: 9px 12px 10px;
-		line-height: 17px;
-		text-decoration: none;
-		text-shadow: none;
-		-webkit-border-radius: 6px;
-		-moz-border-radius: 6px;
-		border-radius: 5px;
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
-		box-shadow: none;
-		-webkit-transition: 0.25s;
-		-moz-transition: 0.25s;
-		-o-transition: 0.25s;
-		transition: 0.25s;
-		-webkit-backface-visibility: hidden;
-	}
-	.zoomBtn:hover {
-		outline: none;
-		box-shadow: 0 0 15px rgba(0,0,0,0.2);
-		-webkit-transition: 0.25s;
-		transition: 0.25s;
-		-webkit-backface-visibility: hidden;
-	}
-
-	/* GLOBALS */
-
-	*,
-	*:after,
-	*:before {
-	    -webkit-box-sizing: border-box;
-	    -moz-box-sizing: border-box;
-	    box-sizing: border-box;
-	    padding: 0;
-	    margin: 0;
-	}
-
-	::selection {
-	    background: transparent; 
-	}
-
-	::-moz-selection {
-	    background: transparent; 
-	}
-
-	.wrapper-demo {
-	    margin: 60px 0 0 0;
-	    *zoom: 1;
-	    font-weight: 400;
-	}
-
-	.wrapper-demo:after {
-	    clear: both;
-	    content: "";
-	    display: table;
-	}
-
-	/* DEMO 1 */
-
-	.wrapper-dropdown-1 {
-	    /* Size and position */
-	    position: relative; /* Enable absolute positionning for children and pseudo elements */
-	    width: 200px;
-	    padding: 10px;
-	    margin: 0 auto;
-
-	    /* Styles */
-	    background: #9bc7de;
-	    color: #fff;
-	    outline: none;
-	    cursor: pointer;
-
-	    /* Font settings */
-	    font-weight: bold;
-	}
-
-	.wrapper-dropdown-1:after {
-	    content: "";
-	    width: 0;
-	    height: 0;
-	    position: absolute;
-	    right: 16px;
-	    top: 50%;
-	    margin-top: -6px;
-	    border-width: 6px 0 6px 6px;
-	    border-style: solid;
-	    border-color: transparent #fff;    
-	}
-
-	.wrapper-dropdown-1 .dropdown {
-	    /* Size & position */
-	    position: absolute;
-	    top: 100%;
-	    left: 0;
-	    right: 0;
-
-	    /* Styles */
-	    background: #fff;
-	    list-style: none;
-	    font-weight: normal; /* Cancels previous font-weight: bold; */
-
-	    /* Hiding */
-	    opacity: 0;
-	    pointer-events: none;
-	}
-
-	.wrapper-dropdown-1 .dropdown li a {
-	    display: block;
-	    text-decoration: none;
-	    color: #9e9e9e;
-	    padding: 5px 5px;
-	}
-
-	/* Hover state */
-	.wrapper-dropdown-1 .dropdown li:hover a {
-	    background: #f3f8f8;
-	}
-
-	/* Active state */
-	.wrapper-dropdown-1.active .dropdown {
-	    opacity: 1;
-	    pointer-events: auto;
-	}
-
-	.wrapper-dropdown-1.active:after {
-	    border-color: #9bc7de transparent;
-	    border-width: 6px 6px 0 6px ;
-	    margin-top: -3px;
-	}
-
-	.wrapper-dropdown-1.active {
-	  background: #9bc7de;
-	  background: -moz-linear-gradient(left,  #9bc7de 0%, #9bc7de 78%, #ffffff 78%, #ffffff 100%);
-	  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#9bc7de), color-stop(78%,#9bc7de), color-stop(78%,#ffffff), color-stop(100%,#ffffff));
-	  background: -webkit-linear-gradient(left,  #9bc7de 0%,#9bc7de 78%,#ffffff 78%,#ffffff 100%);
-	  background: -o-linear-gradient(left,  #9bc7de 0%,#9bc7de 78%,#ffffff 78%,#ffffff 100%);
-	  background: -ms-linear-gradient(left,  #9bc7de 0%,#9bc7de 78%,#ffffff 78%,#ffffff 100%);
-	  background: linear-gradient(to right,  #9bc7de 0%,#9bc7de 78%,#ffffff 78%,#ffffff 100%);
-	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9bc7de', endColorstr='#ffffff',GradientType=1 );
-	}
-
-	/* No CSS3 support */
-
-	.no-opacity       .wrapper-dropdown-1 .dropdown,
-	.no-pointerevents .wrapper-dropdown-1 .dropdown {
-	    display: none;
-	    opacity: 1; /* If opacity support but no pointer-events support */
-	    pointer-events: auto; /* If pointer-events support but no pointer-events support */
-	}
-
-	.no-opacity       .wrapper-dropdown-1.active .dropdown,
-	.no-pointerevents .wrapper-dropdown-1.active .dropdown {
-	    display: block;
-	}
-
-	</style>
 
 	<body>		
 		<div id="container">
@@ -221,31 +23,32 @@
                 <p>Disclaimer</p><hr>
                 The maps on this page do not imply the expression of any opinion on the part of the American Red Cross concerning the legal status of a territory or of its authorities. Program data may not be complete for all years and all countries. </div>
 			<div id="info">
-				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">International Programs</p>
-				<form> 
+				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">International Programs</p>	
 
-
-					
-<!-- http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/ -->
-					<div id="dd" class="wrapper-dropdown-1" tabindex="1">
-						<span>Year</span>
-					    <ul id="yearInput" class="dropdown" tabindex="1">
-					        <li><a>2013</a></li>
-					        <li><a>2012</a></li>
-					    </ul>
-					</div>
+				<div id="ddYear" class="wrapper-dropdown-1" tabindex="1">
+					<span id="yearSpan"></span>
+				    <ul id="yearInput" class="dropdown" tabindex="1">
+<!-- 					autopopulated but the elements look like this... 
+					    <li><a>2013</a></li>
+				        <li><a>2012</a></li> 
+				    	referenced this site for the code to make it an interface: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/	-->
+				    </ul>
+				</div>
 					<br>
-				<form>
+				<div id="ddsector">
 					Primary Sector:					
 					<select id="sectorInput" onchange="changeSector()">						
-					</select></form>					
+					</select></form>
+				</div>					
 				<hr>
 				<div id ="countryName"></div>
 				<div id="programInfo"></div>
+				<hr>
+
 				<div id="zoomWorld">
-					<hr>
 					<input class="zoomBtn" type="button" value="Zoom to World" onclick="resetView()">
 				</div>
+
 				<nav class="socialBar">
 					<ul class="social-list">
 	                	<li class="facebook">
@@ -257,7 +60,7 @@
 								      	'width=626,height=436'); 
     								return false;"><span></span></a></li>
 	                	
-						<li class="twitter"><a class="twitter popup" href="http://twitter.com/intent/tweet?text=Interactive%20map%20showing%20American%20Red%20Cross%20Int%27l%20Programs&amp;url=http%3A%2F%2Famericanredcross.github.io%2FProgramMaps%2F&amp;via=RedCross&amp;related=RedCross" ><span></span></a></li>
+						<li class="twitter"><a class="twitter popup" href="http://twitter.com/intent/tweet?text=Interactive%20map%20showing%20American%20Red%20Cross%20Int%27l%20Programs&amp;url=http%3A%2F%2Famericanredcross.github.io%2FProgramMaps%2F&amp;via=RedCross&amp;related=RedCross"><span></span></a></li>
 						
 	                </ul>
 	            </nav>
