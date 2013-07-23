@@ -12,6 +12,34 @@
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/main.css">
+
+		<style>
+			.social-list li.facebook span {
+			    background: url("images/fb_gray.png");
+			    background-repeat: no-repeat;
+			    height: 20px;
+			    width: 20px;
+			}
+			.social-list li.facebook a:hover span {
+			    background: url("images/fb_color.png");
+			    background-repeat: no-repeat;
+			    height: 20px;
+			    width: 20px;
+			}
+			.social-list li.twitter span {
+			    background: url("images/twitter_gray.png");
+			    background-repeat: no-repeat;
+			    height: 20px;
+			    width: 20px;
+			}
+			.social-list li.twitter a:hover span {
+			    background: url("images/twitter_color.png");
+			    background-repeat: no-repeat;
+			    height: 20px;
+			    width: 20px;
+			}
+		</style>
+
 	</head>
 
 
@@ -35,10 +63,10 @@
 				    </ul>
 				</div>
 					<br>
-				<div id="ddsector">
-					Primary Sector:					
-					<select id="sectorInput" onchange="changeSector()">						
-					</select></form>
+				<div id="ddSector" class="wrapper-dropdown-2" tabindex="1">
+					<span id="sectorSpan"></span>
+					<ul id="sectorInput" class="dropdown" tabindex="1">
+					</ul>					
 				</div>					
 				<hr>
 				<div id ="countryName"></div>

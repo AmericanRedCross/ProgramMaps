@@ -8,6 +8,7 @@ var selectedYearProgramData = [];
 var displayedProgramData = [];
 var formattedSectorName = "";
 var dd = "";
+var dd2 = "";
 
 var center = new L.LatLng(30, 30);
 var bounds = new L.LatLngBounds([90, 260], [-80, -190]);
@@ -133,13 +134,13 @@ function createYearsDropdown() {
     var yearsDropdown = document.getElementById("yearInput");
     for(var i = 0; i < yearList.length; i++) {
         var item = yearList[i];
-        var listItemText = "<li><a>" + item + "</a></li>"
-        $('#yearInput').append(listItemText);       
+        var listItemYear = "<li><a>" + item + "</a></li>"
+        $('#yearInput').append(listItemYear);       
     }
     // allows dropdown shit interactivity to happen to the list
     var dd = new DropDown( $('#ddYear') );
-    changeYear(maxYear);
     $('#yearSpan').append(maxYear); 
+    changeYear(maxYear);
 }
 
 function changeYear(year) {
@@ -167,17 +168,19 @@ function changeYear(year) {
         }
     });
     $('#sectorInput').empty();
-    $('#sectorInput').append('<option value = "ALL"> All sectors</option>');
-    var sectorsDropdown = document.getElementById("sectorInput");
+
+    $('#sectorInput').append("<li><a>All Sectors</a></li>");
+    // var sectorsDropdown = document.getElementById("sectorInput");
     for(var i = 0; i < sectorList.length; i++) {
         var option = sectorList[i];
-        formatSectorName(option);
-        var el = document.createElement("option");
-        el.textContent = formattedSectorName;
-        el.value = option;
-        sectorsDropdown.appendChild(el);
+        // option = formatSectorName(option);
+        var listItemSector = "<li><a>" + option + "</a></li>"
+        $('#sectorInput').append(listItemSector); 
     }
-    changeSector();
+    var dd = new DropDown( $('#ddSector') );
+    $('#sectorSpan').empty();
+    $('#sectorSpan').append("All Sectors");
+    changeSector("All Sectors");
 }
 
 //changes display text in program sectors dropdown
@@ -203,21 +206,17 @@ function formatSectorName(option) {
     }
 }
 
-function changeSector() {
+function changeSector(sector) {
     map.removeLayer(geojson);
     info.update();    
     worldColored = worldCountries;
     displayedCountryNames = [];
     displayedProgramData = [];
-    // get selected sector
-    var sectorIndex = document.getElementById("sectorInput").selectedIndex;
-    var sectorOptions = document.getElementById("sectorInput").options;
-    var sectorChoice = sectorOptions[sectorIndex].value;
     // populate arrays *data for displayed programs* and *names for displayed countries*
     $.each(selectedYearProgramData, function (ai, program) {
         var currentCountry = program.COUNTRY.toUpperCase();
         var currentProgramSector = program.SECTOR_PRIMARY;        
-        if (sectorChoice === currentProgramSector || sectorChoice === "ALL") {
+        if (sector === currentProgramSector || sector === "All Sectors") {
             displayedProgramData.push(program);
             if ($.inArray(currentCountry, displayedCountryNames) === -1) {
             displayedCountryNames.push(currentCountry);
@@ -341,7 +340,7 @@ $('.popup').click(function(event) {
 
 
 
-//Dropdown
+//Dropdown1
 function DropDown(el) {
     this.dd = el;
     this.placeholder = this.dd.children('span');
@@ -375,9 +374,44 @@ DropDown.prototype = {
     }
 }
 
+//Dropdown2
+function DropDown2(el) {
+    this.dd2 = el;
+    this.placeholder = this.dd2.children('span');
+    this.opts = this.dd2.find('ul.dropdown > li');
+    this.val = '';
+    this.index = -1;
+    this.initEvents();
+}
+DropDown2.prototype = {
+    initEvents : function() {
+        var obj = this;
+
+        obj.dd2.on('click', function(event){
+            $(this).toggleClass('active');
+            return false;
+        });
+
+        obj.opts.on('click',function(){
+            var opt = $(this);
+            obj.val = opt.text();
+            obj.index = opt.index();
+            obj.placeholder.text(obj.val);
+            changeSector(obj.val);
+        });
+    },
+    getValue : function() {
+        return this.val;
+    },
+    getIndex : function() {
+        return this.index;
+    }
+}
+
 $(document).click(function() {
     // all dropdowns
     $('.wrapper-dropdown-1').removeClass('active');
+    $('.wrapper-dropdown-2').removeClass('active');        
 });
 
 
