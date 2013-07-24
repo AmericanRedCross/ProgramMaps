@@ -38,10 +38,12 @@
 			    height: 20px;
 			    width: 20px;
 			}
+
 		</style>
 
 	</head>
 
+	<!-- referenced this site for the code to make dropdowns: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/	-->
 
 	<body>		
 		<div id="container">
@@ -52,21 +54,15 @@
                 The maps on this page do not imply the expression of any opinion on the part of the American Red Cross concerning the legal status of a territory or of its authorities. Program data may not be complete for all years and all countries. </div>
 			<div id="info">
 				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">International Programs</p>	
-
-				<div id="ddYear" class="wrapper-dropdown-1" tabindex="1">
-					<span id="yearSpan"></span>
-				    <ul id="yearInput" class="dropdown" tabindex="1">
-<!-- 					autopopulated but the elements look like this... 
-					    <li><a>2013</a></li>
-				        <li><a>2012</a></li> 
-				    	referenced this site for the code to make it an interface: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/	-->
-				    </ul>
-				</div>
-					<br>
-				<div id="ddSector" class="wrapper-dropdown-2" tabindex="1">
-					<span id="sectorSpan"></span>
-					<ul id="sectorInput" class="dropdown" tabindex="1">
-					</ul>					
+				<div id= "menuBox">
+					<div id="ddYear" class="wrapper-dropdown-1">
+						<span id="yearSpan"></span>
+					    <ul id="yearInput" class="dropdown"></ul>
+					</div>					
+					<div id="ddSector" class="wrapper-dropdown-2">
+						<span id="sectorSpan"></span>
+						<ul id="sectorInput" class="dropdown"></ul>					
+					</div>
 				</div>					
 				<hr>
 				<div id ="countryName"></div>

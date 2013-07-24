@@ -134,7 +134,7 @@ function createYearsDropdown() {
     var yearsDropdown = document.getElementById("yearInput");
     for(var i = 0; i < yearList.length; i++) {
         var item = yearList[i];
-        var listItemYear = "<li><a>" + item + "</a></li>"
+        var listItemYear = "<li>" + item + "</li>"
         $('#yearInput').append(listItemYear);       
     }
     // allows dropdown shit interactivity to happen to the list
@@ -144,10 +144,6 @@ function createYearsDropdown() {
 }
 
 function changeYear(year) {
-    // get selected year
-    // var yearIndex = document.getElementById("yearInput").selectedIndex;
-    // var yearOptions = document.getElementById("yearInput").options;
-    // var year = yearOptions[yearIndex].value;
     var yearChoice = parseInt(year);
     // populate arrays *data for year's displayed programs* and 
     selectedYearProgramData = [];
@@ -167,19 +163,18 @@ function changeYear(year) {
             sectorList.push(aSector);
         }
     });
-    $('#sectorInput').empty();
-
-    $('#sectorInput').append("<li id="variable">All Sectors</li>");
-    // var sectorsDropdown = document.getElementById("sectorInput");
-    for(var i = 0; i < sectorList.length; i++) {
-        var option = sectorList[i];
-        // option = formatSectorName(option);
-        var listItemSector = "<li><a>" + option + "</a></li>"
-        $('#sectorInput').append(listItemSector); 
-    }
-    var dd = new DropDown( $('#ddSector') );
     $('#sectorSpan').empty();
     $('#sectorSpan').append("All Sectors");
+    $('#sectorInput').empty();
+    $('#sectorInput').append("<li id='All Sectors'>All Sectors</li>")
+    for(var i = 0; i < sectorList.length; i++) {
+        var option = sectorList[i];
+        formatSectorName(option);
+        var listItemSector = "<li id='" + option + "'>" + formattedSectorName + "</li>";
+        $('#sectorInput').append(listItemSector); 
+    }
+
+    var dd2 = new DropDown2( $('#ddSector') );
     changeSector("All Sectors");
 }
 
@@ -338,7 +333,7 @@ $('.popup').click(function(event) {
     return false;
 });
 
-//var selectedText = $('#sectorinput li').html().toString();
+
 
 //Dropdown1
 function DropDown(el) {
@@ -349,6 +344,7 @@ function DropDown(el) {
     this.index = -1;
     this.initEvents();
 }
+
 DropDown.prototype = {
     initEvents : function() {
         var obj = this;
@@ -359,11 +355,9 @@ DropDown.prototype = {
         });
 
         obj.opts.on('click',function(){
-            var opt = $(this);
-            obj.val = opt.text();
-            obj.index = opt.index();
-            obj.placeholder.text(obj.val);
-            changeYear(obj.val);
+            var selectedYear = $(this).html().toString()
+            obj.placeholder.text(selectedYear);
+            changeYear(selectedYear);
         });
     },
     getValue : function() {
@@ -393,11 +387,10 @@ DropDown2.prototype = {
         });
 
         obj.opts.on('click',function(){
-            var opt = $(this);
-            obj.val = opt.text();
-            obj.index = opt.index();
-            obj.placeholder.text(obj.val);
-            changeSector(obj.val);
+            var selectedSector = $(this).text();
+            var sectorId = $(this).attr('id');
+            obj.placeholder.text(selectedSector);
+            changeSector(sectorId);
         });
     },
     getValue : function() {
@@ -408,10 +401,17 @@ DropDown2.prototype = {
     }
 }
 
+// close any open dropdown if page is clicked elsewhere
 $(document).click(function() {
-    // all dropdowns
     $('.wrapper-dropdown-1').removeClass('active');
     $('.wrapper-dropdown-2').removeClass('active');        
+});
+// only one dropdown open at a time
+$('.wrapper-dropdown-1').click(function() {
+    $('.wrapper-dropdown-2').removeClass('active');        
+});
+$('.wrapper-dropdown-2').click(function() {
+    $('.wrapper-dropdown-1').removeClass('active'); 
 });
 
 

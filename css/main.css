@@ -156,9 +156,9 @@ textarea {
     position: absolute;
     top:15px;
     right:15px;
-    max-width: 20%;
-    max-height: 80%;
-    overflow: auto;
+    width: 460px;
+    min-height: 55%;
+    overflow: none;
 }
 
 #programInfo {
@@ -248,8 +248,11 @@ textarea {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
-.socialBar {
-    float: right;
+.socialBar {    
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    display: inline-block;
 }
 .socialBar li {
     display: inline;
@@ -264,6 +267,10 @@ textarea {
 
 .zoomBtn {
     border: none;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;    
+    margin: 10px auto;
     background: #aeafaf;
     color: #ffffff;
     padding: 9px 12px 10px;
@@ -310,13 +317,18 @@ textarea {
     background: transparent; 
 }
 
-/* year Wrapper */
+#menuBox {
+    height: 50px;
+}
+
+/* dropdown Wrappers */
+
 .wrapper-dropdown-1 {
     /* Size and position */
     position: relative; /* Enable absolute positionning for children and pseudo elements */
-    width: 75px;
+    width: 85px;
     padding: 10px;
-    /*margin: 0 auto;*/
+    margin: 5px;
     z-index: 1;
     /* Styles */
     background: #aeafaf;
@@ -324,13 +336,51 @@ textarea {
     outline: none;
     cursor: pointer;
     border-radius: 5px;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+}
+
+.wrapper-dropdown-2 {
+    /* Size and position */
+    position: relative; /* Enable absolute positionning for children and pseudo elements */
+    width: 315px;
+    padding: 10px;
+    margin: 5px;
+    z-index: 1;
+    /* Styles */
+    background: #aeafaf;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: top;
+    display: inline-block;
+    float:left;
 }
 
 .wrapper-dropdown-1:hover {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.wrapper-dropdown-2:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
 .wrapper-dropdown-1:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -6px;
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    border-color: transparent #fff;    
+}
+
+.wrapper-dropdown-2:after {
     content: "";
     width: 0;
     height: 0;
@@ -360,8 +410,31 @@ textarea {
     pointer-events: none;
 }
 
+.wrapper-dropdown-2 .dropdown {
+    /* Size & position */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    /* Styles */        
+    background: #f2f2f2;
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    text-indent: 7px;
+    /* Hiding */
+    opacity: 0;
+    pointer-events: none;
+}
 
-.wrapper-dropdown-1 .dropdown li a {
+.wrapper-dropdown-1 .dropdown li {
+    display: block;
+    text-decoration: none;
+    color: #9e9e9e;
+    padding: 2px;
+}
+
+.wrapper-dropdown-2 .dropdown li {
     display: block;
     text-decoration: none;
     color: #9e9e9e;
@@ -369,7 +442,12 @@ textarea {
 }
 
 /* Hover state */
-.wrapper-dropdown-1 .dropdown li:hover a {
+.wrapper-dropdown-1 .dropdown li:hover {
+    background: #f3f8f8;
+}
+
+/* Hover state */
+.wrapper-dropdown-2 .dropdown li:hover {
     background: #f3f8f8;
 }
 
@@ -379,7 +457,19 @@ textarea {
     pointer-events: auto;
 }
 
+/* Active state */
+.wrapper-dropdown-2.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .wrapper-dropdown-1.active:after {
+    border-color: #aeafaf transparent;
+    border-width: 6px 6px 0 6px ;
+    margin-top: -3px;
+}
+
+.wrapper-dropdown-2.active:after {
     border-color: #aeafaf transparent;
     border-width: 6px 6px 0 6px ;
     margin-top: -3px;
@@ -392,7 +482,18 @@ textarea {
   background: -webkit-linear-gradient(left,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
   background: -o-linear-gradient(left,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
   background: -ms-linear-gradient(left,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
-  background: linear-gradient(to right,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
+  background: linear-gradient(to right,  #aeafaf 0px,#aeafaf 55px,#f2f2f2 55px,#f2f2f2 85px);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aeafaf', endColorstr='#f2f2f2',GradientType=1 );
+}
+
+.wrapper-dropdown-2.active {
+  background: #aeafaf;
+  background: -moz-linear-gradient(left,  #aeafaf 0%, #aeafaf 64%, #f2f2f2 64%, #f2f2f2 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#aeafaf), color-stop(64%,#aeafaf), color-stop(64%,#f2f2f2), color-stop(100%,#f2f2f2));
+  background: -webkit-linear-gradient(left,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
+  background: -o-linear-gradient(left,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
+  background: -ms-linear-gradient(left,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
+  background: linear-gradient(to right,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aeafaf', endColorstr='#f2f2f2',GradientType=1 );
 }
 
@@ -405,100 +506,6 @@ textarea {
     pointer-events: auto; /* If pointer-events support but no pointer-events support */
 }
 
-.no-opacity       .wrapper-dropdown-1.active .dropdown,
-.no-pointerevents .wrapper-dropdown-1.active .dropdown {
-    display: block;
-}
-
-
-/* SECTOR WRAPPER */
-.wrapper-dropdown-2 {
-    /* Size and position */
-    position: relative; /* Enable absolute positionning for children and pseudo elements */
-    width: 200px;
-    padding: 10px;
-    /*margin: 0 auto;*/
-    z-index: 1;
-    /* Styles */
-    background: #aeafaf;
-    color: #fff;
-    outline: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.wrapper-dropdown-2:hover {
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.wrapper-dropdown-2:after {
-    content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    margin-top: -6px;
-    border-width: 6px 0 6px 6px;
-    border-style: solid;
-    border-color: transparent #fff;    
-}
-
-.wrapper-dropdown-2 .dropdown {
-    /* Size & position */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    /* Styles */        
-    background: #f2f2f2;
-    list-style: none;
-    text-align: center;
-    padding: 0;
-    margin-left: 0;
-    /* Hiding */
-    opacity: 0;
-    pointer-events: none;
-}
-
-
-.wrapper-dropdown-2 .dropdown li a {
-    display: block;
-    text-decoration: none;
-    color: #9e9e9e;
-    padding: 2px;
-}
-
-/* Hover state */
-.wrapper-dropdown-2 .dropdown li:hover a {
-    background: #f3f8f8;
-}
-
-/* Active state */
-.wrapper-dropdown-2.active .dropdown {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.wrapper-dropdown-2.active:after {
-    border-color: #aeafaf transparent;
-    border-width: 6px 6px 0 6px ;
-    margin-top: -3px;
-}
-
-.wrapper-dropdown-2.active {
-  background: #aeafaf;
-  background: -moz-linear-gradient(left,  #aeafaf 0%, #aeafaf 64%, #f2f2f2 64%, #f2f2f2 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#aeafaf), color-stop(64%,#aeafaf), color-stop(64%,#f2f2f2), color-stop(100%,#f2f2f2));
-  background: -webkit-linear-gradient(left,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
-  background: -o-linear-gradient(left,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
-  background: -ms-linear-gradient(left,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
-  background: linear-gradient(to right,  #aeafaf 0%,#aeafaf 64%,#f2f2f2 64%,#f2f2f2 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aeafaf', endColorstr='#f2f2f2',GradientType=1 );
-}
-
-/* No CSS3 support */
-
 .no-opacity       .wrapper-dropdown-2 .dropdown,
 .no-pointerevents .wrapper-dropdown-2 .dropdown {
     display: none;
@@ -506,10 +513,18 @@ textarea {
     pointer-events: auto; /* If pointer-events support but no pointer-events support */
 }
 
+.no-opacity       .wrapper-dropdown-1.active .dropdown,
+.no-pointerevents .wrapper-dropdown-1.active .dropdown {
+    display: block;
+}
+
 .no-opacity       .wrapper-dropdown-2.active .dropdown,
 .no-pointerevents .wrapper-dropdown-2.active .dropdown {
     display: block;
 }
+
+
+
 
 /* ==========================================================================
    Helper classes
