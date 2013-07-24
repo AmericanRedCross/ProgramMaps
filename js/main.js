@@ -31,13 +31,15 @@ function resetView() {
     map.setView(center, 1);
 }
 
-var windowWidth = $(window).width();
-$(window).resize(function () {
-    if (windowWidth !== $(window).width()) {
-        location.reload();
-        return;
-    }
-});
+//reload page on window resize.... seems to hang a lot... disabled for now...
+
+// var windowWidth = $(window).width();
+// $(window).resize(function () {
+//     if (windowWidth !== $(window).width()) {
+//         location.reload();
+//         return;
+//     }
+// });
 
 // method to update the info div based on feature properties passed
 info.update = function (props) {
@@ -64,6 +66,7 @@ info.update = function (props) {
     $('#countryName').append(infoCountry);
 };
 
+// load country geometry data
 function getWorld() {
     $.ajax({
         type: 'GET',
@@ -81,6 +84,7 @@ function getWorld() {
     });
 }
 
+// load program data
 function getARC() {
     $.ajax({
         type: 'GET',
@@ -102,16 +106,18 @@ function createYearsDropdown() {
     $.each(arcPrograms, function (ai, program) {
         var startYear = new Date(program["Project Period START_DT"]).getFullYear();
         var endYear = new Date(program["Project Period END_DT"]).getFullYear();        
-        // some progams have "" for project start/end date
+        // look at value for startYear
+        // some progams have "" for project start/end date so ignore if var = NaN
         if (isNaN(startYear) !== true){
-            // i don't want to display future years, even if the data includes programs with a start/end
-            // date in a future year
+            // ignore years in the future, i don't want these to be included in the map options
             if (startYear <= new Date().getFullYear()) {
+                // push start year to array if not yet there
                 if ($.inArray(startYear, yearList) === -1){
                     yearList.push(startYear);
                 } 
             }
         }            
+        // repeat previous code for endYear
         if (isNaN(endYear) !== true){
             if (endYear <= new Date().getFullYear()) {
                 if ($.inArray(endYear, yearList) === -1) {
@@ -137,8 +143,9 @@ function createYearsDropdown() {
         var listItemYear = "<li>" + item + "</li>"
         $('#yearInput').append(listItemYear);       
     }
-    // allows dropdown shit interactivity to happen to the list
+    // give page element properties for UI functionality
     var dd = new DropDown( $('#ddYear') );
+    // set displayed text in selection box to maxYear
     $('#yearSpan').append(maxYear); 
     changeYear(maxYear);
 }
@@ -173,7 +180,6 @@ function changeYear(year) {
         var listItemSector = "<li id='" + option + "'>" + formattedSectorName + "</li>";
         $('#sectorInput').append(listItemSector); 
     }
-
     var dd2 = new DropDown2( $('#ddSector') );
     changeSector("All Sectors");
 }
@@ -231,7 +237,7 @@ function changeSector(sector) {
     geojson = L.geoJson(worldColored, {
         style: mapStyle,
         onEachFeature: featureEvents
-    }).addTo(map);     
+    }).addTo(map);   
 }
 
 // doubleclick (not on a country) clears infobox (remove this?)
@@ -275,6 +281,8 @@ function clearName(e) {
 function countryClick(e) {
     map.fitBounds(e.target.getBounds());
     geojson.setStyle(mapStyle);
+    $('.wrapper-dropdown-1').removeClass('active');
+    $('.wrapper-dropdown-2').removeClass('active'); 
     var country = e.target;    
     country.setStyle({
         weight: 5,
@@ -335,7 +343,7 @@ $('.popup').click(function(event) {
 
 
 
-//Dropdown1
+// Year Dropdown 
 function DropDown(el) {
     this.dd = el;
     this.placeholder = this.dd.children('span');
@@ -368,7 +376,7 @@ DropDown.prototype = {
     }
 }
 
-//Dropdown2
+// Sector Dropdown
 function DropDown2(el) {
     this.dd2 = el;
     this.placeholder = this.dd2.children('span');
