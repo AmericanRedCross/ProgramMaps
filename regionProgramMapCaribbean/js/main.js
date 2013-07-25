@@ -9,6 +9,7 @@ var displayedProgramData = [];
 var formattedSectorName = "";
 var formattedProgramName = "";
 var points = [];
+var displayedCountryNames = [];
 
 var center = new L.LatLng(14.21304, -67.862829);
 var bounds = new L.LatLngBounds([90, 260], [-80, -190]);
@@ -36,8 +37,8 @@ function mapStyle(feature) {
         fillColor: feature.properties.mapColor,
         weight: 2,
         opacity: 1,
-        color: "#D7D7D8",
-        fillOpacity: 1
+        color: "#F0F0F0",
+        fillOpacity: 0.8
     };
 }
 
@@ -54,9 +55,6 @@ function getWorld() {
         timeout: 10000,
         success: function(json) {
             worldCountries = json;
-            geojson = L.geoJson(worldCountries, {
-                style: mapStyle,                
-            }).addTo(map);  
             getARC();   
         },
         error: function(e) {
@@ -74,6 +72,7 @@ function getARC() {
         timeout: 10000,
         success: function(json) {
             arcPrograms = json;
+            getColor();
             addMarkers();            
         },
         error: function(e) {
@@ -81,7 +80,30 @@ function getARC() {
         }
     });
 }
+   
+function getColor () {
+    worldColored = worldCountries;
+    displayedCountryNames = [];
+    $.each (arcPrograms, function (ai, program){
+        var currentCountry = program.COUNTRY.toUpperCase();
+        if ($.inArray(currentCountry, displayedCountryNames) === -1) {
+            displayedCountryNames.push(currentCountry);
+        }
+        });
 
+    $.each(worldColored.features, function (ci, country) {
+        var currentCountry = country.properties.name.toUpperCase();
+        if ($.inArray(currentCountry, displayedCountryNames) === -1) {
+            country.properties.mapColor = "white";
+        } else {
+            country.properties.mapColor = 'red';
+        }
+    });
+
+    geojson = L.geoJson(worldColored, {
+        style: mapStyle,
+    }).addTo(map);   
+}
 
 function addMarkers () {
     $.each(arcPrograms, function(index, item) {
