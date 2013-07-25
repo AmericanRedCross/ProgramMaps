@@ -7,8 +7,8 @@ var worldColored = [];
 var selectedYearProgramData = [];
 var displayedProgramData = [];
 var formattedSectorName = "";
-var dd = "";
-var dd2 = "";
+// var dd = "";
+// var dd2 = "";
 
 var center = new L.LatLng(30, 30);
 var bounds = new L.LatLngBounds([90, 260], [-80, -190]);
@@ -30,16 +30,6 @@ map.addControl(attrib);
 function resetView() {
     map.setView(center, 1);
 }
-
-//reload page on window resize.... seems to hang a lot... disabled for now...
-
-// var windowWidth = $(window).width();
-// $(window).resize(function () {
-//     if (windowWidth !== $(window).width()) {
-//         location.reload();
-//         return;
-//     }
-// });
 
 // method to update the info div based on feature properties passed
 info.update = function (props) {
@@ -144,7 +134,7 @@ function createYearsDropdown() {
         $('#yearInput').append(listItemYear);       
     }
     // give page element properties for UI functionality
-    var dd = new DropDown( $('#ddYear') );
+    var dd2 = new DropDown( $('#ddYear') );
     // set displayed text in selection box to maxYear
     $('#yearSpan').append(maxYear); 
     changeYear(maxYear);
@@ -171,8 +161,8 @@ function changeYear(year) {
         }
     });
     $('#sectorSpan').empty();
-    $('#sectorSpan').append("All Sectors");
     $('#sectorInput').empty();
+    $('#sectorSpan').append("All Sectors");
     $('#sectorInput').append("<li id='All Sectors'>All Sectors</li>")
     for(var i = 0; i < sectorList.length; i++) {
         var option = sectorList[i];
@@ -180,6 +170,7 @@ function changeYear(year) {
         var listItemSector = "<li id='" + option + "'>" + formattedSectorName + "</li>";
         $('#sectorInput').append(listItemSector); 
     }
+
     var dd2 = new DropDown2( $('#ddSector') );
     changeSector("All Sectors");
 }
@@ -348,8 +339,8 @@ function DropDown(el) {
     this.dd = el;
     this.placeholder = this.dd.children('span');
     this.opts = this.dd.find('ul.dropdown > li');
-    this.val = '';
-    this.index = -1;
+    // this.val = '';
+    // this.index = -1;
     this.initEvents();
 }
 
@@ -363,33 +354,25 @@ DropDown.prototype = {
         });
 
         obj.opts.on('click',function(){
-            var selectedYear = $(this).html().toString()
+            var selectedYear = $(this).html();
             obj.placeholder.text(selectedYear);
             changeYear(selectedYear);
         });
     },
-    getValue : function() {
-        return this.val;
-    },
-    getIndex : function() {
-        return this.index;
-    }
 }
 
 // Sector Dropdown
 function DropDown2(el) {
-    this.dd2 = el;
-    this.placeholder = this.dd2.children('span');
-    this.opts = this.dd2.find('ul.dropdown > li');
-    this.val = '';
-    this.index = -1;
+    this.dd = el;
+    this.placeholder = this.dd.children('span');
+    this.opts = this.dd.find('ul.dropdown > li');
     this.initEvents();
 }
 DropDown2.prototype = {
     initEvents : function() {
         var obj = this;
 
-        obj.dd2.on('click', function(event){
+        obj.dd.on('click', function(event){
             $(this).toggleClass('active');
             return false;
         });
@@ -401,13 +384,9 @@ DropDown2.prototype = {
             changeSector(sectorId);
         });
     },
-    getValue : function() {
-        return this.val;
-    },
-    getIndex : function() {
-        return this.index;
-    }
 }
+
+$("#")
 
 // close any open dropdown if page is clicked elsewhere
 $(document).click(function() {
@@ -421,6 +400,7 @@ $('.wrapper-dropdown-1').click(function() {
 $('.wrapper-dropdown-2').click(function() {
     $('.wrapper-dropdown-1').removeClass('active'); 
 });
+
 
 
 getWorld();

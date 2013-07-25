@@ -157,7 +157,7 @@ textarea {
     top:15px;
     right:15px;
     width: 460px;
-    min-height: 55%;
+    min-height: 60%;
     overflow: none;
 }
 
@@ -168,7 +168,6 @@ textarea {
     border-width: 1.5px;
     border-style: inset;
     border-radius: 6px;
-
 }
 
 #countryName {
@@ -405,9 +404,11 @@ textarea {
     text-align: center;
     padding: 0;
     margin-left: 0;
+    border-radius: inherit;    
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
     /* Hiding */
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0;    
+    pointer-events: none;  
 }
 
 .wrapper-dropdown-2 .dropdown {
@@ -422,9 +423,59 @@ textarea {
     text-align: left;
     padding: 0;
     text-indent: 7px;
+    border-radius: inherit;    
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);   
     /* Hiding */
     opacity: 0;
     pointer-events: none;
+}
+
+.wrapper-dropdown-1 .dropdown:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 15px;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: #f2f2f2 transparent;    
+}
+ 
+.wrapper-dropdown-1 .dropdown:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 13px;
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.1) transparent;    
+}
+
+.wrapper-dropdown-2 .dropdown:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 15px;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: #f2f2f2 transparent;    
+}
+ 
+.wrapper-dropdown-2 .dropdown:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 13px;
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.1) transparent;    
 }
 
 .wrapper-dropdown-1 .dropdown li {
@@ -444,11 +495,13 @@ textarea {
 /* Hover state */
 .wrapper-dropdown-1 .dropdown li:hover {
     background: #f3f8f8;
+    border-radius: 5px;
 }
 
 /* Hover state */
 .wrapper-dropdown-2 .dropdown li:hover {
     background: #f3f8f8;
+    border-radius: 5px;
 }
 
 /* Active state */
