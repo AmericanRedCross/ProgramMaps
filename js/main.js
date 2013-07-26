@@ -372,10 +372,10 @@ DropDown2.prototype = {
     initEvents : function() {
         var obj = this;
 
-        obj.dd.on('click', function(event){
-            $(this).toggleClass('active');
-            return false;
-        });
+        // obj.dd.on('click', function(event){
+        //     $(this).toggleClass('active');
+        //     return false;
+        // });
 
         obj.opts.on('click',function(){
             var selectedSector = $(this).text();
@@ -386,7 +386,10 @@ DropDown2.prototype = {
     },
 }
 
-$("#")
+$("#ddSector").click(function(){
+    $(this).toggleClass('active');
+    return false;
+});
 
 // close any open dropdown if page is clicked elsewhere
 $(document).click(function() {
