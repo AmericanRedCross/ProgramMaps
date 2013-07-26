@@ -1,4 +1,5 @@
-var geojson = L.geoJson();
+var geojson;
+var markers = [];
 var worldCountries = [];
 var arcPrograms = [];
 var sectorList = [];
@@ -11,6 +12,7 @@ var formattedProgramName = "";
 var points = [];
 var displayedCountryNames = [];
 
+
 var center = new L.LatLng(14.21304, -67.862829);
 var bounds = new L.LatLngBounds([90, 260], [-80, -190]);
 
@@ -19,14 +21,18 @@ var map = L.map('map', {
     zoom: 5,
     attributionControl: false,
     maxBounds: bounds,
-    doubleClickZoom: false
-});
-
+    });
+var cloudmade = new L.TileLayer('http://{s}.tile.openstreetmap.com/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    });
 var attrib = new L.Control.Attribution({
     position: 'bottomleft'
-});
+    });
+
 attrib.addAttribution('Map Data &copy; <a href="http://redcross.org">Red Cross</a>');
 map.addControl(attrib);
+map.addLayer(cloudmade);
+cloudmade.setOpacity(0);
 
 function resetView() {
     map.setView(center, 5);
@@ -38,13 +44,113 @@ function mapStyle(feature) {
         weight: 2,
         opacity: 1,
         color: "#F0F0F0",
-        fillOpacity: 0.8
+        fillOpacity: 1
     };
 }
 
-var cloudmade = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+// create colored countries
+function getColor () {
+    worldColored = worldCountries;
+    displayedCountryNames = [];
+    $.each (arcPrograms, function (ai, program){
+        var currentCountry = program.COUNTRY.toUpperCase();
+        if ($.inArray(currentCountry, displayedCountryNames) === -1) {
+            displayedCountryNames.push(currentCountry);
+        }
+        });
+
+    $.each(worldColored.features, function (ci, country) {
+        var currentCountry = country.properties.name.toUpperCase();
+        if ($.inArray(currentCountry, displayedCountryNames) === -1) {
+            country.properties.mapColor = 'white';
+        } else {
+            country.properties.mapColor = 'red';
+        }
+    });
+
+    geojson = L.geoJson(worldColored, {
+        onEachFeature: featureEvents,
+        style: mapStyle
+    });
+    map.addLayer(geojson);   
+}
+
+// create community locations
+function getMarkers() {
+    $.each(arcPrograms, function(index, item) {
+        var latlng = [item.Long, item.Lat];
+        var coord = {
+            "type": "Feature",
+            "properties": {
+                "Country": item.COUNTRY,
+                "Region": item.REGION,
+                "Community": item.COMMUNITY,
+                "Project": item.PROJECT_NAME,
+                "Sector": item.SECTOR_PRIMARY
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": latlng
+            }
+        }
+        points.push(coord);
+    });
+    var Options = {
+        radius: 5,
+        fillColor: "#FF0000",
+        color: "#FFF",
+        weight: 2.5,
+        opacity: 0,
+        fillOpacity: 0
+    };
+
+    markers = L.geoJson(points, {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, Options);
+            }
+        });
+    map.addLayer(markers);
+}
+
+// change display accordingly to the zoom level
+
+/* //Using remove/add Layers
+
+function mapDisplay() {
+map.on('viewreset', function() {
+    zoom = map.getZoom();
+    if (zoom < 6) {
+        if (map.hasLayer(cloudmade)) {
+            map.removeLayer(cloudmade);
+        }
+        map.addLayer(geojson);
+        map.removeLayer(markers);
+    } else {
+        map.addLayer(markers);
+        map.addLayer(cloudmade);
+        map.removeLayer(geojson);
+    }
+})
+}
+*/
+
+//using styling
+function mapDisplay() {
+    var remove = {fillOpacity:0, opacity:0}
+    var add = {fillOpacity:1, opacity:1}
+    map.on('viewreset', function() {
+        if (map.getZoom() < 6) {
+            cloudmade.setOpacity(0);
+            markers.setStyle(remove);
+            geojson.setStyle(add);
+        } else {
+            geojson.setStyle(remove);
+            markers.setStyle(add);
+            cloudmade.setOpacity(1);
+        }
+
+    })
+}
 
 function getWorld() {
     $.ajax({
@@ -73,77 +179,45 @@ function getARC() {
         success: function(json) {
             arcPrograms = json;
             getColor();
-            addMarkers();            
+            getMarkers();
+            mapDisplay();
         },
         error: function(e) {
             console.log(e);
         }
     });
 }
-   
-function getColor () {
-    worldColored = worldCountries;
-    displayedCountryNames = [];
-    $.each (arcPrograms, function (ai, program){
-        var currentCountry = program.COUNTRY.toUpperCase();
-        if ($.inArray(currentCountry, displayedCountryNames) === -1) {
-            displayedCountryNames.push(currentCountry);
-        }
-        });
 
-    $.each(worldColored.features, function (ci, country) {
-        var currentCountry = country.properties.name.toUpperCase();
-        if ($.inArray(currentCountry, displayedCountryNames) === -1) {
-            country.properties.mapColor = "white";
-        } else {
-            country.properties.mapColor = 'red';
-        }
-    });
-
-    geojson = L.geoJson(worldColored, {
-        style: mapStyle,
-    }).addTo(map);   
+var featureEvents = function (feature, layer) {
+    layer.on({
+        // click: countryClick,
+        mouseover: displayName,
+        mouseout: clearName
+    });       
+}
+// pass country name to Tooltip  div on mouseover/out
+function displayName(e) {    
+    var countryTarget = e.target;
+    var tooltipText = countryTarget.feature.properties.name;
+    $('#tooltip').append(tooltipText);     
 }
 
-function addMarkers () {
-    $.each(arcPrograms, function(index, item) {
-        var latlng = [item.Long, item.Lat];
-        var coord = {
-            "type": "Feature",
-            "properties": {
-                "Country": item.COUNTRY,
-                "Region": item.REGION,
-                "Community": item.COMMUNITY,
-                "Project": item.PROJECT_NAME,
-                "Sector": item.SECTOR_PRIMARY
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": latlng
-            }
-        }
-        points.push(coord);
-    });
-    var Options = {
-        radius: 5,
-        fillColor: "#FF0000",
-        color: "#FFF",
-        weight: 2.5,
-        opacity: 0.8,
-        fillOpacity: 0.8
-    };
-    $.each(points, function (pointIndex, point) {
-        var html = point.properties.Country + "<br>" + point.properties.Region + "<br>" + point.properties.Community
-        L.geoJson(point, {
-            pointToLayer: function (feature, latlng) {
-                return L.circleMarker(latlng, Options);
-            }
-        }).bindPopup(html)
-        .addTo(map);
-    })
+function clearName(e) {
+    $('#tooltip').empty();
 }
-
+// tooltip follows cursor
+$(document).ready(function() {
+    $('#map').mouseover(function(e) {        
+        //Set the X and Y axis of the tooltip
+        $('#tooltip').css('top', e.pageY + 10 );
+        $('#tooltip').css('left', e.pageX + 20 );         
+    }).mousemove(function(e) {    
+        //Keep changing the X and Y axis for the tooltip, thus, the tooltip move along with the mouse
+        $("#tooltip").css({top:(e.pageY+15)+"px",left:(e.pageX+20)+"px"});        
+    });
+});
 
 getWorld();
+
 
 
