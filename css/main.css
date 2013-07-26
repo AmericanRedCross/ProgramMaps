@@ -94,7 +94,8 @@ textarea {
    ========================================================================== */
 
 #container {
-    min-height:100%;                
+    min-height:100%; 
+    max-height: 100%;               
 }
 
 #map {
@@ -124,6 +125,13 @@ textarea {
     color: #444345;
 }
 
+#countryClick, #noPrograms {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 90%;
+    text-align: left;
+}
+
 .imageBullet {
     float:left;
     margin-right: 5px;
@@ -142,12 +150,8 @@ textarea {
     padding-bottom: 30px;                       
 }
 
-#zoomWorld {
-    text-align: center; 
-}
-
 #info {
-    padding: 20px 20px;
+    padding: 20px;
     font: 14px/16px Arial, Helvetica, sans-serif;
     background: white;
     background: rgba(255,255,255,0.92);
@@ -157,8 +161,14 @@ textarea {
     top:15px;
     right:15px;
     width: 460px;
-    min-height: 60%;
-    overflow: none;
+    /*z-index:500;*/
+    /*display:block;*/
+}
+
+#countryName {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;    
 }
 
 #programInfo {
@@ -167,20 +177,62 @@ textarea {
     overflow: auto;
     border-width: 1.5px;
     border-style: inset;
-    border-radius: 6px;
+    border-radius: 6px;   
+    margin-top: 10px; 
 }
 
-#countryName {
-    font-weight: bold;
+.zoomBtn {
+    border: none;
+    display: inline-block;
+    position: static;
+    bottom: 0; 
+    margin-top: 10px;
+    background: #aeafaf;
+    color: #ffffff;
+    padding: 9px 12px 10px;
+    line-height: 17px;
+    text-decoration: none;
+    text-shadow: none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 5px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden;
+}
+
+#buttonWrapper {
     text-align: center;
-    padding-bottom: 10px;
 }
 
-.countryClick, .noPrograms {
-    font-style: italic;
-    font-weight: normal;
-    font-size: 90%;
-    text-align: left;
+.zoomBtn:hover {
+    outline: none;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden;
+}
+
+.socialBar {    
+    position: absolute;   
+    margin: 20px; 
+    bottom: 0px;
+    right: 0px;
+    display: inline-block;
+}
+.socialBar li {
+    display: inline;
+    float: left;
+    margin: 0 0 0 4px;
+}
+.social-list span {
+    display: inline;
+    float: left;
 }
 
 #disclaimer {
@@ -275,55 +327,7 @@ textarea {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
-.socialBar {    
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    display: inline-block;
-}
-.socialBar li {
-    display: inline;
-    float: left;
-    margin: 0 0 0 4px;
-}
-.social-list span {
-    display: inline;
-    float: left;
-}
-
-
-.zoomBtn {
-    border: none;
-    display: inline-block;
-    position: absolute;
-    bottom: 0;    
-    margin: 10px auto;
-    background: #aeafaf;
-    color: #ffffff;
-    padding: 9px 12px 10px;
-    line-height: 17px;
-    text-decoration: none;
-    text-shadow: none;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 5px;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    -webkit-transition: 0.25s;
-    -moz-transition: 0.25s;
-    -o-transition: 0.25s;
-    transition: 0.25s;
-    -webkit-backface-visibility: hidden;
-}
-.zoomBtn:hover {
-    outline: none;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    -webkit-transition: 0.25s;
-    transition: 0.25s;
-    -webkit-backface-visibility: hidden;
-}
-
+/* Dropdowns */
 /* GLOBALS */
 
 *,
@@ -344,10 +348,6 @@ textarea {
     background: transparent; 
 }
 
-#menuBox {
-    height: 50px;
-}
-
 /* dropdown Wrappers */
 
 .wrapper-dropdown-1 {
@@ -355,8 +355,8 @@ textarea {
     position: relative; /* Enable absolute positionning for children and pseudo elements */
     width: 85px;
     padding: 10px;
-    margin: 5px;
-    z-index: 1;
+    margin: 15px 5px;
+    z-index: 1000;
     /* Styles */
     background: #aeafaf;
     color: #fff;
@@ -373,8 +373,8 @@ textarea {
     position: relative; /* Enable absolute positionning for children and pseudo elements */
     width: 315px;
     padding: 10px;
-    margin: 5px;
-    z-index: 1;
+    margin: 15px 5px;
+    z-index: 1000;
     /* Styles */
     background: #aeafaf;
     color: #fff;
@@ -456,6 +456,7 @@ textarea {
     /* Hiding */
     opacity: 0;
     pointer-events: none;
+    display:block;
 }
 
 .wrapper-dropdown-1 .dropdown:after {

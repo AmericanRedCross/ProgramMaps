@@ -1,3 +1,5 @@
+// $.ajaxSetup({ cache: false});
+
 var geojson = L.geoJson();
 var worldCountries = [];
 var arcPrograms = [];
@@ -7,11 +9,9 @@ var worldColored = [];
 var selectedYearProgramData = [];
 var displayedProgramData = [];
 var formattedSectorName = "";
-// var dd = "";
-// var dd2 = "";
 
 var center = new L.LatLng(30, 30);
-var bounds = new L.LatLngBounds([90, 260], [-80, -190]);
+var bounds = new L.LatLngBounds([90, 320], [-80, -200]);
 
 var map = L.map('map', {
     center: center,
@@ -34,7 +34,7 @@ function resetView() {
 // method to update the info div based on feature properties passed
 info.update = function (props) {
     programIndicator = false;
-    var infoCountry = (props ? props.name : '<p class="countryClick">Click on a country.</p>');
+    var infoCountry = (props ? props.name : '<p id="countryClick">Click on a country.</p>');
     var infoPrograms = "<ul class='programList'>";
     var selectedCountry = (props ? props.name.toUpperCase() : 'none');   
     $.each(displayedProgramData, function (ai, program) {
@@ -50,7 +50,7 @@ info.update = function (props) {
     if (programIndicator === true) {
         $('#programInfo').append(infoPrograms);
     } else {
-        $('#programInfo').append('<p class="noPrograms">No programs match the criteria.</p>');
+        $('#programInfo').append('<p id="noPrograms">No programs match the criteria.</p>');
     }
     $('#countryName').empty();
     $('#countryName').append(infoCountry);
@@ -63,7 +63,7 @@ function getWorld() {
         url: 'data/worldCountries.json',
         contentType: 'application/json',
         dataType: 'json',
-        timeout: 10000,
+        timeout: 10000,        
         success: function(json) {
             worldCountries = json;
             getARC();   
@@ -81,9 +81,18 @@ function getARC() {
         url: 'data/arcPrograms.json',
         contentType: 'application/json',
         dataType: 'json',
-        timeout: 10000,
+        timeout: 10000,        
         success: function(json) {
             arcPrograms = json;
+            $.each(arcPrograms, function(a, b){
+                if (b["Project Period START_DT"] !== ""){
+                    b["Project Period START_DT"] = "20" + b["Project Period START_DT"].slice(-2);
+                }            
+                if (b["Project Period END_DT"] !== ""){
+                    b["Project Period END_DT"] = "20" + b["Project Period END_DT"].slice(-2);
+                }   
+            });
+
             createYearsDropdown();            
         },
         error: function(e) {
@@ -94,27 +103,18 @@ function getARC() {
 
 function createYearsDropdown() {
     $.each(arcPrograms, function (ai, program) {
-        var startYear = new Date(program["Project Period START_DT"]).getFullYear();
-        var endYear = new Date(program["Project Period END_DT"]).getFullYear();        
-        // look at value for startYear
-        // some progams have "" for project start/end date so ignore if var = NaN
-        if (isNaN(startYear) !== true){
-            // ignore years in the future, i don't want these to be included in the map options
-            if (startYear <= new Date().getFullYear()) {
-                // push start year to array if not yet there
-                if ($.inArray(startYear, yearList) === -1){
-                    yearList.push(startYear);
-                } 
-            }
-        }            
+        var startYear = parseInt(program["Project Period START_DT"]);
+        var endYear = parseInt(program["Project Period END_DT"]);       
+        // look at value for startYear... some progams have "" for project start/end date so ignore not numeric
+        // ignore years in the future, i don't want these to be included in the map options
+        // push start year to array if not yet there
+        if (($.isNumeric(startYear) === true) && (startYear <= new Date().getFullYear()) && ($.inArray(startYear, yearList) === -1)){
+            yearList.push(startYear);
+        }                     
         // repeat previous code for endYear
-        if (isNaN(endYear) !== true){
-            if (endYear <= new Date().getFullYear()) {
-                if ($.inArray(endYear, yearList) === -1) {
-                    yearList.push(endYear);
-                } 
-            }           
-        }
+        if (($.isNumeric(endYear) === true) && (endYear <= new Date().getFullYear()) && ($.inArray(endYear, yearList) === -1)){
+            yearList.push(endYear);
+        }    
     });
     // fill in missing years
     var maxYear = Math.max.apply(Math, yearList);
@@ -146,8 +146,8 @@ function changeYear(year) {
     selectedYearProgramData = [];
     $.each(arcPrograms, function (ai, program) {
         var currentCountry = program.COUNTRY.toUpperCase();        
-        var startYear = new Date(program["Project Period START_DT"]).getFullYear();
-        var endYear = new Date (program["Project Period END_DT"]).getFullYear();
+        var startYear = parseInt(program["Project Period START_DT"]);
+        var endYear = parseInt(program["Project Period END_DT"]);
         if (yearChoice == startYear || yearChoice == endYear || (yearChoice < endYear && yearChoice > startYear)) {            
             selectedYearProgramData.push(program);
         }                
@@ -348,18 +348,23 @@ DropDown.prototype = {
     initEvents : function() {
         var obj = this;
 
-        obj.dd.on('click', function(event){
-            $(this).toggleClass('active');
-            return false;
-        });
+        // obj.dd.on('click', function(event){
+        //     $(this).toggleClass('active');
+        //     return false;
+        // });
 
         obj.opts.on('click',function(){
             var selectedYear = $(this).html();
             obj.placeholder.text(selectedYear);
             changeYear(selectedYear);
         });
-    },
+    }
 }
+
+$("#ddYear").click(function(){
+    $(this).toggleClass('active');
+    return false;
+});
 
 // Sector Dropdown
 function DropDown2(el) {
@@ -368,6 +373,7 @@ function DropDown2(el) {
     this.opts = this.dd.find('ul.dropdown > li');
     this.initEvents();
 }
+
 DropDown2.prototype = {
     initEvents : function() {
         var obj = this;
@@ -383,7 +389,7 @@ DropDown2.prototype = {
             obj.placeholder.text(selectedSector);
             changeSector(sectorId);
         });
-    },
+    }
 }
 
 $("#ddSector").click(function(){
@@ -405,7 +411,5 @@ $('.wrapper-dropdown-2').click(function() {
 });
 
 
-
 getWorld();
 info.update();
-
