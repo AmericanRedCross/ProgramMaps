@@ -7,7 +7,6 @@ var yearList = [];
 var worldColored = [];
 var selectedYearProgramData = [];
 var displayedProgramData = [];
-var formattedSectorName = "";
 var formattedProgramName = "";
 var points = [];
 var displayedCountryNames = [];
@@ -107,34 +106,74 @@ function getMarkers() {
     markers = L.geoJson(points, {
             pointToLayer: function (feature, latlng) {
                 return L.circleMarker(latlng, Options);
-            }
+            },
+            onEachFeature: markerEvents
         });
     map.addLayer(markers);
 }
 
+// acronym meanings and their actual sector
+
+function formatProgramName(option) {
+    if (option === "RITA") {
+        formattedProgramName = "Resilience in the Americas";
+        Sector = "Integrated"
+    } else if (option === "IPA"){
+        formattedProgramName = "Integrated Participatory Assessment";
+        Sector = "DM - Preparedness/DRR"
+    } else if (option === "OFDA" || option === "ODFA"){
+        formattedProgramName = "USAID's Office of Foreign Disaster Assistance";
+        Sector = "DM - Preparedness/DRR"
+    } else if (option === "CHAP"){
+        formattedProgramName = "Caribbean HIV Action and Prevention";
+        Sector = "Community Health - HIV"
+    } else {
+        formattedProgramName = option;
+    }
+}
+
+// update info box
+
+info.update = function (props) {
+    programIndicator = false;
+    var infoCommunity = (props ? props.Country + "<br>" + props.Community: '<p class="communityClick"> Click on a community.</p>');
+    var infoPrograms = "<ul class='programList'>";
+    var selectedCommunity = (props ? props.Community.toUpperCase() : 'none');
+    $.each(points, function (ai, program) { //use markers or points feature?? -- points
+        formatProgramName(program.properties.Project);
+        var pName = program.properties.Community.toUpperCase();
+        var imageCode = Sector.toLowerCase().replace(/\s+/g, '').replace(/-/g, '').replace(/\//g, '');
+        if (pName === selectedCommunity) {
+            infoPrograms += "<li class='programListItem'><img class=imageBullet title='" + Sector + "' src='images/" + imageCode + ".png'/>" 
+            + formattedProgramName + "</li>"; //try to use the replacement for the "PROJECT_NAME" here
+            programIndicator = true;
+        }
+    });
+    infoPrograms += "</ul>";
+    $('#programInfo').empty();
+    if (programIndicator === true) {
+        $('#programInfo').append(infoPrograms);
+    } else {
+        $('#programInfo').append('<p class="noPrograms">No programs match the criteria.</p>');
+
+    } $('#countryName').empty();
+    $('#countryName').append(infoCommunity);
+};
+
+function communityClick (e) {
+    var community = e.target;
+    if (!L.Browser.ie && !L.Browser.opera) {
+        community.bringToFront();
+    }
+    info.update(community.feature.properties);
+}
+
+function countryClick (e) {
+    map.fitBounds(e.target.getBounds());
+}
+
 // change display accordingly to the zoom level
 
-/* //Using remove/add Layers
-
-function mapDisplay() {
-map.on('viewreset', function() {
-    zoom = map.getZoom();
-    if (zoom < 6) {
-        if (map.hasLayer(cloudmade)) {
-            map.removeLayer(cloudmade);
-        }
-        map.addLayer(geojson);
-        map.removeLayer(markers);
-    } else {
-        map.addLayer(markers);
-        map.addLayer(cloudmade);
-        map.removeLayer(geojson);
-    }
-})
-}
-*/
-
-//using styling
 function mapDisplay() {
     var remove = {fillOpacity:0, opacity:0}
     var add = {fillOpacity:1, opacity:1}
@@ -148,9 +187,10 @@ function mapDisplay() {
             markers.setStyle(add);
             cloudmade.setOpacity(1);
         }
-
     })
 }
+
+// load json files
 
 function getWorld() {
     $.ajax({
@@ -188,9 +228,15 @@ function getARC() {
     });
 }
 
+var markerEvents = function (feature, layer) {
+    layer.on({
+        click: communityClick,
+    })
+}
+
 var featureEvents = function (feature, layer) {
     layer.on({
-        // click: countryClick,
+        click: countryClick,
         mouseover: displayName,
         mouseout: clearName
     });       
