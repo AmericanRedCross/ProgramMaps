@@ -203,9 +203,9 @@ textarea {
 }
 
 #disclaimerText {
-    position: absolute;
-    top: 45%;
-    left: 30%;
+    position: fixed;
+    top: 25%;
+    left: 40%;
     display: none;
     padding: 5px;
     width: 300px;

@@ -62,7 +62,11 @@
 		background: #FFFFFF;
 		height:20px;
 		width:45px;
-	}	
+	}
+	#initialText {
+		font-style: italic;
+		font-size: 10px;
+	}
 
 	</style>
 
@@ -72,7 +76,30 @@
 	        <div id="disclaimerText">
                 <img src="images/close.gif" onClick="closeDisclaimer();" class="close" alt="close" />
                 <p>Disclaimer</p><hr>
-                The maps on this page do not imply the expression of any opinion on the part of the American Red Cross concerning the legal status of a territory or of its authorities. Program data may not be complete for all years and all countries. </div>
+                The maps on this page do not imply the expression of any opinion on the part of the American Red Cross concerning the legal status of a territory or of its authorities. Program data may not be complete for all countries. The following communities have American Red Cross programs, but could not be located:
+                <br>
+                <br>
+                Bahamas
+                <ul>
+                	<li>Creole Vilalge</li>
+                </ul>
+                Guyana
+                <ul>
+                	<li>Oronoque</li>
+                	<li>Seebai</li>
+                	<li>14 Mile</li>
+                	<li>Big Creek and Falls Top</li>
+                	<li>Itaballi</li>
+                	<li>Dogg Point</li>
+                	<li>Aranka</li>
+                	<li>Arangai</li>
+                </ul>
+                St. Lucia
+                <ul> 
+                	<li>Barre St Joseph</li>
+                	<li>Barre Du Chausse</li>
+                </ul>
+                </div>
 			<div id="info">
 				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">Caribbean Programs</p>
 <!-- 				<form>
@@ -80,7 +107,7 @@
 					<select id="sectorInput" onchange="changeSector()">						
 					</select></form> -->					
 				<hr>
-				<div id ="countryName"></div>
+				<div id ="countryName"><p id="initialText">Select a community</p></div>
 				<div id="programInfo"></div>
 				<div id="zoomWorld">
 					<hr>

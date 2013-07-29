@@ -67,11 +67,12 @@ function getColor () {
         }
     });
 
+    var countries = new L.featureGroup().addTo(map);
+
     geojson = L.geoJson(worldColored, {
         onEachFeature: featureEvents,
         style: mapStyle
-    });
-    map.addLayer(geojson);   
+    }).addTo(countries);   
 }
 
 // create community locations
@@ -103,13 +104,14 @@ function getMarkers() {
         fillOpacity: 0
     };
 
+    var communities = new L.featureGroup().addTo(map);
+
     markers = L.geoJson(points, {
             pointToLayer: function (feature, latlng) {
                 return L.circleMarker(latlng, Options);
             },
             onEachFeature: markerEvents
-        });
-    map.addLayer(markers);
+        }).addTo(communities);
 }
 
 // acronym meanings and their actual sector
@@ -149,6 +151,7 @@ info.update = function (props) {
             programIndicator = true;
         }
     });
+
     infoPrograms += "</ul>";
     $('#programInfo').empty();
     if (programIndicator === true) {
@@ -156,16 +159,24 @@ info.update = function (props) {
     } else {
         $('#programInfo').append('<p class="noPrograms">No programs match the criteria.</p>');
 
-    } $('#countryName').empty();
+    }     $('#countryName').empty();
     $('#countryName').append(infoCommunity);
 };
 
 function communityClick (e) {
+    markers.setStyle({color: "#FFF"});
     var community = e.target;
+    community.setStyle({
+        color: "#FF0000",
+    });
     if (!L.Browser.ie && !L.Browser.opera) {
         community.bringToFront();
     }
-    info.update(community.feature.properties);
+    if (map.getZoom() > 5) {
+        info.update(community.feature.properties);
+    } else {
+        info.update();
+    }
 }
 
 function countryClick (e) {
@@ -262,6 +273,14 @@ $(document).ready(function() {
         $("#tooltip").css({top:(e.pageY+15)+"px",left:(e.pageX+20)+"px"});        
     });
 });
+
+//disclaimer text
+function showDisclaimer() {
+    $('#disclaimerText').show();
+}
+function closeDisclaimer() {
+    $('#disclaimerText').hide();
+}
 
 getWorld();
 
