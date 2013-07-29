@@ -271,18 +271,18 @@ function clearName(e) {
 // for map click event ---> zoom to country, highlight border, update info box
 function countryClick(e) {
     map.fitBounds(e.target.getBounds());
-    geojson.setStyle(mapStyle);
     $('.wrapper-dropdown-1').removeClass('active');
     $('.wrapper-dropdown-2').removeClass('active'); 
-    var country = e.target;    
-    country.setStyle({
-        weight: 5,
-        color: '#fed53c',
-        dashArray: '',
-        fillOpacity: 1
-    });
+    var country = e.target; 
     if (!L.Browser.ie && !L.Browser.opera) {
-        country.bringToFront();
+        geojson.setStyle(mapStyle);
+        country.setStyle({
+            weight: 5,
+            color: '#fed53c',
+            dashArray: '',
+            fillOpacity: 1
+        });
+        country.bringToFront();       
     }
     info.update(country.feature.properties);  
 }

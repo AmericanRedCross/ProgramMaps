@@ -99,6 +99,7 @@ textarea {
 }
 
 #map {
+    z-index: -500;
     position: absolute;
     top:0;
     bottom:0;
@@ -160,9 +161,8 @@ textarea {
     position: absolute;
     top:15px;
     right:15px;
-    width: 460px;
-    /*z-index:500;*/
-    /*display:block;*/
+    width: 400px;
+    display:block;
 }
 
 #countryName {
@@ -175,8 +175,9 @@ textarea {
     padding: 5px;
     max-height: 200px;
     overflow: auto;
-    border-width: 1.5px;
-    border-style: inset;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d7d7d8;
     border-radius: 6px;   
     margin-top: 10px; 
 }
@@ -371,7 +372,7 @@ textarea {
 .wrapper-dropdown-2 {
     /* Size and position */
     position: relative; /* Enable absolute positionning for children and pseudo elements */
-    width: 315px;
+    width: 255px;
     padding: 10px;
     margin: 15px 5px;
     z-index: 1000;
@@ -436,7 +437,8 @@ textarea {
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
     /* Hiding */
     opacity: 0;    
-    pointer-events: none;  
+    pointer-events: none; 
+    visibility: hidden; 
 }
 
 .wrapper-dropdown-2 .dropdown {
@@ -457,6 +459,7 @@ textarea {
     opacity: 0;
     pointer-events: none;
     display:block;
+    visibility: hidden;
 }
 
 .wrapper-dropdown-1 .dropdown:after {
@@ -537,12 +540,16 @@ textarea {
 .wrapper-dropdown-1.active .dropdown {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
+    z-index: 1000;
 }
 
 /* Active state */
 .wrapper-dropdown-2.active .dropdown {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
+    z-index: 1000;
 }
 
 .wrapper-dropdown-1.active:after {
@@ -575,7 +582,7 @@ textarea {
   background: -webkit-linear-gradient(left,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
   background: -o-linear-gradient(left,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
   background: -ms-linear-gradient(left,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
-  background: linear-gradient(to right,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
+  background: linear-gradient(to right,  #aeafaf 0px,#aeafaf 225px,#f2f2f2 225px,#f2f2f2 255px);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aeafaf', endColorstr='#f2f2f2',GradientType=1 );
 }
 
