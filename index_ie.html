@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>American Red Cross Programs</title>
+		<meta property="og:image" content="http://americanredcross.github.io/ProgramMaps/images/redCross.png" />
+		<meta property="og:title" content="American Red Cross International Programs" />
+
+		<meta property="og:description" content = "add text here." />
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/main_ie.css">
+		
+	</head>
+
+	<body>
+	<!--[if IE 9]>
+        <p class="oldBrowser">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a></p>
+        <![endif]-->		
+		<div id="container">
+			<div id="map"> </div>
+	        <div id="disclaimerText">
+                <img src="images/close.gif" onClick="closeDisclaimer();" class="close" alt="close" />
+                <p>Disclaimer</p><hr>
+                The maps on this page do not imply the expression of any opinion on the part of the American Red Cross concerning the legal status of a territory or of its authorities. Program data may not be complete for all years and all countries. </div>
+			<div id="info">
+				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">International Programs</p>	
+					<div id="ddYear" class="wrapper-dropdown-1">
+						<span id="yearSpan"></span>
+					    <ul id="yearInput" class="dropdown"></ul>
+					</div>					
+					<div id="ddSector" class="wrapper-dropdown-2">
+						<span id="sectorSpan"></span>
+						<ul id="sectorInput" class="dropdown"></ul>					
+					</div>
+				<div id ="countryName"></div>
+				<div id="programInfo"></div>							
+					<div id="buttonWrapper"><input class="zoomBtn" type="button" value="Zoom to World" onclick="resetView()"></div>
+					<nav class="socialBar">
+						<ul class="social-list">
+		                	<li class="facebook">
+		                		<a href="#" 
+	  								onclick="
+	    								window.open(
+	      									'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+									    	'facebook-share-dialog', 
+									      	'width=626,height=436'); 
+	    								return false;"><span></span></a></li>                	
+							<li class="twitter"><a class="twitter popup" href="http://twitter.com/intent/tweet?text=Interactive%20map%20showing%20American%20Red%20Cross%20Int%27l%20Programs&amp;url=http%3A%2F%2Famericanredcross.github.io%2FProgramMaps%2F&amp;via=RedCross&amp;related=RedCross"><span></span></a></li>							
+		                </ul>
+	            	</nav>						
+			</div>	
+		</div>
+
+        <div id="disclaimer">
+		    <p>
+		        &copy; <a href="http://redcross.org" title="Red Cross">Red Cross</a> | 
+		        <a title="Disclaimer" onClick="showDisclaimer();">Disclaimer</a>
+		    </p>		    
+		</div>
+
+		<div id="tooltip"></div>
+
+		<script src="//cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="js/main_ie.js"></script>
+
+	</body> 	
+</html>
+
+
