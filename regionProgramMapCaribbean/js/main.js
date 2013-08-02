@@ -22,7 +22,7 @@ var map = L.map('map', {
     attributionControl: false,
     maxBounds: bounds,
     });
-var cloudmade = new L.TileLayer('http://{s}.tile.openstreetmap.com/{z}/{x}/{y}.png', {
+var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     });
 var attrib = new L.Control.Attribution({
@@ -66,7 +66,7 @@ function getColor () {
         if ($.inArray(currentCountry, displayedCountryNames) === -1) {
             country.properties.mapColor = 'white';
         } else {
-            country.properties.mapColor = 'red';
+            country.properties.mapColor = "#ED1B2E";
         }
     });
 
@@ -295,6 +295,12 @@ function displayName(e) {
     $('#tooltip').append(tooltipText);     
 }
 
+function displayCountry(e) {    
+    var commTarget = e.target;
+    var tooltipText = commTarget.feature.properties.name;
+    $('#tooltip').append(tooltipText);     
+}
+
 function clearName(e) {
     $('#tooltip').empty();
 }
@@ -302,7 +308,7 @@ function clearName(e) {
 var featureEvents = function (feature, layer) {
     layer.on({
         click: countryClick,
-        mouseover: displayName,
+        mouseover: displayCountry,
         mouseout: clearName
     });       
 }

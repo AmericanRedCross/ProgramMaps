@@ -221,7 +221,7 @@ function changeSector(sector) {
         if ($.inArray(currentCountry, displayedCountryNames) === -1) {
             country.properties.mapColor = "#FFF";
         } else {
-            country.properties.mapColor = 'red';
+            country.properties.mapColor = '#ED1B2E';
         }
     });
     // Add country polygons to map
