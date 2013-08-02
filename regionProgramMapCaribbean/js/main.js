@@ -11,7 +11,6 @@ var formattedProgramName = "";
 var points = [];
 var projectPoints = [];
 var displayedCountryNames = [];
-var displayedCommunityNames = [];
 var programList = [];
 
 
@@ -103,8 +102,8 @@ function programDropdown () {
         fillColor: "#FF0000",
         color: "#FFF",
         weight: 2.5,
-        opacity: 0,
-        fillOpacity: 0
+        opacity: 1,
+        fillOpacity: 1
     };
 
     programList = [];
@@ -116,8 +115,8 @@ function programDropdown () {
     });
     $('#sectorSpan').empty();
     $('#sectorInput').empty();
-    $('#sectorSpan').append("All Sectors");
-    $('#sectorInput').append("<li id='All Sectors'>All Sectors</li>")
+    $('#sectorSpan').append("All Projects");
+    $('#sectorInput').append("<li id='All Projects'>All Projects</li>")
     for(var i = 0; i < programList.length; i++) {
         var option = programList[i];
         formatProgramName(option);
@@ -133,18 +132,14 @@ function changeProgram(project) {
 
     map.removeLayer(markers);
     info.update();
-    displayedCommunityNames = [];
-    projectPoints;
+    projectPoints = [];
     $.each(points, function (ai, program) {
         var currentCommunity = program.properties.Community.toUpperCase();
         var currentProgram = program.properties.Project;
         if (project === currentProgram) {
-            projectPoints.push(project);
-            if ($.inArray(currentCommunity, displayedCommunityNames) === -1) {
-                displayedCommunityNames.push(currentCommunity);
-            }
+            projectPoints.push(program);
         } else if (project === "All Projects")
-            projectPoints = points
+            projectPoints.push(program);
     })
 
     markers = L.geoJson(projectPoints, {
