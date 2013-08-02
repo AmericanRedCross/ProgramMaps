@@ -130,30 +130,23 @@ function programDropdown () {
 }
 
 function changeProgram(project) {
-
     map.removeLayer(markers);
     info.update();
-    displayedCommunityNames = [];
     projectPoints = [];
     $.each(points, function (ai, program) {
         var currentProgram = program.properties.Project;
-        if (project === currentProgram) {
-            // projectPoints.push(project);
-
-            markers.addLayer(new L.marker(program.geometry.coordinates));
-
-        } else if (project === "All Projects") {
-            // projectPoints.push(project);
-            markers.addLayer(new L.marker(program.geometry.coordinates));
+        if (project === currentProgram || project === "All Projects") {
+            projectPoints.push(program);
         }
     })
-    // markers = L.geoJson(projectPoints, {
-    //         pointToLayer: function (feature, latlng) {
-    //             return L.circleMarker(latlng, Options);
-    //         },
-    //         onEachFeature: markerEvents
-    //     }).addTo(map);
+    marker = L.geoJson(projectPoints, {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, Options);
+            },
+            onEachFeature: markerEvents
+        });
 
+    markers.addLayer(marker);
     map.addLayer(markers);
 }
 
@@ -210,7 +203,7 @@ info.update = function (props) {
 // actions for when the user clicks the markers
 
 function communityClick (e) {
-    markers.setStyle({color: "#FFF"});
+    marker.setStyle({color: "#FFF"});
     $('.wrapper-dropdown-1').removeClass('active');
     var community = e.target;
     community.setStyle({
@@ -243,12 +236,10 @@ function mapDisplay() {
     map.on('viewreset', function() {
         if (map.getZoom() < 6) {
             cloudmade.setOpacity(0);
-            markers.setStyle(remove);
             geojson.setStyle(add);
             // L.featureGroup([communities]).bringtoBack();
         } else {
             geojson.setStyle(remove);
-            markers.setStyle(add);
             cloudmade.setOpacity(1);
         }
     })
