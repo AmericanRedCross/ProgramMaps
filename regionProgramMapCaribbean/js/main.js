@@ -9,7 +9,10 @@ var selectedYearProgramData = [];
 var displayedProgramData = [];
 var formattedProgramName = "";
 var points = [];
+var projectPoints = [];
 var displayedCountryNames = [];
+var displayedCommunityNames = [];
+var programList = [];
 
 
 var center = new L.LatLng(14.21304, -67.862829);
@@ -67,7 +70,7 @@ function getColor () {
         }
     });
 
-    var countries = new L.featureGroup().addTo(map);
+    countries = new L.layerGroup().addTo(map);
 
     geojson = L.geoJson(worldColored, {
         onEachFeature: featureEvents,
@@ -75,10 +78,11 @@ function getColor () {
     }).addTo(countries);   
 }
 
-// create community locations
-function getMarkers() {
+//build sector dropdown
+
+function programDropdown () {
     $.each(arcPrograms, function(index, item) {
-        var latlng = [item.Long, item.Lat];
+        latlng = [item.Long, item.Lat];
         var coord = {
             "type": "Feature",
             "properties": {
@@ -86,7 +90,6 @@ function getMarkers() {
                 "Region": item.REGION,
                 "Community": item.COMMUNITY,
                 "Project": item.PROJECT_NAME,
-                "Sector": item.SECTOR_PRIMARY
             },
             "geometry": {
                 "type": "Point",
@@ -94,8 +97,8 @@ function getMarkers() {
             }
         }
         points.push(coord);
-    });
-    var Options = {
+    });    
+    Options = {
         radius: 5,
         fillColor: "#FF0000",
         color: "#FFF",
@@ -104,15 +107,54 @@ function getMarkers() {
         fillOpacity: 0
     };
 
-    var communities = new L.featureGroup().addTo(map);
+    programList = [];
+    $.each(points, function (ai, program) {
+        var aProgram = program.properties.Project;
+        if ($.inArray(aProgram, programList) === -1) {
+            programList.push(aProgram);
+        }
+    });
+    $('#sectorSpan').empty();
+    $('#sectorInput').empty();
+    $('#sectorSpan').append("All Sectors");
+    $('#sectorInput').append("<li id='All Sectors'>All Sectors</li>")
+    for(var i = 0; i < programList.length; i++) {
+        var option = programList[i];
+        formatProgramName(option);
+        var listItemSector = "<li id='" + option + "'>" + formattedProgramName + "</li>";
+        $('#sectorInput').append(listItemSector); 
+    }
 
-    markers = L.geoJson(points, {
+    var dd = new DropDown( $('#ddProgram') );
+    changeProgram("All Projects");
+}
+
+function changeProgram(project) {
+
+    map.removeLayer(markers);
+    info.update();
+    displayedCommunityNames = [];
+    projectPoints;
+    $.each(points, function (ai, program) {
+        var currentCommunity = program.properties.Community.toUpperCase();
+        var currentProgram = program.properties.Project;
+        if (project === currentProgram) {
+            projectPoints.push(project);
+            if ($.inArray(currentCommunity, displayedCommunityNames) === -1) {
+                displayedCommunityNames.push(currentCommunity);
+            }
+        } else if (project === "All Projects")
+            projectPoints = points
+    })
+
+    markers = L.geoJson(projectPoints, {
             pointToLayer: function (feature, latlng) {
                 return L.circleMarker(latlng, Options);
             },
             onEachFeature: markerEvents
-        }).addTo(communities);
+        }).addTo(map);
 }
+
 
 // acronym meanings and their actual sector
 
@@ -163,8 +205,11 @@ info.update = function (props) {
     $('#countryName').append(infoCommunity);
 };
 
+// actions for when the user clicks the markers
+
 function communityClick (e) {
     markers.setStyle({color: "#FFF"});
+    $('.wrapper-dropdown-1').removeClass('active');
     var community = e.target;
     community.setStyle({
         color: "#FF0000",
@@ -174,13 +219,16 @@ function communityClick (e) {
     }
     if (map.getZoom() > 5) {
         info.update(community.feature.properties);
+        // community.bringToFront();
     } else {
         info.update();
+        // community.bringtoBack();
     }
 }
-
-function countryClick (e) {
-    map.fitBounds(e.target.getBounds());
+var markerEvents = function (feature, layer) {
+    layer.on({
+        click: communityClick,
+    })
 }
 
 // change display accordingly to the zoom level
@@ -193,6 +241,7 @@ function mapDisplay() {
             cloudmade.setOpacity(0);
             markers.setStyle(remove);
             geojson.setStyle(add);
+            // L.featureGroup([communities]).bringtoBack();
         } else {
             geojson.setStyle(remove);
             markers.setStyle(add);
@@ -230,8 +279,8 @@ function getARC() {
         success: function(json) {
             arcPrograms = json;
             getColor();
-            getMarkers();
             mapDisplay();
+            programDropdown();
         },
         error: function(e) {
             console.log(e);
@@ -239,19 +288,11 @@ function getARC() {
     });
 }
 
-var markerEvents = function (feature, layer) {
-    layer.on({
-        click: communityClick,
-    })
+// zoom to country when click the polygon
+function countryClick (e) {
+    map.fitBounds(e.target.getBounds());
 }
 
-var featureEvents = function (feature, layer) {
-    layer.on({
-        click: countryClick,
-        mouseover: displayName,
-        mouseout: clearName
-    });       
-}
 // pass country name to Tooltip  div on mouseover/out
 function displayName(e) {    
     var countryTarget = e.target;
@@ -262,6 +303,15 @@ function displayName(e) {
 function clearName(e) {
     $('#tooltip').empty();
 }
+
+var featureEvents = function (feature, layer) {
+    layer.on({
+        click: countryClick,
+        mouseover: displayName,
+        mouseout: clearName
+    });       
+}
+
 // tooltip follows cursor
 $(document).ready(function() {
     $('#map').mouseover(function(e) {        
@@ -282,7 +332,62 @@ function closeDisclaimer() {
     $('#disclaimerText').hide();
 }
 
+// tweet popup
+$('.popup').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+    window.open(url, 'twitter', opts);
+
+    return false;
+});
+
+// Sector Dropdown
+function DropDown(el) {
+    this.dd = el;
+    this.placeholder = this.dd.children('span');
+    this.opts = this.dd.find('ul.dropdown > li');
+    this.initEvents();
+}
+
+DropDown.prototype = {
+    initEvents : function() {
+        var obj = this;
+
+        // obj.dd.on('click', function(event){
+        //     $(this).toggleClass('active');
+        //     return false;
+        // });
+
+        obj.opts.on('click',function(){
+            var selectedProgram = $(this).text();
+            var sectorId = $(this).attr('id');
+            obj.placeholder.text(selectedProgram);
+            changeProgram(sectorId);
+        });
+    }
+}
+
+$("#ddProgram").click(function(){
+    $(this).toggleClass('active');
+    return false;
+});
+
+// close any open dropdown if page is clicked elsewhere
+$(document).click(function() {
+    $('.wrapper-dropdown-1').removeClass('active');
+});
+
 getWorld();
+info.update();
 
 
 
