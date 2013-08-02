@@ -228,6 +228,8 @@ function communityClick (e) {
 var markerEvents = function (feature, layer) {
     layer.on({
         click: communityClick,
+        mouseover: displayName,
+        mouseout: clearName,
     })
 }
 
@@ -295,8 +297,8 @@ function countryClick (e) {
 
 // pass country name to Tooltip  div on mouseover/out
 function displayName(e) {    
-    var countryTarget = e.target;
-    var tooltipText = countryTarget.feature.properties.name;
+    var commTarget = e.target;
+    var tooltipText = commTarget.feature.properties.Community;
     $('#tooltip').append(tooltipText);     
 }
 
