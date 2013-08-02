@@ -9,9 +9,12 @@
 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/main.css">
+		<!-- stylesheets for marker cluster -->
+		<link rel="stylesheet" href="../css/MarkerCluster.css" />
+		<link rel="stylesheet" href="../css/MarkerCluster.Default.css" />
 	</head>
 
 	<style>
@@ -62,7 +65,11 @@
 		background: #FFFFFF;
 		height:20px;
 		width:45px;
-	}	
+	}
+	#initialText {
+		font-style: italic;
+		font-size: 10px;
+	}
 
 	</style>
 
@@ -72,38 +79,55 @@
 	        <div id="disclaimerText">
                 <img src="images/close.gif" onClick="closeDisclaimer();" class="close" alt="close" />
                 <p>Disclaimer</p><hr>
-                The maps on this page do not imply the expression of any opinion on the part of the American Red Cross concerning the legal status of a territory or of its authorities. Program data may not be complete for all years and all countries. </div>
+                The maps on this page do not imply the expression of any opinion on the part of the American Red Cross concerning the legal status of a territory or of its authorities. Program data may not be complete for all countries. The following communities have American Red Cross programs, but could not be located:
+                <br>
+                <br>
+                Bahamas
+                <ul>
+                	<li>Creole Vilalge</li>
+                </ul>
+                Guyana
+                <ul>
+                	<li>Oronoque</li>
+                	<li>Seebai</li>
+                	<li>14 Mile</li>
+                	<li>Big Creek and Falls Top</li>
+                	<li>Itaballi</li>
+                	<li>Dogg Point</li>
+                	<li>Aranka</li>
+                	<li>Arangai</li>
+                </ul>
+                </div>
 			<div id="info">
 				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">Caribbean Programs</p>
-<!-- 				<form>
-					Primary Sector:
-					<select id="sectorInput" onchange="changeSector()">						
-					</select></form> -->					
+				
+				<!-- Working on this piece right now -->
+
+				<div id="ddProgram" class="wrapper-dropdown-1">
+						<span id="sectorSpan"></span>
+						<ul id="sectorInput" class="dropdown"></ul>					
+				</div>			
+
+				<!-- Working on this piece right now -->
+				
 				<hr>
 				<div id ="countryName"></div>
 				<div id="programInfo"></div>
-				<div id="zoomWorld">
-					<hr>
-					<input type="button" value="Zoom to The Caribbean" onclick="resetView()">
-				</div>
+				<div id="zoomWorld"><hr><input type="button" value="Zoom to The Caribbean" onclick="resetView()"></div>
 				<nav class="socialBar">
-					<ul class="social-list">
-	                	<li class="facebook">
-	                		<a href="#" 
-  								onclick="
-    								window.open(
-      									'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
-								    	'facebook-share-dialog', 
-								      	'width=626,height=436'); 
-    								return false;"><span></span></a></li>
-	                	<!-- <li class="share"><a href="http://www.google.com"><span>Share</span></a></li> -->
-						<li class="twitter"><a href="http://www.twitter.com/redcross" ><span></span></a></li>
-						<!-- <li class="tweet"><a href="http://www.google.com"><span>Tweet</span></a></li> -->
-	                </ul>
-	            </nav>
-
-				</div>				
-										
+						<ul class="social-list">
+		                	<li class="facebook">
+		                		<a href="#" 
+	  								onclick="
+	    								window.open(
+	      									'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+									    	'facebook-share-dialog', 
+									      	'width=626,height=436'); 
+	    								return false;"><span></span></a></li>                	
+							<li class="twitter"><a class="twitter popup" href="http://twitter.com/intent/tweet?text=Interactive%20map%20showing%20American%20Red%20Cross%20Int%27l%20Programs&amp;url=http%3A%2F%2Famericanredcross.github.io%2FProgramMaps%2F&amp;via=RedCross&amp;related=RedCross"><span></span></a></li>							
+		                </ul>
+	            </nav>	
+				</div>											
    			</div>		
 	        <div id="disclaimer">
 			    <p>
@@ -114,9 +138,11 @@
 			</div>			
 		</div>	
 		<div id="tooltip"></div>
-		<script src="//cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
-		<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+		
+		<script src="//cdn.leafletjs.com/leaflet-0.6.2/leaflet-src.js"></script>
+		<script src="../js/leaflet.markercluster-src.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="js/main.js"></script>		
 	</body> 	
 </html>

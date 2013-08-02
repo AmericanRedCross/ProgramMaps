@@ -577,11 +577,11 @@ textarea {
 
 .wrapper-dropdown-2.active {
   background: #aeafaf;
-  background: -moz-linear-gradient(left,  #aeafaf 0px, #aeafaf 285px, #f2f2f2 285px, #f2f2f2 315px);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0px,#aeafaf), color-stop(285px,#aeafaf), color-stop(285px,#f2f2f2), color-stop(315px,#f2f2f2));
-  background: -webkit-linear-gradient(left,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
-  background: -o-linear-gradient(left,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
-  background: -ms-linear-gradient(left,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
+  background: -moz-linear-gradient(left,  #aeafaf 0px, #aeafaf 255px, #f2f2f2 255px, #f2f2f2 255px);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0px,#aeafaf), color-stop(255px,#aeafaf), color-stop(255px,#f2f2f2), color-stop(255px,#f2f2f2));
+  background: -webkit-linear-gradient(left,  #aeafaf 0px,#aeafaf 255px,#f2f2f2 255px,#f2f2f2 255px);
+  background: -o-linear-gradient(left,  #aeafaf 0px,#aeafaf 255px,#f2f2f2 255px,#f2f2f2 255px);
+  background: -ms-linear-gradient(left,  #aeafaf 0px,#aeafaf 255px,#f2f2f2 255px,#f2f2f2 255px);
   background: linear-gradient(to right,  #aeafaf 0px,#aeafaf 225px,#f2f2f2 225px,#f2f2f2 255px);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aeafaf', endColorstr='#f2f2f2',GradientType=1 );
 }

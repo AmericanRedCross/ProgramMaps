@@ -5,10 +5,7 @@
       "COMMUNITY":"Belama 4 & 4",
       "Lat":17.51212,
       "Long":-88.22312,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -16,10 +13,7 @@
       "COMMUNITY":"Belama 4 & 4",
       "Lat":17.51212,
       "Long":-88.22312,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -27,10 +21,7 @@
       "COMMUNITY":"Caye Caulker Village",
       "Lat":17.762084,
       "Long":-88.027947,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -38,10 +29,7 @@
       "COMMUNITY":"Caye Caulker Village",
       "Lat":17.762084,
       "Long":-88.027947,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -49,10 +37,7 @@
       "COMMUNITY":"Consejo Village",
       "Lat":18.456182,
       "Long":-88.299681,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Belize",
@@ -60,10 +45,7 @@
       "COMMUNITY":"Consejo Village",
       "Lat":18.456182,
       "Long":-88.299681,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -71,10 +53,7 @@
       "COMMUNITY":"Consejo Village",
       "Lat":18.456182,
       "Long":-88.299681,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Belize",
@@ -82,10 +61,7 @@
       "COMMUNITY":"Corozal Town",
       "Lat":18.398024,
       "Long":-88.388443,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Belize",
@@ -93,10 +69,7 @@
       "COMMUNITY":"Corozal Town",
       "Lat":18.398024,
       "Long":-88.388443,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -104,10 +77,7 @@
       "COMMUNITY":"Corozal Town",
       "Lat":18.398024,
       "Long":-88.388443,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Belize",
@@ -115,10 +85,7 @@
       "COMMUNITY":"Dangriga Town",
       "Lat":16.969821,
       "Long":-88.231731,
-      "PROJECT_NAME":"ODFA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -126,10 +93,7 @@
       "COMMUNITY":"Dangriga Town",
       "Lat":16.969821,
       "Long":-88.231731,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -137,10 +101,7 @@
       "COMMUNITY":"Hattieville",
       "Lat":17.45018,
       "Long":-88.38338,
-      "PROJECT_NAME":"ODFA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -148,10 +109,7 @@
       "COMMUNITY":"Hattieville",
       "Lat":17.45018,
       "Long":-88.38338,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -159,10 +117,7 @@
       "COMMUNITY":"Hopkins Village",
       "Lat":16.853823,
       "Long":-88.281452,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -170,10 +125,7 @@
       "COMMUNITY":"Hopkins Village",
       "Lat":16.853823,
       "Long":-88.281452,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -181,10 +133,7 @@
       "COMMUNITY":"Independence Village ",
       "Lat":16.533402,
       "Long":-88417049,
-      "PROJECT_NAME":"ODFA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -192,10 +141,7 @@
       "COMMUNITY":"Independence Village ",
       "Lat":16.533402,
       "Long":-88417049,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -203,10 +149,7 @@
       "COMMUNITY":"Jane Usher",
       "Lat":17.484377,
       "Long":-88206420,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Belize",
@@ -214,10 +157,7 @@
       "COMMUNITY":"Jane Usher",
       "Lat":17.484377,
       "Long":-88206420,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -225,10 +165,7 @@
       "COMMUNITY":"Jane Usher",
       "Lat":17.484377,
       "Long":-88206420,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -236,10 +173,7 @@
       "COMMUNITY":"Ladyville",
       "Lat":17.557056,
       "Long":-88289038,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -247,10 +181,7 @@
       "COMMUNITY":"Ladyville",
       "Lat":17.557056,
       "Long":-88289038,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -258,10 +189,7 @@
       "COMMUNITY":"Lord’S Bank",
       "Lat":17.533441,
       "Long":-88.333358,
-      "PROJECT_NAME":"ODFA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -269,10 +197,7 @@
       "COMMUNITY":"Lord’S Bank",
       "Lat":17.533441,
       "Long":-88.333358,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -280,10 +205,7 @@
       "COMMUNITY":"Orange Walk Town: Black Water Creek*",
       "Lat":18.083751,
       "Long":-88.556897,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Belize",
@@ -291,10 +213,7 @@
       "COMMUNITY":"Orange Walk Town: Black Water Creek*",
       "Lat":18.083751,
       "Long":-88.556897,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -302,10 +221,7 @@
       "COMMUNITY":"Orange Walk Town: Black Water Creek*",
       "Lat":18.083751,
       "Long":-88.556897,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Belize",
@@ -313,10 +229,7 @@
       "COMMUNITY":"Orange Walk Town: Louisiana* ",
       "Lat":18.083751,
       "Long":-88.556897,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Belize",
@@ -324,10 +237,7 @@
       "COMMUNITY":"Orange Walk Town: Louisiana* ",
       "Lat":18.083751,
       "Long":-88.556897,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -335,10 +245,7 @@
       "COMMUNITY":"Orange Walk Town: Louisiana* ",
       "Lat":18.083751,
       "Long":-88.556897,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Belize",
@@ -346,10 +253,7 @@
       "COMMUNITY":"Orange Walk Town: Trial Farm*",
       "Lat":18.083751,
       "Long":-88.556897,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Belize",
@@ -357,10 +261,7 @@
       "COMMUNITY":"Orange Walk Town: Trial Farm*",
       "Lat":18.083751,
       "Long":-88.556897,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -368,10 +269,7 @@
       "COMMUNITY":"Orange Walk Town: Trial Farm*",
       "Lat":18.083751,
       "Long":-88.556897,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Belize",
@@ -379,10 +277,7 @@
       "COMMUNITY":"Placencia Village",
       "Lat":16.51401,
       "Long":-88.366695,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -390,10 +285,7 @@
       "COMMUNITY":"Placencia Village",
       "Lat":16.51401,
       "Long":-88.366695,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -401,10 +293,7 @@
       "COMMUNITY":"San Antonio, Rio Hondo",
       "Lat":18.132812,
       "Long":-88.675266,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Belize",
@@ -412,10 +301,7 @@
       "COMMUNITY":"San Antonio, Rio Hondo",
       "Lat":18.132812,
       "Long":-88.675266,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -423,10 +309,7 @@
       "COMMUNITY":"San Antonio, Rio Hondo",
       "Lat":18.132812,
       "Long":-88.675266,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Belize",
@@ -434,10 +317,7 @@
       "COMMUNITY":"San Pedro Town",
       "Lat":17.921441,
       "Long":-87.96088,
-      "PROJECT_NAME":"ODFA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -445,10 +325,7 @@
       "COMMUNITY":"San Pedro Town",
       "Lat":17.921441,
       "Long":-87.96088,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -456,10 +333,7 @@
       "COMMUNITY":"San Victor Village",
       "Lat":18.260707,
       "Long":-88.57084,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Belize",
@@ -467,10 +341,7 @@
       "COMMUNITY":"San Victor Village",
       "Lat":18.260707,
       "Long":-88.57084,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -478,10 +349,7 @@
       "COMMUNITY":"San Victor Village",
       "Lat":18.260707,
       "Long":-88.57084,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -489,10 +357,7 @@
       "COMMUNITY":"Santa Cruz, Rio Hondo",
       "Lat":18.11563,
       "Long":-88.706696,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Belize",
@@ -500,10 +365,7 @@
       "COMMUNITY":"Santa Cruz, Rio Hondo",
       "Lat":18.11563,
       "Long":-88.706696,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -511,10 +373,7 @@
       "COMMUNITY":"Santa Cruz, Rio Hondo",
       "Lat":18.11563,
       "Long":-88.706696,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -522,10 +381,7 @@
       "COMMUNITY":"Seine Bight Village",
       "Lat":16.577863,
       "Long":-88.365828,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -533,10 +389,7 @@
       "COMMUNITY":"Seine Bight Village",
       "Lat":16.577863,
       "Long":-88.365828,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -544,10 +397,7 @@
       "COMMUNITY":"Sittee River",
       "Lat":16.831905,
       "Long":-88.295459,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -555,10 +405,7 @@
       "COMMUNITY":"Sittee River",
       "Lat":16.831905,
       "Long":-88.295459,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Belize",
@@ -566,10 +413,7 @@
       "COMMUNITY":"Western Paradise",
       "Lat":17.469037,
       "Long":-88.293447,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Belize",
@@ -577,10 +421,7 @@
       "COMMUNITY":"Western Paradise",
       "Lat":17.469037,
       "Long":-88.293447,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Bahamas",
@@ -588,10 +429,7 @@
       "COMMUNITY":"Fresh Creek Township",
       "Lat":24.690194,
       "Long":-77.860153,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -599,10 +437,7 @@
       "COMMUNITY":"Fresh Creek Township",
       "Lat":24.690194,
       "Long":-77.860153,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -610,10 +445,7 @@
       "COMMUNITY":"Fresh Creek Township",
       "Lat":24.690194,
       "Long":-77.860153,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -621,10 +453,7 @@
       "COMMUNITY":"Staniard Creek Township",
       "Lat":24.832589,
       "Long":-77.887475,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -632,10 +461,7 @@
       "COMMUNITY":"Staniard Creek Township",
       "Lat":24.832589,
       "Long":-77.887475,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -643,10 +469,7 @@
       "COMMUNITY":"Staniard Creek Township",
       "Lat":24.832589,
       "Long":-77.887475,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -654,10 +477,7 @@
       "COMMUNITY":"Cargill Creek Township",
       "Lat":24.497131,
       "Long":-77.720649,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -665,10 +485,7 @@
       "COMMUNITY":"Cargill Creek Township",
       "Lat":24.497131,
       "Long":-77.720649,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -676,43 +493,31 @@
       "COMMUNITY":"Cargill Creek Township",
       "Lat":24.497131,
       "Long":-77.720649,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Bahamas",
       "REGION":"Eleuthera Island",
       "COMMUNITY":"*Hatchet Bay",
-      "Lat":25.346628,
-      "Long":-76.485322,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "Lat":25.345292,
+      "Long":-77.6489948,
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Bahamas",
       "REGION":"Eleuthera Island",
       "COMMUNITY":"*Hatchet Bay",
-      "Lat":25.346628,
-      "Long":-76.485322,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "Lat":25.345292,
+      "Long":-77.6489948,
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Bahamas",
       "REGION":"Eleuthera Island",
       "COMMUNITY":"*Hatchet Bay",
-      "Lat":25.346628,
-      "Long":-76.485322,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "Lat":25.345292,
+      "Long":-77.6489948,
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -720,10 +525,7 @@
       "COMMUNITY":"*Gregory Town",
       "Lat":25.392049,
       "Long":-76.555913,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -731,10 +533,7 @@
       "COMMUNITY":"*Gregory Town",
       "Lat":25.392049,
       "Long":-76.555913,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -742,10 +541,7 @@
       "COMMUNITY":"*Gregory Town",
       "Lat":25.392049,
       "Long":-76.555913,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -753,10 +549,7 @@
       "COMMUNITY":"James Cistern",
       "Lat":25.327055,
       "Long":-76.365544,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -764,10 +557,7 @@
       "COMMUNITY":"James Cistern",
       "Lat":25.327055,
       "Long":-76.365544,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -775,10 +565,7 @@
       "COMMUNITY":"James Cistern",
       "Lat":25.327055,
       "Long":-76.365544,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -786,10 +573,7 @@
       "COMMUNITY":"Governor's Harbour",
       "Lat":25.252992,
       "Long":-76.310892,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -797,10 +581,7 @@
       "COMMUNITY":"Governor's Harbour",
       "Lat":25.252992,
       "Long":-76.310892,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -808,10 +589,7 @@
       "COMMUNITY":"Bain Town ",
       "Lat":25.069505,
       "Long":-77.344802,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -819,10 +597,7 @@
       "COMMUNITY":"Bain Town ",
       "Lat":25.069505,
       "Long":-77.344802,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -830,10 +605,7 @@
       "COMMUNITY":"Bain Town ",
       "Lat":25.069505,
       "Long":-77.344802,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Bahamas",
@@ -841,10 +613,7 @@
       "COMMUNITY":"Bain Town ",
       "Lat":25.069505,
       "Long":-77.344802,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Bahamas",
@@ -852,10 +621,7 @@
       "COMMUNITY":"Farm Rd and Centreville",
       "Lat":25.068922,
       "Long":-77.334561,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Bahamas",
@@ -863,10 +629,7 @@
       "COMMUNITY":"St Cecelia",
       "Lat":25.067072,
       "Long":-77.366208,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Guyana",
@@ -874,10 +637,7 @@
       "COMMUNITY":"Port Kaituma",
       "Lat":7.726327,
       "Long":-59.883958,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Guyana",
@@ -885,10 +645,7 @@
       "COMMUNITY":"Port Kaituma",
       "Lat":7.726327,
       "Long":-59.883958,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Guyana",
@@ -896,10 +653,7 @@
       "COMMUNITY":"Port Kaituma",
       "Lat":7.726327,
       "Long":-59.883958,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Guyana",
@@ -907,10 +661,7 @@
       "COMMUNITY":"*Arakaka and 4 mile",
       "Lat":7.627077,
       "Long":-60.250706,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Guyana",
@@ -918,10 +669,7 @@
       "COMMUNITY":"*Arakaka and 4 mile",
       "Lat":7.627077,
       "Long":-60.250706,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Guyana",
@@ -929,10 +677,7 @@
       "COMMUNITY":"*Arakaka and 4 mile",
       "Lat":7.627077,
       "Long":-60.250706,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Guyana",
@@ -940,10 +685,7 @@
       "COMMUNITY":"*Baramita",
       "Lat":7.350246,
       "Long":-60.483278,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Guyana",
@@ -951,10 +693,7 @@
       "COMMUNITY":"*Baramita",
       "Lat":7.350246,
       "Long":-60.483278,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Guyana",
@@ -962,10 +701,7 @@
       "COMMUNITY":"*Baramita",
       "Lat":7.350246,
       "Long":-60.483278,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Guyana",
@@ -973,10 +709,7 @@
       "COMMUNITY":"*Five Star",
       "Lat":7.602628,
       "Long":-60.366545,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Guyana",
@@ -984,10 +717,7 @@
       "COMMUNITY":"Bartica",
       "Lat":6.406236,
       "Long":-58.623025,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Guyana",
@@ -995,10 +725,7 @@
       "COMMUNITY":"Bartica",
       "Lat":6.406236,
       "Long":-58.623025,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Guyana",
@@ -1006,10 +733,7 @@
       "COMMUNITY":"Bartica",
       "Lat":6.406236,
       "Long":-58.623025,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
    },
    {
       "COUNTRY":"Guyana",
@@ -1017,10 +741,7 @@
       "COMMUNITY":"*Batavia",
       "Lat":6.400164,
       "Long":-58.766676,
-      "PROJECT_NAME":"IPA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"IPA"
    },
    {
       "COUNTRY":"Guyana",
@@ -1028,10 +749,23 @@
       "COMMUNITY":"*Batavia",
       "Lat":6.400164,
       "Long":-58.766676,
-      "PROJECT_NAME":"RITA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"RITA"
+   },
+   {
+      "COUNTRY":"St Lucia",
+      "REGION":"",
+      "COMMUNITY":"Barre St. Joseph",
+      "Lat":13.92242,
+      "Long":-60.970262,
+      "PROJECT_NAME":"OFDA"
+   },
+   {
+      "COUNTRY":"St Lucia",
+      "REGION":"",
+      "COMMUNITY":"Barre Du Chausse",
+      "Lat":13.971831,
+      "Long":-61.013315,
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"St Lucia",
@@ -1039,10 +773,7 @@
       "COMMUNITY":"Plateau",
       "Lat":14.025423,
       "Long":-60.933627,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"St Lucia",
@@ -1050,10 +781,7 @@
       "COMMUNITY":"Riviere Mitan",
       "Lat":14.051163,
       "Long":-60.937878,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"St Lucia",
@@ -1061,10 +789,7 @@
       "COMMUNITY":"Entrepot",
       "Lat":14.006524,
       "Long":-60.989419,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"St Lucia",
@@ -1072,10 +797,7 @@
       "COMMUNITY":"Aux Leon",
       "Lat":13.950359,
       "Long":-60.908933,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"St Lucia",
@@ -1083,10 +805,7 @@
       "COMMUNITY":"Pierro Vieux Fort",
       "Lat":13.765816,
       "Long":-60.944552,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"St Lucia",
@@ -1094,10 +813,7 @@
       "COMMUNITY":"Anse La Raye",
       "Lat":13.9181,
       "Long":-61.012203,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"St Lucia",
@@ -1105,10 +821,7 @@
       "COMMUNITY":"Marc South East ",
       "Lat":13.946625,
       "Long":-60.955472,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"St Lucia",
@@ -1116,10 +829,7 @@
       "COMMUNITY":"Maboya",
       "Lat":13.93709,
       "Long":-60.923911,
-      "PROJECT_NAME":"OFDA",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"OFDA"
    },
    {
       "COUNTRY":"Jamaica",
@@ -1127,10 +837,7 @@
       "COMMUNITY":"St. James",
       "Lat":18.393248,
       "Long":-77.859602,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    },
    {
       "COUNTRY":"Jamaica",
@@ -1138,9 +845,6 @@
       "COMMUNITY":"Kingston/St. Andrews",
       "Lat":17.99298,
       "Long":-76.792126,
-      "PROJECT_NAME":"CHAP",
-      "Project Period START_DT":"1-Jan-13",
-      "Project Period END_DT":"31-Dez-13",
-      "SECTOR_PRIMARY":"DM - Preparedness/DRR"
+      "PROJECT_NAME":"CHAP"
    }
 ]

@@ -99,6 +99,7 @@ textarea {
 }
 
 #map {
+    z-index: -500;
     position: absolute;
     top:0;
     bottom:0;
@@ -160,9 +161,8 @@ textarea {
     position: absolute;
     top:15px;
     right:15px;
-    width: 460px;
-    /*z-index:500;*/
-    /*display:block;*/
+    width: 400px;
+    display:block;
 }
 
 #countryName {
@@ -175,8 +175,9 @@ textarea {
     padding: 5px;
     max-height: 200px;
     overflow: auto;
-    border-width: 1.5px;
-    border-style: inset;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d7d7d8;
     border-radius: 6px;   
     margin-top: 10px; 
 }
@@ -371,7 +372,7 @@ textarea {
 .wrapper-dropdown-2 {
     /* Size and position */
     position: relative; /* Enable absolute positionning for children and pseudo elements */
-    width: 315px;
+    width: 255px;
     padding: 10px;
     margin: 15px 5px;
     z-index: 1000;
@@ -435,9 +436,12 @@ textarea {
     border-radius: inherit;    
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
     /* Hiding */
-    opacity: 0;    
-    pointer-events: none;
-    visibility: hidden;  
+    /*opacity: 0;    */
+    /*pointer-events: none; */
+    /*visibility: hidden; */
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: #f2f2f2 transparent;
 }
 
 .wrapper-dropdown-2 .dropdown {
@@ -455,10 +459,10 @@ textarea {
     border-radius: inherit;    
     box-shadow: 0 0 15px rgba(0,0,0,0.3);   
     /* Hiding */
-    opacity: 0;
-    pointer-events: none;
-    display:block;
-    visibility: hidden;
+    /*opacity: 0;*/
+    /*pointer-events: none;*/
+    /*display:block;*/
+    /*visibility: hidden;*/
 }
 
 .wrapper-dropdown-1 .dropdown:after {
@@ -509,37 +513,38 @@ textarea {
     border-color: rgba(0,0,0,0.1) transparent;    
 }
 
-.wrapper-dropdown-1 .dropdown li {
+.dropdown li {
     display: block;
     text-decoration: none;
     color: #9e9e9e;
     padding: 2px;
 }
 
-.wrapper-dropdown-2 .dropdown li {
+/*.wrapper-dropdown-2 .dropdown li {
     display: block;
     text-decoration: none;
     color: #9e9e9e;
     padding: 2px;
-}
+}*/
 
 /* Hover state */
-.wrapper-dropdown-1 .dropdown li:hover {
+.dropdown li:hover {
     background: #f3f8f8;
     border-radius: 5px;
 }
 
 /* Hover state */
-.wrapper-dropdown-2 .dropdown li:hover {
+/*.wrapper-dropdown-2 .dropdown li:hover {
     background: #f3f8f8;
     border-radius: 5px;
 }
-
+*/
 /* Active state */
 .wrapper-dropdown-1.active .dropdown {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
+    z-index: 1000;
 }
 
 /* Active state */
@@ -547,6 +552,7 @@ textarea {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
+    z-index: 1000;
 }
 
 .wrapper-dropdown-1.active:after {
@@ -574,39 +580,13 @@ textarea {
 
 .wrapper-dropdown-2.active {
   background: #aeafaf;
-  background: -moz-linear-gradient(left,  #aeafaf 0px, #aeafaf 285px, #f2f2f2 285px, #f2f2f2 315px);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0px,#aeafaf), color-stop(285px,#aeafaf), color-stop(285px,#f2f2f2), color-stop(315px,#f2f2f2));
-  background: -webkit-linear-gradient(left,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
-  background: -o-linear-gradient(left,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
-  background: -ms-linear-gradient(left,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
-  background: linear-gradient(to right,  #aeafaf 0px,#aeafaf 285px,#f2f2f2 285px,#f2f2f2 315px);
+  background: -moz-linear-gradient(left,  #aeafaf 0px, #aeafaf 255px, #f2f2f2 255px, #f2f2f2 255px);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0px,#aeafaf), color-stop(255px,#aeafaf), color-stop(255px,#f2f2f2), color-stop(255px,#f2f2f2));
+  background: -webkit-linear-gradient(left,  #aeafaf 0px,#aeafaf 255px,#f2f2f2 255px,#f2f2f2 255px);
+  background: -o-linear-gradient(left,  #aeafaf 0px,#aeafaf 255px,#f2f2f2 255px,#f2f2f2 255px);
+  background: -ms-linear-gradient(left,  #aeafaf 0px,#aeafaf 255px,#f2f2f2 255px,#f2f2f2 255px);
+  background: linear-gradient(to right,  #aeafaf 0px,#aeafaf 225px,#f2f2f2 225px,#f2f2f2 255px);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aeafaf', endColorstr='#f2f2f2',GradientType=1 );
-}
-
-/* No CSS3 support */
-
-.no-opacity       .wrapper-dropdown-1 .dropdown,
-.no-pointerevents .wrapper-dropdown-1 .dropdown {
-    display: none;
-    opacity: 1; /* If opacity support but no pointer-events support */
-    pointer-events: auto; /* If pointer-events support but no pointer-events support */
-}
-
-.no-opacity       .wrapper-dropdown-2 .dropdown,
-.no-pointerevents .wrapper-dropdown-2 .dropdown {
-    display: none;
-    opacity: 1; /* If opacity support but no pointer-events support */
-    pointer-events: auto; /* If pointer-events support but no pointer-events support */
-}
-
-.no-opacity       .wrapper-dropdown-1.active .dropdown,
-.no-pointerevents .wrapper-dropdown-1.active .dropdown {
-    display: block;
-}
-
-.no-opacity       .wrapper-dropdown-2.active .dropdown,
-.no-pointerevents .wrapper-dropdown-2.active .dropdown {
-    display: block;
 }
 
 
