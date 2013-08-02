@@ -133,29 +133,20 @@ function changeProgram(project) {
 
     map.removeLayer(markers);
     info.update();
-<<<<<<< HEAD
     displayedCommunityNames = [];
-=======
->>>>>>> 64c6ba09cc7dd7c997cc0724e41bfb2c54c5c2c8
     projectPoints = [];
     $.each(points, function (ai, program) {
         var currentProgram = program.properties.Project;
         if (project === currentProgram) {
-<<<<<<< HEAD
             // projectPoints.push(project);
 
             markers.addLayer(new L.marker(program.geometry.coordinates));
 
-        } else if (project === "All Projects")
+        } else if (project === "All Projects") {
             // projectPoints.push(project);
             markers.addLayer(new L.marker(program.geometry.coordinates));
-=======
-            projectPoints.push(program);
-        } else if (project === "All Projects")
-            projectPoints.push(program);
->>>>>>> 64c6ba09cc7dd7c997cc0724e41bfb2c54c5c2c8
+        }
     })
-
     // markers = L.geoJson(projectPoints, {
     //         pointToLayer: function (feature, latlng) {
     //             return L.circleMarker(latlng, Options);
@@ -177,7 +168,7 @@ function formatProgramName(option) {
         formattedProgramName = "Integrated Participatory Assessment";
         Sector = "DM - Preparedness/DRR"
     } else if (option === "OFDA" || option === "ODFA"){
-        formattedProgramName = "USAID's Office of Foreign Disaster Assistance";
+        formattedProgramName = "Disaster Risk Reduction";
         Sector = "DM - Preparedness/DRR"
     } else if (option === "CHAP"){
         formattedProgramName = "Caribbean HIV Action and Prevention";
