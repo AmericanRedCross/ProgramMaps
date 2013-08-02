@@ -1,5 +1,4 @@
 var geojson;
-var markers = [];
 var worldCountries = [];
 var arcPrograms = [];
 var sectorList = [];
@@ -30,6 +29,8 @@ var cloudmade = new L.TileLayer('http://{s}.tile.openstreetmap.com/{z}/{x}/{y}.p
 var attrib = new L.Control.Attribution({
     position: 'bottomleft'
     });
+
+var markers = new L.MarkerClusterGroup();
 
 attrib.addAttribution('Map Data &copy; <a href="http://redcross.org">Red Cross</a>');
 map.addControl(attrib);
@@ -134,25 +135,27 @@ function changeProgram(project) {
     map.removeLayer(markers);
     info.update();
     displayedCommunityNames = [];
-    projectPoints;
+    projectPoints = [];
     $.each(points, function (ai, program) {
-        var currentCommunity = program.properties.Community.toUpperCase();
         var currentProgram = program.properties.Project;
         if (project === currentProgram) {
-            projectPoints.push(project);
-            if ($.inArray(currentCommunity, displayedCommunityNames) === -1) {
-                displayedCommunityNames.push(currentCommunity);
-            }
+            // projectPoints.push(project);
+
+            markers.addLayer(new L.marker(program.geometry.coordinates));
+
         } else if (project === "All Projects")
-            projectPoints = points
+            // projectPoints.push(project);
+            markers.addLayer(new L.marker(program.geometry.coordinates));
     })
 
-    markers = L.geoJson(projectPoints, {
-            pointToLayer: function (feature, latlng) {
-                return L.circleMarker(latlng, Options);
-            },
-            onEachFeature: markerEvents
-        }).addTo(map);
+    // markers = L.geoJson(projectPoints, {
+    //         pointToLayer: function (feature, latlng) {
+    //             return L.circleMarker(latlng, Options);
+    //         },
+    //         onEachFeature: markerEvents
+    //     }).addTo(map);
+
+    map.addLayer(markers);
 }
 
 
