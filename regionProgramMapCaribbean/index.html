@@ -13,11 +13,32 @@
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/main.css">
 		<!-- stylesheets for marker cluster -->
-		<link rel="stylesheet" href="../css/MarkerCluster.css" />
+		<link rel="stylesheet" href="../css/markercluster.css" />
 		<link rel="stylesheet" href="../css/MarkerCluster.Default.css" />
 	</head>
 
 	<style>
+
+	.marker-cluster-small {
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+	.marker-cluster-small div {
+		background-color: rgba(237, 27, 46, 0.8);
+	}
+
+	.marker-cluster-medium {
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+	.marker-cluster-medium div {
+		background-color: rgba(237, 27, 46, 0.8);
+	}
+
+	.marker-cluster-large {
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+	.marker-cluster-large div {
+		background-color: rgba(237, 27, 46, 0.8);
+	}
 
 	.socialBar {
  		float: right;
@@ -137,7 +158,8 @@
 			    
 			</div>			
 		</div>	
-		<div id="tooltip"></div>
+		<div id="countryTooltip"></div>
+		<div id="communityTooltip"></div>
 
 		
 		<script src="//cdn.leafletjs.com/leaflet-0.6.2/leaflet-src.js"></script>

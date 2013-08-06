@@ -297,17 +297,33 @@ textarea {
     width: 20px;
 }
 
-#tooltip {                      
+#countryTooltip {                      
     position:absolute;
     z-index:9999;
-    font-size:16px;
+    font-size:12px;
     color: #1a1a1a;       
     background-color: rgba(255,255,255,0.4);
     border-radius: 3px;
     padding: 2px;       
 }
     
-#tooltip:empty {
+#countryTooltip:empty {
+    display:none;
+}
+
+#communityTooltip {                      
+    position:absolute;
+    z-index:9999;
+    font-size:14px;
+    color: #1a1a1a;       
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 3px;
+    padding: 2px;      
+    font-weight: bold;
+    color: rgba(237, 27, 46, 0.8); 
+}
+    
+#communityTooltip:empty {
     display:none;
 }
 

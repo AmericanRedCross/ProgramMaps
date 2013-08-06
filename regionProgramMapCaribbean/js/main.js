@@ -24,12 +24,13 @@ var map = L.map('map', {
     });
 var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 15,
     });
 var attrib = new L.Control.Attribution({
     position: 'bottomleft'
     });
 
-var markers = new L.MarkerClusterGroup();
+var markers = new L.MarkerClusterGroup({spiderfyDistanceMultiplier: 5});
 
 attrib.addAttribution('Map Data &copy; <a href="http://redcross.org">Red Cross</a>');
 map.addControl(attrib);
@@ -99,8 +100,8 @@ function programDropdown () {
         points.push(coord);
     });    
     Options = {
-        radius: 5,
-        fillColor: "#FF0000",
+        radius: 8,
+        fillColor: "#ED1B2E",
         color: "#FFF",
         weight: 2.5,
         opacity: 1,
@@ -178,13 +179,13 @@ info.update = function (props) {
     var infoCommunity = (props ? props.Country + "<br>" + props.Community: '<p class="communityClick"> Click on a community.</p>');
     var infoPrograms = "<ul class='programList'>";
     var selectedCommunity = (props ? props.Community.toUpperCase() : 'none');
-    $.each(points, function (ai, program) { //use markers or points feature?? -- points
+    $.each(points, function (ai, program) {
         formatProgramName(program.properties.Project);
         var pName = program.properties.Community.toUpperCase();
         var imageCode = Sector.toLowerCase().replace(/\s+/g, '').replace(/-/g, '').replace(/\//g, '');
         if (pName === selectedCommunity) {
             infoPrograms += "<li class='programListItem'><img class=imageBullet title='" + Sector + "' src='images/" + imageCode + ".png'/>" 
-            + formattedProgramName + "</li>"; //try to use the replacement for the "PROJECT_NAME" here
+            + formattedProgramName + "</li>";
             programIndicator = true;
         }
     });
@@ -237,7 +238,6 @@ function mapDisplay() {
         if (map.getZoom() < 6) {
             cloudmade.setOpacity(0);
             geojson.setStyle(add);
-            // L.featureGroup([communities]).bringtoBack();
         } else {
             geojson.setStyle(remove);
             cloudmade.setOpacity(1);
@@ -292,17 +292,18 @@ function countryClick (e) {
 function displayName(e) {    
     var commTarget = e.target;
     var tooltipText = commTarget.feature.properties.Community;
-    $('#tooltip').append(tooltipText);     
+    $('#communityTooltip').append(tooltipText);     
 }
 
 function displayCountry(e) {    
     var commTarget = e.target;
     var tooltipText = commTarget.feature.properties.name;
-    $('#tooltip').append(tooltipText);     
+    $('#countryTooltip').append(tooltipText);     
 }
 
 function clearName(e) {
-    $('#tooltip').empty();
+    $('#countryTooltip').empty();
+    $('#communityTooltip').empty();
 }
 
 var featureEvents = function (feature, layer) {
@@ -313,15 +314,27 @@ var featureEvents = function (feature, layer) {
     });       
 }
 
-// tooltip follows cursor
+// country tooltip follows cursor
 $(document).ready(function() {
     $('#map').mouseover(function(e) {        
         //Set the X and Y axis of the tooltip
-        $('#tooltip').css('top', e.pageY + 10 );
-        $('#tooltip').css('left', e.pageX + 20 );         
+        $('#countryTooltip').css('top', e.pageY + 10 );
+        $('#countryTooltip').css('left', e.pageX + 20 );         
     }).mousemove(function(e) {    
         //Keep changing the X and Y axis for the tooltip, thus, the tooltip move along with the mouse
-        $("#tooltip").css({top:(e.pageY+15)+"px",left:(e.pageX+20)+"px"});        
+        $("#countryTooltip").css({top:(e.pageY+15)+"px",left:(e.pageX+20)+"px"});        
+    });
+});
+
+// community tooltip follows cursor
+$(document).ready(function() {
+    $('#map').mouseover(function(e) {        
+        //Set the X and Y axis of the tooltip
+        $('#communityTooltip').css('top', e.pageY + 10 );
+        $('#communityTooltip').css('left', e.pageX + 20 );         
+    }).mousemove(function(e) {    
+        //Keep changing the X and Y axis for the tooltip, thus, the tooltip move along with the mouse
+        $("#communityTooltip").css({top:(e.pageY+15)+"px",left:(e.pageX+20)+"px"});        
     });
 });
 
