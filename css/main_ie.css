@@ -395,7 +395,7 @@ textarea {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.wrapper-dropdown-1:after {
+/*.wrapper-dropdown-1:after {
     content: "";
     width: 0;
     height: 0;
@@ -406,7 +406,7 @@ textarea {
     border-width: 6px 0 6px 6px;
     border-style: solid;
     border-color: transparent #fff;    
-}
+}*/
 
 .wrapper-dropdown-2:after {
     content: "";
