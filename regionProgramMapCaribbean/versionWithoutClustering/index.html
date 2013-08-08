@@ -12,9 +12,7 @@
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/main.css">
-		<!-- stylesheets for marker cluster -->
-		<link rel="stylesheet" href="../css/markercluster.css" />
-		<link rel="stylesheet" href="../css/MarkerCluster.Default.css" />
+
 	</head>
 
 	<style>
@@ -92,6 +90,46 @@
 		font-size: 10px;
 	}
 
+	#zoomWorld {
+		padding: 15px;
+	}
+
+	.zoomBtn {
+    border: none;
+    display: inline-block;
+    position: static;
+    bottom: 0; 
+    margin-top: 10px;
+    background: #9f9fa3;
+    color: #ffffff;
+    padding: 9px 12px 10px;
+    line-height: 17px;
+    text-decoration: none;
+    text-shadow: none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 5px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden;
+	}
+
+	#buttonWrapper {
+    text-align: center;
+	}
+	.zoomBtn:hover {
+	    outline: none;
+	    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	    -webkit-transition: 0.25s;
+	    transition: 0.25s;
+	    -webkit-backface-visibility: hidden;
+	}
+
 	</style>
 
 	<body>		
@@ -120,21 +158,15 @@
                 </ul>
                 </div>
 			<div id="info">
-				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">Caribbean Programs</p>
-				
-				<!-- Working on this piece right now -->
-
+				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">Caribbean Programs</p>				
 				<div id="ddProgram" class="wrapper-dropdown-1">
 						<span id="sectorSpan"></span>
 						<ul id="sectorInput" class="dropdown"></ul>					
-				</div>			
-
-				<!-- Working on this piece right now -->
-				
+				</div>						
 				<hr>
 				<div id ="countryName"></div>
 				<div id="programInfo"></div>
-				<div id="zoomWorld"><hr><input type="button" value="Zoom to The Caribbean" onclick="resetView()"></div>
+				<div id="buttonWrapper"><input class="zoomBtn" type="button" value="Zoom to Caribbean" onclick="resetView()"></div>
 				<nav class="socialBar">
 						<ul class="social-list">
 		                	<li class="facebook">
@@ -163,7 +195,6 @@
 
 		
 		<script src="//cdn.leafletjs.com/leaflet-0.6.2/leaflet-src.js"></script>
-		<script src="../js/leaflet.markercluster-src.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="js/main.js"></script>		
 	</body> 	

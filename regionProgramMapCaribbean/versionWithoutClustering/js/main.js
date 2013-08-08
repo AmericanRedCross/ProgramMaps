@@ -11,14 +11,15 @@ var points = [];
 var projectPoints = [];
 var displayedCountryNames = [];
 var programList = [];
+var marker = [];
 
 
-var center = new L.LatLng(14.21304, -67.862829);
+var center = new L.LatLng(15.875764, -73.6648605);
 var bounds = new L.LatLngBounds([90, 260], [-80, -190]);
 
 var map = L.map('map', {
     center: center,
-    zoom: 5,
+    zoom: 6,
     attributionControl: false,
     maxBounds: bounds,
     });
@@ -30,15 +31,13 @@ var attrib = new L.Control.Attribution({
     position: 'bottomleft'
     });
 
-var markers = new L.MarkerClusterGroup({spiderfyDistanceMultiplier: 5});
-
 attrib.addAttribution('Map Data &copy; <a href="http://redcross.org">Red Cross</a>');
 map.addControl(attrib);
 map.addLayer(cloudmade);
 cloudmade.setOpacity(0);
 
 function resetView() {
-    map.setView(center, 5);
+    map.setView(center, 6);
 }
 
 function mapStyle(feature) {
@@ -100,7 +99,7 @@ function programDropdown () {
         points.push(coord);
     });    
     Options = {
-        radius: 8,
+        radius: 5,
         fillColor: "#ED1B2E",
         color: "#FFF",
         weight: 2.5,
@@ -115,25 +114,6 @@ function programDropdown () {
             programList.push(aProgram);
         }
     });
-
-    displayPoints = [];
-    $.each(arcPrograms, function (index,item){
-        content = [item.Long, item.Lat, item.COMMUNITY];
-        for (var i= 0; i<displayPoints.length; i++) {
-            if (displayPoints[i] !== content || displayPoints = []}}) {
-                displayPoints.push(content);
-            }
-        }
-    });
-
-    // var uniquePoints = [];
-    // $.each(points, function (ai,program) {
-    //     var communityName = program.properties.Community;
-    //     $.each(uniquePoints, function (ci, item) {
-    //         if (item.properties.Community.indexOf(communityName) === -1 || uniquePoints = []) {
-    //         uniquePoints.push(program);
-    //     }
-    // })});
 
     $('#sectorSpan').empty();
     $('#sectorInput').empty();
@@ -151,17 +131,16 @@ function programDropdown () {
 }
 
 function changeProgram(project) {
-    map.removeLayer(markers);
+    map.removeLayer(marker);
     info.update();
     projectPoints = [];
     $.each(points, function (ai, program) {
         var currentProgram = program.properties.Project;
-        if (project === currentProgram) {
-            projectPoints.push(program);
-        } else if (project === "All Projects") {
+        if (project === currentProgram || project === "All Projects") {
             projectPoints.push(program);
         }
     })
+
     marker = L.geoJson(projectPoints, {
             pointToLayer: function (feature, latlng) {
                 return L.circleMarker(latlng, Options);
@@ -169,8 +148,7 @@ function changeProgram(project) {
             onEachFeature: markerEvents
         });
 
-    markers.addLayer(marker);
-    map.addLayer(markers);
+    map.addLayer(marker);
 }
 
 
@@ -259,8 +237,10 @@ function mapDisplay() {
     map.on('viewreset', function() {
         if (map.getZoom() < 6) {
             cloudmade.setOpacity(0);
+            marker.setStyle(remove);
             geojson.setStyle(add);
         } else {
+            marker.setStyle(add);
             geojson.setStyle(remove);
             cloudmade.setOpacity(1);
         }
