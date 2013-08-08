@@ -134,13 +134,14 @@ function createYearsDropdown() {
         $('#yearInput').append(listItemYear);       
     }
     // give page element properties for UI functionality
-    var dd2 = new DropDown( $('#ddYear') );
+    // var dd2 = new DropDown( $('#ddYear') );
     // set displayed text in selection box to maxYear
     $('#yearSpan').append(maxYear); 
     changeYear(maxYear);
 }
 
 function changeYear(year) {
+    $("#yearInput").hide();
     var yearChoice = parseInt(year);
     // populate arrays *data for year's displayed programs* and 
     selectedYearProgramData = [];
@@ -171,7 +172,7 @@ function changeYear(year) {
         $('#sectorInput').append(listItemSector); 
     }
 
-    var dd2 = new DropDown2( $('#ddSector') );
+    // var dd2 = new DropDown2( $('#ddSector') );
     changeSector("All Sectors");
 }
 
@@ -334,37 +335,37 @@ $('.popup').click(function(event) {
 
 
 
-// Year Dropdown 
+// Year Dropdown #ddYear  (not called by anything right now)
 function DropDown(el) {
     this.dd = el;
     this.placeholder = this.dd.children('span');
     this.opts = this.dd.find('ul.dropdown > li');
-    // this.val = '';
-    // this.index = -1;
     this.initEvents();
 }
-
 DropDown.prototype = {
     initEvents : function() {
         var obj = this;
-
-        // obj.dd.on('click', function(event){
-        //     $(this).toggleClass('active');
-        //     return false;
-        // });
-
         obj.opts.on('click',function(){
             var selectedYear = $(this).html();
             obj.placeholder.text(selectedYear);
             changeYear(selectedYear);
+            $("#yearInput").hide();
         });
     }
 }
 
-// $("#ddYear").click(function(){
-//     $(this).toggleClass('active');
-//     return false;
+
+$("#ddYear").click(function(){
+    $("#yearInput").show();    
+});
+
+// $("#yearInput").click(function(){
+//     alert('yearInput clicked');
 // });
+$("#ddYear").click(function(){
+    alert('yearInput clicked');
+});
+
 
 // Sector Dropdown
 function DropDown2(el) {
@@ -373,16 +374,9 @@ function DropDown2(el) {
     this.opts = this.dd.find('ul.dropdown > li');
     this.initEvents();
 }
-
 DropDown2.prototype = {
     initEvents : function() {
         var obj = this;
-
-        // obj.dd.on('click', function(event){
-        //     $(this).toggleClass('active');
-        //     return false;
-        // });
-
         obj.opts.on('click',function(){
             var selectedSector = $(this).text();
             var sectorId = $(this).attr('id');
