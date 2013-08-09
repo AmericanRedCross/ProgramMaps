@@ -21,6 +21,7 @@ var map = L.map('map', {
     zoom: 5,
     attributionControl: false,
     maxBounds: bounds,
+    maxZoom: 15,
     });
 var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
@@ -30,7 +31,7 @@ var attrib = new L.Control.Attribution({
     position: 'bottomleft'
     });
 
-var markers = new L.MarkerClusterGroup({spiderfyDistanceMultiplier: 5});
+var markers = new L.MarkerClusterGroup();
 
 attrib.addAttribution('Map Data &copy; <a href="http://redcross.org">Red Cross</a>');
 map.addControl(attrib);
@@ -116,25 +117,6 @@ function programDropdown () {
         }
     });
 
-    displayPoints = [];
-    $.each(arcPrograms, function (index,item){
-        content = [item.Long, item.Lat, item.COMMUNITY];
-        for (var i= 0; i<displayPoints.length; i++) {
-            if (displayPoints[i] !== content || displayPoints = []}}) {
-                displayPoints.push(content);
-            }
-        }
-    });
-
-    // var uniquePoints = [];
-    // $.each(points, function (ai,program) {
-    //     var communityName = program.properties.Community;
-    //     $.each(uniquePoints, function (ci, item) {
-    //         if (item.properties.Community.indexOf(communityName) === -1 || uniquePoints = []) {
-    //         uniquePoints.push(program);
-    //     }
-    // })});
-
     $('#sectorSpan').empty();
     $('#sectorInput').empty();
     $('#sectorSpan').append("All Projects");
@@ -152,6 +134,8 @@ function programDropdown () {
 
 function changeProgram(project) {
     map.removeLayer(markers);
+    marker = [];
+    markers = [];
     info.update();
     projectPoints = [];
     $.each(points, function (ai, program) {
@@ -162,6 +146,7 @@ function changeProgram(project) {
             projectPoints.push(program);
         }
     })
+    markers = new L.MarkerClusterGroup();
     marker = L.geoJson(projectPoints, {
             pointToLayer: function (feature, latlng) {
                 return L.circleMarker(latlng, Options);
