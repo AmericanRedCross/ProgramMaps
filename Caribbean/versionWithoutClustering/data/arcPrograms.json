@@ -202,7 +202,7 @@
    {
       "COUNTRY":"Belize",
       "REGION":"",
-      "COMMUNITY":"Orange Walk Town: Black Water Creek*",
+      "COMMUNITY":"Orange Walk Town (Louisiana, Trial Farm & Black Water Creek)",
       "Lat":18.083751,
       "Long":-88.556897,
       "PROJECT_NAME":"IPA"
@@ -210,7 +210,7 @@
    {
       "COUNTRY":"Belize",
       "REGION":"",
-      "COMMUNITY":"Orange Walk Town: Black Water Creek*",
+      "COMMUNITY":"Orange Walk Town (Louisiana, Trial Farm & Black Water Creek)",
       "Lat":18.083751,
       "Long":-88.556897,
       "PROJECT_NAME":"CHAP"
@@ -218,55 +218,7 @@
    {
       "COUNTRY":"Belize",
       "REGION":"",
-      "COMMUNITY":"Orange Walk Town: Black Water Creek*",
-      "Lat":18.083751,
-      "Long":-88.556897,
-      "PROJECT_NAME":"RITA"
-   },
-   {
-      "COUNTRY":"Belize",
-      "REGION":"",
-      "COMMUNITY":"Orange Walk Town: Louisiana* ",
-      "Lat":18.083751,
-      "Long":-88.556897,
-      "PROJECT_NAME":"IPA"
-   },
-   {
-      "COUNTRY":"Belize",
-      "REGION":"",
-      "COMMUNITY":"Orange Walk Town: Louisiana* ",
-      "Lat":18.083751,
-      "Long":-88.556897,
-      "PROJECT_NAME":"CHAP"
-   },
-   {
-      "COUNTRY":"Belize",
-      "REGION":"",
-      "COMMUNITY":"Orange Walk Town: Louisiana* ",
-      "Lat":18.083751,
-      "Long":-88.556897,
-      "PROJECT_NAME":"RITA"
-   },
-   {
-      "COUNTRY":"Belize",
-      "REGION":"",
-      "COMMUNITY":"Orange Walk Town: Trial Farm*",
-      "Lat":18.083751,
-      "Long":-88.556897,
-      "PROJECT_NAME":"IPA"
-   },
-   {
-      "COUNTRY":"Belize",
-      "REGION":"",
-      "COMMUNITY":"Orange Walk Town: Trial Farm*",
-      "Lat":18.083751,
-      "Long":-88.556897,
-      "PROJECT_NAME":"CHAP"
-   },
-   {
-      "COUNTRY":"Belize",
-      "REGION":"",
-      "COMMUNITY":"Orange Walk Town: Trial Farm*",
+      "COMMUNITY":"Orange Walk Town (Louisiana, Trial Farm & Black Water Creek)",
       "Lat":18.083751,
       "Long":-88.556897,
       "PROJECT_NAME":"RITA"
