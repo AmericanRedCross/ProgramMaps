@@ -134,18 +134,27 @@ function programDropdown () {
 
 function changeProgram(project) {
     map.removeLayer(markers);
-    marker = [];
     markers = [];
     info.update();
     projectPoints = [];
+    communityList = [];
+    uniqueCommunities = [];
+    $.each(points, function (ai, program) {
+        if ($.inArray(program.properties.Community, communityList) === -1) {
+            communityList.push(program.properties.Community);
+            uniqueCommunities.push(program);
+        }
+    })
     $.each(points, function (ai, program) {
         var currentProgram = program.properties.Project;
         if (project === currentProgram) {
             projectPoints.push(program);
-        } else if (project === "All Projects") {
-            projectPoints.push(program);
         }
     })
+    if (project === "All Projects") {
+            projectPoints = uniqueCommunities;
+        }
+    
     markers = new L.MarkerClusterGroup();
     marker = L.geoJson(projectPoints, {
             pointToLayer: function (feature, latlng) {
