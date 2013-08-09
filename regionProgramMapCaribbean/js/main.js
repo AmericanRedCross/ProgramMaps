@@ -149,11 +149,10 @@ function changeProgram(project) {
         var currentProgram = program.properties.Project;
         if (project === currentProgram) {
             projectPoints.push(program);
-        }
-    })
-    if (project === "All Projects") {
+        } else if (project === "All Projects") {
             projectPoints = uniqueCommunities;
         }
+    })
     
     markers = new L.MarkerClusterGroup();
     marker = L.geoJson(projectPoints, {
@@ -231,10 +230,8 @@ function communityClick (e) {
     }
     if (map.getZoom() > 5) {
         info.update(community.feature.properties);
-        // community.bringToFront();
     } else {
         info.update();
-        // community.bringtoBack();
     }
 }
 var markerEvents = function (feature, layer) {
@@ -391,11 +388,6 @@ function DropDown(el) {
 DropDown.prototype = {
     initEvents : function() {
         var obj = this;
-
-        // obj.dd.on('click', function(event){
-        //     $(this).toggleClass('active');
-        //     return false;
-        // });
 
         obj.opts.on('click',function(){
             var selectedProgram = $(this).text();

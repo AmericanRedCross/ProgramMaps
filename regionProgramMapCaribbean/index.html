@@ -20,26 +20,31 @@
 	<style>
 
 	.marker-cluster-small {
-		background-color: rgba(255, 255, 255, 1);
+		background-color: rgba(255, 255, 255, 0.5);
 	}
 	.marker-cluster-small div {
-		background-color: rgba(237, 27, 46, 1);
+		background-color: rgba(237, 27, 46, 0.7);
 	}
 
 	.marker-cluster-medium {
-		background-color: rgba(255, 255, 255, 1);
+		background-color: rgba(255, 255, 255, 0.5);
 	}
 	.marker-cluster-medium div {
-		background-color: rgba(237, 27, 46, 1);
+		background-color: rgba(237, 27, 46, 0.7);
 	}
 
 	.marker-cluster-large {
-		background-color: rgba(255, 255, 255, 1);
+		background-color: rgba(255, 255, 255, 0.5);
 	}
 	.marker-cluster-large div {
-		background-color: rgba(237, 27, 46, 1);
+		background-color: rgba(237, 27, 46, 0.7);
 	}
-
+	.marker-cluster div {
+		color: #FFF;
+		text-align: center;
+		border-radius: 15px;
+		font: bold 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	}
 	.socialBar {
  		float: right;
 	}
@@ -51,7 +56,6 @@
 	.social-list span {
 		display: inline;
 		float: left;
-		/*text-indent: -9999px;*/
 	}
 	.social-list li.facebook span {
 		background: url("images/fb_gray.png");
@@ -121,16 +125,10 @@
                 </div>
 			<div id="info">
 				<img class=arclogo src="images/redcross-logo.png" /><p id="ip">Caribbean Programs</p>
-				
-				<!-- Working on this piece right now -->
-
 				<div id="ddProgram" class="wrapper-dropdown-1">
 						<span id="sectorSpan"></span>
 						<ul id="sectorInput" class="dropdown"></ul>					
-				</div>			
-
-				<!-- Working on this piece right now -->
-				
+				</div>				
 				<hr>
 				<div id ="countryName"></div>
 				<div id="programInfo"></div>
