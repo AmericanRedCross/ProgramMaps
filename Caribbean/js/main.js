@@ -153,6 +153,7 @@ function changeProgram(project) {
             projectPoints = uniqueCommunities;
         }
     })
+
     
     markers = new L.MarkerClusterGroup();
     marker = L.geoJson(projectPoints, {
