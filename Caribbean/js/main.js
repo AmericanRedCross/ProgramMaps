@@ -58,9 +58,9 @@ function getColor () {
     displayedCountryNames = [];
     $.each (arcPrograms, function (ai, program){
         var currentCountry = program.COUNTRY.toUpperCase();
-        if ($.inArray(currentCountry, displayedCountryNames) === -1) {
+        // if ($.inArray(currentCountry, displayedCountryNames) === -1) {
             displayedCountryNames.push(currentCountry);
-        }
+        // }
         });
 
     $.each(worldColored.features, function (ci, country) {
@@ -75,7 +75,7 @@ function getColor () {
     countries = new L.layerGroup().addTo(map);
 
     geojson = L.geoJson(worldColored, {
-        onEachFeature: featureEvents,
+        // onEachFeature: featureEvents,
         style: mapStyle
     }).addTo(countries);   
 }
@@ -286,7 +286,7 @@ function getARC() {
         timeout: 10000,
         success: function(json) {
             arcPrograms = json;
-            // getColor();
+            getColor();
             mapDisplay();
             programDropdown();
         },
