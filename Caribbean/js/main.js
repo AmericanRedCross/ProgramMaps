@@ -65,11 +65,13 @@ function getColor () {
 
     $.each(worldColored.features, function (ci, country) {
         var currentCountry = country.properties.name.toUpperCase();
-        if ($.inArray(currentCountry, displayedCountryNames) === -1) {
-            country.properties.mapColor = 'white';
-        } else {
-            country.properties.mapColor = "#ED1B2E";
-        }
+        country.properties.mapColor = 'white';
+
+        // if ($.inArray(currentCountry, displayedCountryNames) === -1) {
+        //     country.properties.mapColor = 'white';
+        // } else {
+        //     country.properties.mapColor = "#ED1B2E";
+        // }
     });
 
     countries = new L.layerGroup().addTo(map);
