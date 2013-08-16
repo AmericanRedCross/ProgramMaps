@@ -286,7 +286,7 @@ function getARC() {
         timeout: 10000,
         success: function(json) {
             arcPrograms = json;
-            getColor();
+            // getColor();
             mapDisplay();
             programDropdown();
         },
