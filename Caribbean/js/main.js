@@ -182,7 +182,7 @@ function formatProgramName(option) {
         formattedProgramName = "Disaster Risk Reduction";
         Sector = "DM - Preparedness/DRR"
     } else if (option === "CHAP"){
-        formattedProgramName = "Caribbean HIV Action and Prevention";
+        formattedProgramName = "Caribbean HIV AIDS Project";
         Sector = "Community Health - HIV"
     } else {
         formattedProgramName = option;
