@@ -256,16 +256,17 @@ textarea {
     top: 45%;
     left: 30%;
     display: none;
-    padding: 5px;
+    padding: 10px;
     width: 300px;
     border: 1px solid #fff;
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
     font: 12px Arial;
+    cursor: pointer;
 }
 .close {
     float: right;
-    margin: -10px -10px 0 0;
+    margin: -3px -3px 0 0;
     cursor: pointer;
 }   
 
