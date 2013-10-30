@@ -11,63 +11,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="American Red Cross">
-    
-    <link href="css/bootstrap-glyphicons.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+        
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
     <link rel="stylesheet" href="css/markercluster.css" />
-    <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="css/MarkerCluster.Default.css" />       
+    
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
-    <link href="css/custom.css" rel="stylesheet">
-    <link rel="shortcut icon" href="img/favicon.png">
-      
+    <style type="text/css">
+
+      html, body, #map{
+        height: 100%;
+        width: 100%;
+        padding: 0px;
+        margin:0px;  
+      }
+
+      .oldBrowser {
+        margin: 60px 0;
+        padding: 20px 0;
+        background: #ccc;
+        color: #000;
+      }
+
+      .btn-zoom {
+        position: absolute;
+        left: 47px;
+        top: 10px;
+        z-index: 999;
+        background-color: #ffffff;
+        border-color: #d7d7d8;
+        font-weight: bold;
+        color: #6d6e70;
+        box-shadow: 1px 1px 9px #c3c3c5;
+        outline: none;
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;   
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+      }
+
+      .btn-zoom:hover{
+        color: black;
+        background-color: #f4f4f4;
+        outline: none; 
+      }
+
+      a.leaflet-control-zoom-in, 
+      a.leaflet-control-zoom-out {
+        color:#6d6e70;
+      }
+
+      .disclaimer {
+        margin: 0 10px;  
+        font-size: small;
+        color: #9f9fa3;
+        cursor: pointer;
+      }
+      .disclaimer a {    
+        text-decoration: none;
+        cursor: pointer;
+        color: #6d6e70;
+      }
+
+      /*styling for marker clusters*/
+      .marker-cluster-small {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      .marker-cluster-small div {
+        background-color: rgba(237, 27, 46, 0.7);
+      }
+
+      .marker-cluster-medium {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      .marker-cluster-medium div {
+        background-color: rgba(237, 27, 46, 0.7);
+      }
+
+      .marker-cluster-large {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      .marker-cluster-large div {
+        background-color: rgba(237, 27, 46, 0.7);
+      }
+      .marker-cluster div {
+        color: #FFF;
+        text-align: center;
+        border-radius: 15px;
+        font: bold 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+      }
+
+    </style>  
   </head>
-  
 
   <body>
         <!--[if lt IE 10]>
             <p class="oldBrowser" style="text-align:center;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
             <![endif]-->
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div>
-          <a class="navbar-brand" href="../index.html">GIS - American Red Cross International Services</a>
-        </div>
-      </div>
-    </div>  
-          
-    <a href="http://redcross.org"><img src="img/redcross-logo.png" id="arclogo" /></a>
-    <!-- <button class="btn btn-small btn-zoom" type="button" onClick="zoomOut();">Zoom to Extent</button> -->
-    <!-- <div class="twitter">
-      <a class="twitter twitterpopup" href="http://twitter.com/intent/tweet?text=awesome%20%40RedCross%20mapfolio&amp;url=http%3A%2F%2Fbit.ly%2F19V54xv&amp;related=RedCross"><span></span></a>
-    </div>   --> 
-    <!-- <div class="facebook">
-      <a href="#" 
-      onclick="
-      window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
-      'facebook-share-dialog', 
-      'width=626,height=436'); 
-      return false;"><span></span></a>
-    </div>       -->
+    <button class="btn-zoom" type="button" onClick="zoomOut();">Zoom to Extent</button>
 
-      <div id="map"></div>        
-
-      
-    
-    <hr style="margin-bottom:10px;">
-    <footer>
-      <div class="disclaimer pull-right">
-        <p>
-            &copy; <a href="http://redcross.org" title="Red Cross" target="_blank">Red Cross</a> 2013 | 
-            <a title="Disclaimer" onClick="showDisclaimer();">Disclaimer</a>
-        </p>        
-    </div>
-    </footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <div id="map"></div>     
+             
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>    
     <script src="js/leaflet.markercluster-src.js"></script>
     <script src="js/main.js"></script>
 

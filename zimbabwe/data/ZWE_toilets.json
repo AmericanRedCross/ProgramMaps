@@ -1,0 +1,368 @@
+[
+	{
+		"COMMUNITY": "Zingozo",
+		"VULNERABILITY": "Widow and old age",
+		"LAT": "-17.75964",
+		"LONG": "27.27325"
+	},
+	{
+		"COMMUNITY": "Zingozo",
+		"VULNERABILITY": "Old age stays with orphans",
+		"LAT": "-17.77534",
+		"LONG": "27.2323"
+	},
+	{
+		"COMMUNITY": "Zingozo",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.78011",
+		"LONG": "27.27884"
+	},
+	{
+		"COMMUNITY": "Zingozo",
+		"VULNERABILITY": "Widow stays with orphans",
+		"LAT": "-17.80309",
+		"LONG": "27.28929"
+	},
+	{
+		"COMMUNITY": "Zingozo",
+		"VULNERABILITY": "Old age and blind",
+		"LAT": "-17.78634",
+		"LONG": "27.27158"
+	},
+	{
+		"COMMUNITY": "Zingozo",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.80102",
+		"LONG": "27.27793"
+	},
+	{
+		"COMMUNITY": "Zingozo",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.80365",
+		"LONG": "27.28461"
+	},
+	{
+		"COMMUNITY": "Zingozo",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.80013",
+		"LONG": "27.27546"
+	},
+	{
+		"COMMUNITY": "Chileya",
+		"VULNERABILITY": "Widow stays with orphans",
+		"LAT": "-17.79194",
+		"LONG": "27.24651"
+	},
+	{
+		"COMMUNITY": "Chileya",
+		"VULNERABILITY": "Blind",
+		"LAT": "-17.79867",
+		"LONG": "27.2519"
+	},
+	{
+		"COMMUNITY": "Chileya",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.80634",
+		"LONG": "27.25676"
+	},
+	{
+		"COMMUNITY": "Chileya",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.81128",
+		"LONG": "27.25332"
+	},
+	{
+		"COMMUNITY": "Chileya",
+		"VULNERABILITY": "Widow stays with orphans",
+		"LAT": "-17.81700",
+		"LONG": "27.23948"
+	},
+	{
+		"COMMUNITY": "Chileya",
+		"VULNERABILITY": "Widow stays with orphans",
+		"LAT": "-17.82122",
+		"LONG": "27.23528"
+	},
+	{
+		"COMMUNITY": "Chileya",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.80575",
+		"LONG": "27.22217"
+	},
+	{
+		"COMMUNITY": "Chileya",
+		"VULNERABILITY": "Widow stays with orphans",
+		"LAT": "-17.80600",
+		"LONG": "27.2093"
+	},
+	{
+		"COMMUNITY": "Chileya",
+		"VULNERABILITY": "Old age and blind",
+		"LAT": "-17.80930",
+		"LONG": "27.20387"
+	},
+	{
+		"COMMUNITY": "Chileya",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.79647",
+		"LONG": "27.22461"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.85412",
+		"LONG": "27.22202"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.85658",
+		"LONG": "27.21451"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Old age stays with orphans",
+		"LAT": "-17.85477",
+		"LONG": "27.21166"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.85512",
+		"LONG": "27.20911"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.85072",
+		"LONG": "27.19884"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Old age stays with orphans",
+		"LAT": "-17.85008",
+		"LONG": "27.19948"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Big family with orphans",
+		"LAT": "-17.82658",
+		"LONG": "27.19999"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.82512",
+		"LONG": "27.19751"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Old age stays with orphans",
+		"LAT": "-17.83060",
+		"LONG": "27.19369"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.82661",
+		"LONG": "27.18885"
+	},
+	{
+		"COMMUNITY": "Siamuloba",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.82924",
+		"LONG": "27.19818"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Old age and blind",
+		"LAT": "-17.93126",
+		"LONG": "27.28065"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.92026",
+		"LONG": "27.27952"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.92715",
+		"LONG": "27.27981"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.90967",
+		"LONG": "27.2794"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.91247",
+		"LONG": "27.27817"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.91223",
+		"LONG": "27.28415"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Blind",
+		"LAT": "-17.91543",
+		"LONG": "27.29881"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.91307",
+		"LONG": "27.29566"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.91121",
+		"LONG": "27.29136"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Orphan",
+		"LAT": "-17.90690",
+		"LONG": "27.29506"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Old age stays with orphans",
+		"LAT": "-17.89919",
+		"LONG": "27.2811"
+	},
+	{
+		"COMMUNITY": "Siamwinde 1 & 2",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.89703",
+		"LONG": "27.27765"
+	},
+	{
+		"COMMUNITY": "Sianoti/Kasikli",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.89408",
+		"LONG": "27.25645"
+	},
+	{
+		"COMMUNITY": "Sianoti/Kasikli",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.90339",
+		"LONG": "27.2189"
+	},
+	{
+		"COMMUNITY": "Sianoti/Kasikli",
+		"VULNERABILITY": "Epileptic stays with orphans",
+		"LAT": "-17.92025",
+		"LONG": "27.26517"
+	},
+	{
+		"COMMUNITY": "Sianoti/Kasikli",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.84379",
+		"LONG": "27.24985"
+	},
+	{
+		"COMMUNITY": "Binga 40/Siansise",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.82754",
+		"LONG": "27.3578"
+	},
+	{
+		"COMMUNITY": "Binga 40/Siansise",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.8298",
+		"LONG": "27.35698"
+	},
+	{
+		"COMMUNITY": "Binga 40/Siansise",
+		"VULNERABILITY": "Old age",
+		"LAT": "-17.91926",
+		"LONG": "27.32353"
+	},
+	{
+		"COMMUNITY": "Binga 40/Siansise",
+		"VULNERABILITY": "Old age stays with orphans",
+		"LAT": "-17.89245",
+		"LONG": "27.326"
+	},
+	{
+		"COMMUNITY": "Siantungwana/Chump.",
+		"VULNERABILITY": "Old age stays with orphans",
+		"LAT": "-17.96916",
+		"LONG": "27.26217"
+	},
+	{
+		"COMMUNITY": "Siantungwana/Chump.",
+		"VULNERABILITY": "Disabled",
+		"LAT": "-17.95412",
+		"LONG": "27.27804"
+	},
+	{
+		"COMMUNITY": "Siantungwana/Chump.",
+		"VULNERABILITY": "Stays with orphans",
+		"LAT": "-17.96586",
+		"LONG": "27.26696"
+	},
+	{
+		"COMMUNITY": "Siantungwana/Chump.",
+		"VULNERABILITY": "Mentally challenged",
+		"LAT": "-17.94835",
+		"LONG": "27.27506"
+	},
+	{
+		"COMMUNITY": "Siantungwana/Chump.",
+		"VULNERABILITY": "Partially blind",
+		"LAT": "-17.91996",
+		"LONG": "27.2845"
+	},
+	{
+		"COMMUNITY": "Siantungwana/Chump.",
+		"VULNERABILITY": "Disabled",
+		"LAT": "-17.93263",
+		"LONG": "27.29"
+	},
+	{
+		"COMMUNITY": "Siantungwana/Chump.",
+		"VULNERABILITY": "Disabled & wheel chair bound",
+		"LAT": "-17.92913",
+		"LONG": "27.28838"
+	},
+	{
+		"COMMUNITY": "Siantungwana/Chump.",
+		"VULNERABILITY": "Disabled",
+		"LAT": "-17.92272",
+		"LONG": "27.29113"
+	},
+	{
+		"COMMUNITY": "Siantungwana/Chump.",
+		"VULNERABILITY": "Blind",
+		"LAT": "-17.92175",
+		"LONG": "27.28894"
+	},
+	{
+		"COMMUNITY": "Siantungwana/Chump",
+		"VULNERABILITY": "Disabled",
+		"LAT": "-17.97423",
+		"LONG": "27.28964"
+	},
+	{
+		"COMMUNITY": "Siachilaba ward",
+		"VULNERABILITY": "N/A",
+		"LAT": "-17.90731",
+		"LONG": "27.27874"
+	},
+	{
+		"COMMUNITY": "Simatelele ward",
+		"VULNERABILITY": "N/A",
+		"LAT": "-17.78856",
+		"LONG": "27.25785"
+	}
+]
