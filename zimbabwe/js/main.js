@@ -9,10 +9,10 @@ var markersBounds = [];
 var markers = new L.MarkerClusterGroup({
     showCoverageOnHover:false, 
     spiderfyDistanceMultiplier:3,
-    maxClusterRadius: 30
+    maxClusterRadius: 30,    
 });
 
-var centroidOptions = {
+var centroidOptions = {    
     radius: 7,
     fillColor: "#ED1B2E",
     color: "#FFF",
