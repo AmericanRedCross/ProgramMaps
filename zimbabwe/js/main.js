@@ -8,8 +8,7 @@ var markersBounds = [];
 
 var markers = new L.MarkerClusterGroup({
     showCoverageOnHover:false, 
-    spiderfyDistanceMultiplier:3,
-    maxClusterRadius: 30,    
+    maxClusterRadius: 50,    
 });
 
 var centroidOptions = {    
@@ -26,20 +25,20 @@ var attribution = 'Map data &copy; <a href="http://openstreetmap.org" target="_b
 var tileLayer = L.tileLayer(tileLayerUrl, {attribution: attribution});
 
 var map = L.map('map', {   
-    zoom: 0,
-    // scrollWheelZoom: false,
+    zoom: 0,    
     layers: [tileLayer]
 });
 
-// on marker mouseover
-function displayPopup(e) {   
-    var target = e.target;
-    target.openPopup();   
-}
-// on marker mouseout
-function clearPopup(e) {    
-    var target = e.target;
-    target.closePopup();    
+function latrineClick(a) {   
+    var target = a.layer;
+    map.setView(target.getLatLng(), 17)
+    var community = target.feature.properties.community;
+    var vulnerability = target.feature.properties.vulnerability;
+    var popupContent = "<b>Community:</b> " + community + "<br><b>Beneficiary vulnerability:</b> " + vulnerability;
+    var popupOptions = {
+        'offset': [0,-20]                
+    }; 
+    target.bindPopup(popupContent, popupOptions).openPopup(); 
 }
 
 function getLatrines() {
@@ -66,7 +65,6 @@ function formatData(data){
             "properties": {
                 "community": item.COMMUNITY, 
                 "vulnerability": item.VULNERABILITY
-
             },
             "geometry": {
                 "type": "Point",
@@ -78,31 +76,23 @@ function formatData(data){
     markersToMap();
 }
 
+var latrineIcon = L.icon({
+    iconUrl: 'img/outhouseIcon.png',
+    popupAnchor: [10, 15]
+});
+
 function markersToMap(){
-    marker = L.geoJson(latrines, {
+    var markerLayer = L.geoJson(latrines, {
         pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng, centroidOptions);
-        },
-        onEachFeature: function(feature, layer) {
-            var community = feature.properties.community;
-            var vulnerability = feature.properties.vulnerability;            
-            var popupContent = feature.geometry.coordinates[0] + ", " + feature.geometry.coordinates[1]
-            var popupOptions = {
-                'minWidth': 30,
-                'offset': [0,-10],
-                'closeButton': false,
-            }; 
-            layer.bindPopup(popupContent, popupOptions);
-            layer.on({
-                // click: centroidClick,
-                mouseover: displayPopup,
-                mouseout: clearPopup,
-            });   
-        }            
+            return L.marker(latlng, {icon: latrineIcon});
+        },           
     });
-    markers.addLayer(marker);
+    markers.on('click', function(a) {
+        latrineClick(a);
+    })
+    markers.addLayer(markerLayer);
     markers.addTo(map);
-    markersBounds = markers.getBounds();
+    markersBounds = markers.getBounds();    
     map.fitBounds(markersBounds);
 } 
 
