@@ -3,15 +3,15 @@ function showDisclaimer() {
     window.alert("The maps on this page do not imply the expression of any opinion on the part of the American Red Cross concerning the legal status of a territory or of its authorities.");
 }
 
-var latrines = [];
+var communities = [];
 var markersBounds = [];
 
 var markers = new L.MarkerClusterGroup({
-    showCoverageOnHover:false, 
-    maxClusterRadius: 50,    
+    // showCoverageOnHover:false, 
+    maxClusterRadius: 100,    
 });
 
-var centroidOptions = {    
+var pointOptions = {    
     radius: 7,
     fillColor: "#ED1B2E",
     color: "#FFF",
@@ -29,22 +29,23 @@ var map = L.map('map', {
     layers: [tileLayer]
 });
 
-function latrineClick(a) {   
+function markerClick(a) {   
     var target = a.layer;
-    map.setView(target.getLatLng(), 17);
-    var community = target.feature.properties.community;
-    var vulnerability = target.feature.properties.vulnerability;
-    var popupContent = "<b>Community:</b> " + community + "<br><b>Beneficiary vulnerability:</b> " + vulnerability;
-    var popupOptions = {
-        'offset': [0,-20]                
-    }; 
-    target.bindPopup(popupContent, popupOptions).openPopup(); 
+    var targetLatLng = target.getLatLng();
+    map.setView(targetLatLng, 12);
+    var admin0 = target.feature.properties.admin0;
+    var community = target.feature.properties.community;    
+    var popupContent = "<b>Admin_0:</b> " + admin0 + "<br><b>Community:</b> " + community;
+    var popup = L.popup()
+        .setLatLng(targetLatLng)
+        .setContent(popupContent)
+        .openOn(map);   
 }
 
-function getLatrines() {
+function getCommunities() {
     $.ajax({
         type: 'GET',
-        url: 'data/ZWE_toilets.json',
+        url: 'data/List_de_Comunidades_Proyectos_CRA_Sudamerica.json',
         contentType: 'application/json',
         dataType: 'json',
         timeout: 10000,
@@ -59,36 +60,35 @@ function getLatrines() {
 
 function formatData(data){
     $.each(data, function(index, item) {
-        var latlng = [item.LONG, item.LAT];
+        var latlng = [item.Long, item.Lat];
         var mapCoord = {
             "type": "Feature",
             "properties": {
-                "community": item.COMMUNITY, 
-                "vulnerability": item.VULNERABILITY
+                "admin0": item.Admin_0,
+                "admin1": item.Admin_1,
+                "admin2": item.Admin_2,
+                "admin3": item.Admin_3,
+                "project": item.Project,
+                "community": item.Community,
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": latlng
             }
         }
-        latrines.push(mapCoord);
+        communities.push(mapCoord);
     }); 
     markersToMap();
 }
 
-var latrineIcon = L.icon({
-    iconUrl: 'img/outhouseIcon.png',
-    popupAnchor: [10, 15]
-});
-
 function markersToMap(){
-    var markerLayer = L.geoJson(latrines, {
+    var markerLayer = L.geoJson(communities, {
         pointToLayer: function (feature, latlng) {
-            return L.marker(latlng, {icon: latrineIcon});
+            return L.marker(latlng, pointOptions);
         },           
     });
     markers.on('click', function(a) {
-        latrineClick(a);
+        markerClick(a);
     })
     markers.addLayer(markerLayer);
     markers.addTo(map);
@@ -103,4 +103,4 @@ function zoomOut() {
 }
 
 // start function chain to initialize map
-getLatrines();
+getCommunities();

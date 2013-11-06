@@ -1,0 +1,872 @@
+[
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Guajira",
+    "Admin_2":"Las Lomas",
+    "Admin_3":"N/A",
+    "Project":"RITA",
+    "Community":"Las Lomas",
+    "Lat":12.310486,
+    "Long":-71.796083
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Guajira",
+    "Admin_2":"Riohacha",
+    "Admin_3":"N/A",
+    "Project":"RITA",
+    "Community":"Barrio Boca Grande (Comuna 7)",
+    "Lat":11.544932,
+    "Long":-72.92228
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Guajira",
+    "Admin_2":"Riohacha",
+    "Admin_3":"N/A",
+    "Project":"RITA",
+    "Community":"José Antonio Galan (Comuna 3)",
+    "Lat":11.544932,
+    "Long":-72.92228
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Guajira",
+    "Admin_2":"Riohacha",
+    "Admin_3":"N/A",
+    "Project":"RITA",
+    "Community":"Nuevo Milenio (Comuna 10)",
+    "Lat":11.544932,
+    "Long":-72.92228
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Guajira",
+    "Admin_2":"Riohacha",
+    "Admin_3":"N/A",
+    "Project":"RITA",
+    "Community":"Villa Keyner",
+    "Lat":11.544932,
+    "Long":-72.92228
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Santander",
+    "Admin_2":"Bucaramanga",
+    "Admin_3":"N/A",
+    "Project":"RITA",
+    "Community":"La Malaña (Comuna 14)",
+    "Lat":7.11636,
+    "Long":-73.11745
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Santander",
+    "Admin_2":"Rio Negro",
+    "Admin_3":"N/A",
+    "Project":"RITA",
+    "Community":"San Rafael de Lebrija",
+    "Lat":7.26401,
+    "Long":-73.14972
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Santander",
+    "Admin_2":"Rio Negro",
+    "Admin_3":"N/A",
+    "Project":"RITA",
+    "Community":"Caserío El Papayal",
+    "Lat":7.26401,
+    "Long":-73.14972
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Santander",
+    "Admin_2":"Rio Negro",
+    "Admin_3":"N/A",
+    "Project":"RITA",
+    "Community":"La Valvula",
+    "Lat":7.26401,
+    "Long":-73.14972
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Santander",
+    "Admin_2":"Rio Negro",
+    "Admin_3":"N/A",
+    "Project":"RITA",
+    "Community":"San José de los Chorros",
+    "Lat":7.26401,
+    "Long":-73.14972
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Armenia",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Barrio La Patria",
+    "Lat":4.5409,
+    "Long":-75.6668
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Armenia",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Barrio La Facada",
+    "Lat":4.5409,
+    "Long":-75.6668
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Armenia",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"San Juan",
+    "Lat":4.5409,
+    "Long":-75.6668
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Armenia",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Armenia ciudad",
+    "Lat":4.5409,
+    "Long":-75.6668
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Calarca",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Barrio Manantial",
+    "Lat":4.52857,
+    "Long":-75.63998
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Calarca",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Barrios Versalles y Villa Italia",
+    "Lat":4.52857,
+    "Long":-75.63998
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Calarca",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Corregimiento La Virginia",
+    "Lat":4.52857,
+    "Long":-75.63998
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Calarca",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Sector La Linea y San Rafael",
+    "Lat":4.52857,
+    "Long":-75.63998
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Calarca",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Veredas Quebrada Negra y Vista Hermosa",
+    "Lat":4.52857,
+    "Long":-75.63998
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Calarca",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Calarca ciudad",
+    "Lat":4.529324,
+    "Long":-75.640146
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Cordoba",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Barrios El Ensueño y Villa Teresa",
+    "Lat":4.3905,
+    "Long":-75.686
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Cordoba",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Veredas Guayaquil Alto y Bajo",
+    "Lat":4.3905,
+    "Long":-75.686
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Cordoba",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Vereda Las Auras",
+    "Lat":4.3905,
+    "Long":-75.686
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Cordoba",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Vereda Media Cara",
+    "Lat":4.3905,
+    "Long":-75.686
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Cordoba",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Cordoba ciudad",
+    "Lat":4.389587,
+    "Long":-75.685803
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Salento",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Barrios Aldea del Artesana- Frailejones y El Jardin",
+    "Lat":4.6378,
+    "Long":-75.56986
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Salento",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Canaan y Palestina",
+    "Lat":4.6378,
+    "Long":-75.56986
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Salento",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Vereda Boquia",
+    "Lat":4.6378,
+    "Long":-75.56986
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Salento",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Vereda Camino Nacional",
+    "Lat":4.6378,
+    "Long":-75.56986
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Quindio",
+    "Admin_2":"Salento",
+    "Admin_3":"N/A",
+    "Project":"LARRA II",
+    "Community":"Salento ciudad",
+    "Lat":4.63736,
+    "Long":-75.570556
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Risaralda",
+    "Admin_2":"Santuario",
+    "Admin_3":"N/A",
+    "Project":"LARRITA",
+    "Community":"Vereda Peralonso",
+    "Lat":5.0734,
+    "Long":-75.9617
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Risaralda",
+    "Admin_2":"Quinchia",
+    "Admin_3":"N/A",
+    "Project":"LARRITA",
+    "Community":"Vereda Sausaga",
+    "Lat":5.3403,
+    "Long":-75.7272
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Risaralda",
+    "Admin_2":"Apia",
+    "Admin_3":"N/A",
+    "Project":"LARRITA",
+    "Community":"Vereda Jordania",
+    "Lat":5.10595,
+    "Long":-75.94075
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Risaralda",
+    "Admin_2":"La Celia",
+    "Admin_3":"N/A",
+    "Project":"LARRITA",
+    "Community":"Vereda los Chorritos",
+    "Lat":5.0017,
+    "Long":-76.0005
+  },
+  {
+    "Admin_0":"Colombia",
+    "Admin_1":"Risaralda",
+    "Admin_2":"Belen de Umbria",
+    "Admin_3":"N/A",
+    "Project":"LARRITA",
+    "Community":"Corregimiento de Puerto Umbria",
+    "Lat":5.2011,
+    "Long":-75.86882
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Hualtaco",
+    "Project":"RITA",
+    "Community":"Abdón Calderón",
+    "Lat":-3.45077,
+    "Long":-80.22749
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Hualtaco",
+    "Project":"RITA",
+    "Community":"Choferes Sporman",
+    "Lat":-3.45077,
+    "Long":-80.22749
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Hualtaco",
+    "Project":"RITA",
+    "Community":"Puerto Hualtaco",
+    "Lat":-3.45077,
+    "Long":-80.22749
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Hualtaco",
+    "Project":"RITA",
+    "Community":"San Gregorio",
+    "Lat":-3.45077,
+    "Long":-80.22749
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Milton Reyes",
+    "Project":"RITA",
+    "Community":"Brisas del Sur",
+    "Lat":-3.48582,
+    "Long":-80.23956
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Milton Reyes",
+    "Project":"RITA",
+    "Community":"9 de Octubre",
+    "Lat":-3.48582,
+    "Long":-80.23956
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Milton Reyes",
+    "Project":"RITA",
+    "Community":"8 de Setiembre",
+    "Lat":-3.48615,
+    "Long":-80.2379
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Milton Reyes",
+    "Project":"RITA",
+    "Community":"Miraflores",
+    "Lat":-3.48474,
+    "Long":-80.23514
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Paraiso",
+    "Project":"RITA",
+    "Community":"La Primavera",
+    "Lat":-3.48082,
+    "Long":-80.23035
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Union Lojana",
+    "Project":"RITA",
+    "Community":"12 de Octubre",
+    "Lat":-3.48125,
+    "Long":-80.21795
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Union Lojana",
+    "Project":"RITA",
+    "Community":"Jaime Roldos",
+    "Lat":-3.48125,
+    "Long":-80.21795
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Union Lojana",
+    "Project":"RITA",
+    "Community":"Los Ceibos",
+    "Lat":-3.48125,
+    "Long":-80.21795
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Union Lojana",
+    "Project":"RITA",
+    "Community":"Los Vergeles",
+    "Lat":-3.48125,
+    "Long":-80.21795
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Ecuador",
+    "Project":"RITA",
+    "Community":"Ecuador",
+    "Lat":-3.48446,
+    "Long":-80.22567
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"El Oro",
+    "Admin_2":"Huaquillas",
+    "Admin_3":"Ecuador",
+    "Project":"RITA",
+    "Community":"Las Amazonas",
+    "Lat":-3.48446,
+    "Long":-80.22567
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Manglar Alto",
+    "Project":"LARRA II",
+    "Community":"San Pedro ",
+    "Lat":-1.85011,
+    "Long":-80.7455
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Manglar Alto",
+    "Project":"LARRA II",
+    "Community":"Valdivia",
+    "Lat":-1.85011,
+    "Long":-80.7455
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Manglar Alto",
+    "Project":"LARRA II",
+    "Community":"Manglar Alto",
+    "Lat":-1.85011,
+    "Long":-80.7455
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Manglar Alto",
+    "Project":"LARRA II",
+    "Community":"El suspiro",
+    "Lat":-1.85011,
+    "Long":-80.7455
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Manglar Alto",
+    "Project":"LARRA II",
+    "Community":"La Ponga",
+    "Lat":-1.85011,
+    "Long":-80.7455
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Manglar Alto",
+    "Project":"LARRA II",
+    "Community":"Río Blanco",
+    "Lat":-1.85011,
+    "Long":-80.7455
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Colonche",
+    "Project":"LARRA II",
+    "Community":"Ayangue",
+    "Lat":-2.02142,
+    "Long":-80.66872
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Colonche",
+    "Project":"LARRA II",
+    "Community":"El corozo",
+    "Lat":-2.02142,
+    "Long":-80.66872
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Colonche",
+    "Project":"LARRA II",
+    "Community":"Ceibitos",
+    "Lat":-2.02142,
+    "Long":-80.66872
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Colonche",
+    "Project":"LARRA II",
+    "Community":"Iceras",
+    "Lat":-2.02142,
+    "Long":-80.66872
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Colonche",
+    "Project":"LARRA II",
+    "Community":"Balsas",
+    "Lat":-2.02142,
+    "Long":-80.66872
+  },
+  {
+    "Admin_0":"Ecuador",
+    "Admin_1":"Santa Elena",
+    "Admin_2":"Santa Elena",
+    "Admin_3":"Colonche",
+    "Project":"LARRA II",
+    "Community":"Bellavista del cerro",
+    "Lat":-2.02142,
+    "Long":-80.66872
+  },
+  {
+    "Admin_0":"Peru",
+    "Admin_1":"Ica",
+    "Admin_2":"Chincha",
+    "Admin_3":"Tambo de Mora",
+    "Project":"RITA",
+    "Community":"Miramar-Sector Centro",
+    "Lat":-13.45894,
+    "Long":-76.18201
+  },
+  {
+    "Admin_0":"Peru",
+    "Admin_1":"Ica",
+    "Admin_2":"Pisco",
+    "Admin_3":"Pisco",
+    "Project":"RITA",
+    "Community":"Pueblo Joven Almirante Grau",
+    "Lat":-13.71186,
+    "Long":-76.20605
+  },
+  {
+    "Admin_0":"Peru",
+    "Admin_1":"Lima",
+    "Admin_2":"Lima",
+    "Admin_3":"Villa El Salvador",
+    "Project":"RITA",
+    "Community":"Asoc. De Vivienda Sta. Rosa de Villa",
+    "Lat":-12.20904,
+    "Long":-76.93366
+  },
+  {
+    "Admin_0":"Peru",
+    "Admin_1":"Loreto",
+    "Admin_2":"Maynas",
+    "Admin_3":"Punchana",
+    "Project":"RITA",
+    "Community":"Nuestra Señora de la Salud",
+    "Lat":-3.5131,
+    "Long":-73.4003
+  },
+  {
+    "Admin_0":"Peru",
+    "Admin_1":"Loreto",
+    "Admin_2":"Loreto",
+    "Admin_3":"Nauta",
+    "Project":"RITA",
+    "Community":"Junta Vecinal San Juan",
+    "Lat":-4.50678,
+    "Long":-73.57704
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Bio Bio",
+    "Admin_2":"Bio Bio",
+    "Admin_3":"Nacimiento",
+    "Project":"LARRA ",
+    "Community":"El Progreso",
+    "Lat":-37.50459,
+    "Long":-72.65699
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Bio Bio",
+    "Admin_2":"Bio Bio",
+    "Admin_3":"Los Angeles",
+    "Project":"LARRA ",
+    "Community":"La Suerte-Duquecocuel  ",
+    "Lat":-37.4722,
+    "Long":-72.3495
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Bio Bio",
+    "Admin_2":"Concepcion",
+    "Admin_3":"Concepcion ",
+    "Project":"LARRA ",
+    "Community":"Tres Pascualas",
+    "Lat":-36.82956,
+    "Long":-73.05997
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Bio Bio",
+    "Admin_2":"Concepcion",
+    "Admin_3":"Talcahuano",
+    "Project":"LARRA ",
+    "Community":"Cerro Alegre",
+    "Lat":-36.7144,
+    "Long":-73.1125
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Bio Bio",
+    "Admin_2":"Concepcion",
+    "Admin_3":"Talcahuano",
+    "Project":"LARRA ",
+    "Community":"Aldea Las Salinas",
+    "Lat":-36.7144,
+    "Long":-73.1125
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Bio Bio",
+    "Admin_2":"Concepcion",
+    "Admin_3":"Tome",
+    "Project":"LARRA ",
+    "Community":"Bellavista",
+    "Lat":-36.63702,
+    "Long":-72.95053
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Bio Bio",
+    "Admin_2":"Arauco",
+    "Admin_3":"Lebu",
+    "Project":"LARRA ",
+    "Community":"Jose Miguel Carrera",
+    "Lat":-37.61058,
+    "Long":-73.64595
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Bio Bio",
+    "Admin_2":"Ñuble",
+    "Admin_3":"Chillan",
+    "Project":"LARRA ",
+    "Community":"Poblacion Cordillera",
+    "Lat":-36.6097,
+    "Long":-72.1036
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Bio Bio",
+    "Admin_2":"Ñuble",
+    "Admin_3":"Chillan",
+    "Project":"LARRA ",
+    "Community":"Oro Verde",
+    "Lat":-36.6097,
+    "Long":-72.1036
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Maule",
+    "Admin_2":"Curicó",
+    "Admin_3":"Licantén",
+    "Project":"LARRA ",
+    "Community":"Iloca-Duao-La Pesca ",
+    "Lat":-34.9633,
+    "Long":-72.1841
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Maule",
+    "Admin_2":"Curicó",
+    "Admin_3":"Vichuquén",
+    "Project":"LARRA ",
+    "Community":"Llico",
+    "Lat":-34.88399,
+    "Long":-71.9928
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Maule",
+    "Admin_2":"Curicó",
+    "Admin_3":"Romeral",
+    "Project":"LARRA ",
+    "Community":"Los Queñes ",
+    "Lat":-34.9604,
+    "Long":-71.1255
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Maule",
+    "Admin_2":"Cauquenes",
+    "Admin_3":"Chanco",
+    "Project":"LARRA ",
+    "Community":"Costa Blanca",
+    "Lat":-35.73366,
+    "Long":-72.53364
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Maule",
+    "Admin_2":"Talca",
+    "Admin_3":"San Clemente",
+    "Project":"LARRA ",
+    "Community":"Paso Nevado",
+    "Lat":-35.53808,
+    "Long":-71.48574
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Libertador...O'Higgins",
+    "Admin_2":"Cachapoal",
+    "Admin_3":"Nancagua",
+    "Project":"LARRA ",
+    "Community":"Ana Luisa II",
+    "Lat":-34.65201,
+    "Long":-71.19884
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Libertador...O'Higgins",
+    "Admin_2":"Cachapoal",
+    "Admin_3":"Doñihue",
+    "Project":"LARRA ",
+    "Community":"California",
+    "Lat":-34.22561,
+    "Long":-70.96579
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Libertador...O'Higgins",
+    "Admin_2":"Cachapoal",
+    "Admin_3":"Doñihue",
+    "Project":"LARRA ",
+    "Community":"Camarico-Maule",
+    "Lat":-34.22561,
+    "Long":-70.96579
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Libertador...O'Higgins",
+    "Admin_2":"Cachapoal",
+    "Admin_3":"Mostazal",
+    "Project":"LARRA ",
+    "Community":"Violeta-Parra",
+    "Lat":-33.9557,
+    "Long":-70.5694
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Libertador...O'Higgins",
+    "Admin_2":"Colchagua",
+    "Admin_3":"Chimbarongo",
+    "Project":"LARRA ",
+    "Community":"Peor es Nada",
+    "Lat":-34.7908,
+    "Long":-71.04497
+  },
+  {
+    "Admin_0":"Chile",
+    "Admin_1":"Libertador...O'Higgins",
+    "Admin_2":"Cardenal Caro",
+    "Admin_3":" Litueche",
+    "Project":"LARRA ",
+    "Community":"Quelentero ",
+    "Lat":-34.11529,
+    "Long":-71.7284
+  }
+]
