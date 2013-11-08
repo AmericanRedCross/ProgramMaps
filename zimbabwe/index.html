@@ -11,6 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="American Red Cross">
+
+    <link href="css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet"> 
         
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
     <link rel="stylesheet" href="css/markercluster.css" />
@@ -23,10 +26,26 @@
 
       html, body, #map{
         height: 100%;
-        width: 100%;
-        padding: 0px;
+        width: 100%;        
         margin:0px;  
       }
+      body {
+        padding-top: 50px;
+      }
+       .navbar {
+        height: 50px;
+      }
+      #arclogo {
+        position: absolute;
+        right:0;
+        z-index: 1004;
+        margin: 15px;
+        height: 55px;
+      }
+      .navbar-brand {
+        max-width: none;
+      }
+
       .oldBrowser {
         margin: 60px 0;
         padding: 20px 0;
@@ -36,7 +55,7 @@
       .btn-zoom {
         position: absolute;
         left: 47px;
-        top: 10px;
+        top: 60px;
         z-index: 999;
         background-color: #ffffff;
         border-color: #d7d7d8;
@@ -90,7 +109,15 @@
         <!--[if lt IE 10]>
             <p class="oldBrowser" style="text-align:center;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
             <![endif]-->
-
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div>
+          <span class="navbar-brand" href="">GIS - American Red Cross International Services</span>
+        </div>
+      </div>
+    </div>      
+          
+    <a href="http://redcross.org"><img src="img/redcross-logo.png" id="arclogo" /></a>
     <button class="btn-zoom" type="button" onClick="zoomOut();">Zoom to Extent</button>
 
     <div id="map"></div>     
@@ -98,6 +125,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>    
     <script src="js/leaflet.markercluster-src.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 
      <script>
