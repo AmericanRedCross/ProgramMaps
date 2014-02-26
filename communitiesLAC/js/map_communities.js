@@ -64,11 +64,9 @@ function addMarkers(){
 				fillColor: getColor(feature.properties.Type),
 			}
 		);
-		alert(getColor(feature.properties.Type));
 		marker.bindPopup("<b>Community: </b>" + feature.properties.Place + "</br><b>Country: </b>" + feature.properties.Admin_0);
 		markers.addLayer(marker);
 	}
 
 	map_communities.addLayer(markers);
-	alert("Added Markers to Map");
 }
