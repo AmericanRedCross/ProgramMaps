@@ -34,7 +34,7 @@ legend.onAdd = function (map_communities) {
 	div.innerHTML += '<i style="background: #C57AFA"></i>RITA<br></br>';
 	div.innerHTML += '<i style="background: #E1ED19"></i>LARITA<br></br>';
 	div.innerHTML += '<i style="background: #6C84FD"></i>Past DDR Community<br></br>';
-	div.innerHTML += '<span style="font-size: 12px; font-style: italic;"> Some program locations may be misplaced or missing.</br>As data is submitted the map can be updated</span>';
+	div.innerHTML += '<span style="font-size: 12px; font-style: italic;">Where submitted data was inaccurate or incomplete,</br>some program locations may be misplaced or missing.</span>';
     return div;
 };
 
