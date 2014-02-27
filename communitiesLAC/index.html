@@ -12,104 +12,29 @@
     <meta name="description" content="">
     <meta name="author" content="American Red Cross">
 
-    <link href="css/bootstrap-glyphicons.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">  
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="img/favicon.png">
 
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
-    <link rel="stylesheet" href="css/markercluster.css" />
-    <link rel="stylesheet" href="css/MarkerCluster.Default.css" />       
-    
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<!-- Add JQuery and use its getJSON method which is used to get external GeoJson files -->
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
-    <style type="text/css">
-
-      html, body, #map{
-        height: 100%;
-        width: 100%;        
-        margin:0px;  
-      }
-      body {
-        padding-top: 50px;
-      }
-
-      .navbar {
-        height: 50px;
-      }
-      #arclogo {
-        position: absolute;
-        right:0;
-        z-index: 1004;
-        margin: 15px;
-        height: 55px;
-      }
-      .navbar-brand {
-        max-width: none;
-      }
-
-
-      .oldBrowser {
-        margin: 60px 0;
-        padding: 20px 0;
-        background: #ccc;
-        color: #000;
-      }
-
-      .btn-zoom {
-        position: absolute;
-        left: 47px;
-        top: 60px;
-        z-index: 999;
-        background-color: #ffffff;
-        border-color: #d7d7d8;
-        font-weight: bold;
-        color: #6d6e70;
-        box-shadow: 1px 1px 9px #c3c3c5;
-        outline: none;
-        padding: 5px 10px;
-        font-size: 12px;
-        line-height: 1.5;
-        border-radius: 3px;   
-        vertical-align: middle;
-        cursor: pointer;
-        border: 1px solid transparent;
-      }
-
-      .btn-zoom:hover{
-        color: black;
-        background-color: #f4f4f4;
-        outline: none; 
-      }
-
-      a.leaflet-control-zoom-in, 
-      a.leaflet-control-zoom-out {
-        color:#6d6e70;
-      }
-
-      .disclaimer {
-        margin: 0 10px;  
-        font-size: small;
-        color: #9f9fa3;
-        cursor: pointer;
-      }
-      .disclaimer a {    
-        text-decoration: none;
-        cursor: pointer;
-        color: #6d6e70;
-      }
-  
-      .marker-cluster {
-        background-color: rgba(255, 255, 255, 0.5);
-      }      
-      .marker-cluster div {
-        background-color: rgba(237, 27, 46, 0.7);
-        color: #FFF;
-        text-align: center;
-        border-radius: 15px;
-        font: bold 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
-      }
-
-    </style>  
+	<!-- Add Leaflet files used for creating online map -->
+	<!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />-->
+	<!--<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>-->
+	
+	<!-- add MapBox basemap -->
+	<link href='http://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+	<script src='js/mapbox.js'></script>
+	
+	
+	<link rel="stylesheet" href="css/MarkerCluster.css" />
+	<link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+	<script src="js/leaflet.markercluster-src.js"></script>
+	
+	<!-- add Google Analytics -->
+	
+	<!-- Adding Custom CSS in at end so over-ride anything else -->
+	<link href="css/custom.css" rel="stylesheet">  
   </head>
 
   <body>
@@ -119,32 +44,14 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div>
-          <a class="navbar-brand" href="../index.html">GIS - American Red Cross International Services</a>
+          <a class="navbar-brand" href="../index.html">GIS - American Red Cross International Services: Latin America and Caribbean Programs</a>
         </div>
       </div>
-    </div>      
-          
+    </div>
     <a href="http://redcross.org"><img src="img/redcross-logo.png" id="arclogo" /></a>
     <button class="btn-zoom" type="button" onClick="zoomOut();">Zoom to Extent</button>
-
-    <div id="map"></div>     
-             
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>    
-    <script src="js/leaflet.markercluster-src.js"></script>    
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-
-     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-42245094-3', 'americanredcross.github.io');
-      ga('send', 'pageview');
-
-      </script>
-
+    
+	<div id="map_communities"></div>
+	<script src="js/map_communities.js"></script> 
   </body>
 </html>
