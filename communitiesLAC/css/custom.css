@@ -211,3 +211,10 @@ padding-top: 15px;
     border-radius: 15px;
     font: bold 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
+		
+/* Styles for the clusters */
+.marker-cluster-LARRA {background-color: rgba(230,151,106,.8); width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 50px; color: white; border: 2px solid rgba(255,255,255,0.5);}
+.marker-cluster-LARRADOS {background-color: rgba(254,82,120,.8); width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 50px; color: white; border: 2px solid rgba(255,255,255,0.5);}
+.marker-cluster-RITA {background-color: rgba(197,122,250,.8); width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 50px; color: white; border: 2px solid rgba(255,255,255,0.5);}
+.marker-cluster-LARRITA {background-color: rgba(225,237,25,.8); width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 50px; color: white; border: 2px solid rgba(255,255,255,0.5);}
+.marker-cluster-DDR {background-color: rgba(108,132,253,.8); width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 50px; color: white; border: 2px solid rgba(255,255,255,0.5);}
