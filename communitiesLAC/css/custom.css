@@ -1,0 +1,220 @@
+
+hr {
+  width: 0;
+  height: 0;
+}
+.cg-intro {
+  padding: 10px;
+  font-size: 16px;
+  color: #5a5a5a;
+  border-bottom: 1px solid #e5e5e5;
+}
+.cg-intro h1 {
+  color: #ed1b2e;
+  font-size: 48px;
+  font-weight: bolder;
+}
+.cg-intro p {
+  font-weight: 300;
+  line-height: 1.5;
+}
+.otherPlaces {
+  padding: 15px 20px;
+  color: black;
+  background-color: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+}
+.otherPlaces strong {
+  color: #555;
+}
+.cg-sidebar .nav > li > a {
+  color: #6d6e70;
+}
+.page-header {
+  padding-bottom: 9px;
+  margin: 90px 0 20px;
+  border-bottom: 4px solid #ed1b2e;
+}
+
+.border {
+  border: 1px solid #d7d7d8;
+}
+
+.sideNote {
+  color: #6d6e70;
+  font-weight: 300;
+}
+
+/*Custom CSS Added by Daniel J. Dufour (Daniel.Dufour@RedCross.Org)*/
+p {margin: 20px 0px;}
+
+table#damageClassificationTable {width: 80%; margin: 0 auto;}
+table#damageClassificationTable  tr:first-child {border-bottom: 3px solid black;}
+table#damageClassificationTable  tr td, table#damageClassificationTable  tr th{padding-left: 5px;}
+table#tableRecommendations {margin: 0 auto;}
+table#tableRecommendations td, table#tableRecommendations th {padding-left: 10px; padding-right: 10px;}
+table#tableRecommendations td{color: rgb(77,77,77);}
+
+/* Leaflet maps */
+#map {height: 240px;}
+#map_communities {
+			position: absolute;
+			top:50px;
+			bottom:0;
+			right:0;
+			left:0; 
+	}
+
+/* Legend for map_changes */
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+	
+	/*round the edges so much it becomes a circle */
+	border-radius: 99px; 
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(25,25,25,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+	color: white;
+}
+
+
+/* Legend for map_changes */
+.legend_classification {
+    color: #555;
+}
+.legend_classification i {
+    padding-top: 1px;
+	width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 8px;
+    opacity: 1;
+}
+
+/* CSS for map_imagery */
+#range {width: 100%;}
+.leaflet-top .leaflet-control-zoom {margin-top: 20px;}
+
+/* CSS for Map Captions */
+.caption {font-style: italic; text-align: left;}
+
+
+/* From original communitiesLAC */\
+      html, body, #map{
+        height: 100%;
+        width: 100%;        
+        margin:0px;  
+      }
+      body {
+        padding-top: 50px;
+      }
+
+      .navbar {
+        height: 50px;
+      }
+      #arclogo {
+        position: absolute;
+        right:0;
+        z-index: 1004;
+        margin: 15px;
+        height: 55px;
+      }
+      .navbar-brand {
+        max-width: none;
+      }
+
+
+      .oldBrowser {
+        margin: 60px 0;
+        padding: 20px 0;
+        background: #ccc;
+        color: #000;
+      }
+
+      .btn-zoom {
+        position: absolute;
+        left: 47px;
+        top: 60px;
+        z-index: 999;
+        background-color: #ffffff;
+        border-color: #d7d7d8;
+        font-weight: bold;
+        color: #6d6e70;
+        box-shadow: 1px 1px 9px #c3c3c5;
+        outline: none;
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;   
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+      }
+
+      .btn-zoom:hover{
+        color: black;
+        background-color: #f4f4f4;
+        outline: none; 
+      }
+
+      a.leaflet-control-zoom-in, 
+      a.leaflet-control-zoom-out {
+        color:#6d6e70;
+      }
+
+      .disclaimer {
+        margin: 0 10px;  
+        font-size: small;
+        color: #9f9fa3;
+        cursor: pointer;
+      }
+      .disclaimer a {    
+        text-decoration: none;
+        cursor: pointer;
+        color: #6d6e70;
+      }
+
+/* over-riding mapbox thing that makes it look weird */
+.leaflet-popup-close-button:hover {
+ background-color: transparent; 
+}
+
+.leaflet-popup-content {
+padding: 10px 10px 15px;
+margin: 0;
+line-height: inherit;
+padding-top: 15px;
+}
+
+.marker-cluster {
+	background-color: rgba(255, 255, 255, 0.5);
+}      
+
+.marker-cluster div {
+    background-color: rgba(237, 27, 46, 0.7);
+    color: #FFF;
+    text-align: center;
+    border-radius: 15px;
+    font: bold 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+		
+/* Styles for the clusters */
+.marker-cluster-LARRA {background-color: rgba(230,151,106,.8); width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 50px; color: white; border: 2px solid rgba(255,255,255,0.5);}
+.marker-cluster-LARRADOS {background-color: rgba(254,82,120,.8); width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 50px; color: white; border: 2px solid rgba(255,255,255,0.5);}
+.marker-cluster-RITA {background-color: rgba(197,122,250,.8); width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 50px; color: white; border: 2px solid rgba(255,255,255,0.5);}
+.marker-cluster-LARRITA {background-color: rgba(225,237,25,.8); width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 50px; color: white; border: 2px solid rgba(255,255,255,0.5);}
+.marker-cluster-DDR {background-color: rgba(108,132,253,.8); width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 50px; color: white; border: 2px solid rgba(255,255,255,0.5);}
